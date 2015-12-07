@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="http://advice.vietnamworks.com/misc/favicon.ico" type="image/x-icon"/>
-    <title>Jobs, find jobs, job search, executive and manager jobs - VietnamWorks</title>
+    <title>TechLooper | Career Analytics. Open Source. Awesome!</title>
     <meta name="Robots" content="index, follow">
     <meta name="Description" content="Top job search, find jobs and career website in Vietnam. Find jobs and post resume to apply new jobs. Search jobs from 4,000+ new jobs updated daily.">
     <meta name="Keywords" content="vietnamworks, vietnamworks.com, jobs, search jobs, find jobs, vietnam job, recruitment, employment, career, executive jobs, job opportunities, job seeker, finding job, job site, online jobs, top jobs">
@@ -33,9 +33,8 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="http://www.vietnamworks.com/">
-                    <img src="http://images.vietnamworks.com/img/jobseekers/logo.png" alt="Vietnamworks - Job Search, career and employment in Vietnam"
-                         title="Vietnamworks - Job Search, career and employment in Vietnam"
-                         class="vnw-logo img-responsive">
+                    <img src="http://www.techlooper.com/images/logo-small.svg" alt="TechLooper - Career Analytics. Open Source. Awesome!"
+                         title="TechLooper - Career Analytics. Open Source. Awesome!">
                 </a>
             </div>
         </div>
@@ -59,7 +58,7 @@
             }
             #embedded-container{cursor:default !important;}
         </style>
-        <h1>VietnamWorks Widget</h1>
+        <h1>TechLooper Salary Reivew Widget</h1>
         <div class="row">
             <div class="col-sm-6 col-sm-push-6">
                 <div id="widget-preview">
@@ -82,41 +81,29 @@
             <div class="col-sm-6 col-sm-pull-6">
                 <div id="widget">
                     <h3>Place the code for your plugin wherever you want the plugin to appear on your page.</h3>
-				<textarea id="embedded-container" class="form-control" readonly="1" rows="10" spellcheck="false" onclick="this.focus(); this.select()" tabindex="0">&lt;div data-vnw-numjobs=&quot;5&quot; data-vnw-industry=&quot;&quot; data-vnw-location=&quot;&quot; data-vnw-keyword=&quot;&quot; data-vnw-email=&quot;&quot; data-vnw-lang=&quot;2&quot; id=&quot;vietnamworks-jobs&quot;&gt;&lt;/div&gt;&lt;script&gt;(function (window, document) { var loader = function () { var script = document.createElement(&quot;script&quot;), tag = document.getElementsByTagName(&quot;script&quot;)[0];script.src = &quot;http://widget.vietnamworks.com/embed.min.js&quot;;tag.parentNode.insertBefore(script, tag); }; window.addEventListener ? window.addEventListener(&quot;load&quot;, loader, false) : window.attachEvent(&quot;onload&quot;, loader);})(window, document);&lt;/script&gt;
-				</textarea>
+                    <textarea id="embedded-container" class="form-control" readonly="1" rows="10" spellcheck="false" onclick="this.focus(); this.select()" tabindex="0">&lt;div data-vnw-numjobs=&quot;5&quot; data-vnw-industry=&quot;&quot; data-vnw-location=&quot;&quot; data-vnw-keyword=&quot;&quot; data-vnw-email=&quot;&quot; data-vnw-lang=&quot;2&quot; id=&quot;vietnamworks-jobs&quot;&gt;&lt;/div&gt;&lt;script&gt;(function (window, document) { var loader = function () { var script = document.createElement(&quot;script&quot;), tag = document.getElementsByTagName(&quot;script&quot;)[0];script.src = &quot;http://widget.vietnamworks.com/embed.min.js&quot;;tag.parentNode.insertBefore(script, tag); }; window.addEventListener ? window.addEventListener(&quot;load&quot;, loader, false) : window.attachEvent(&quot;onload&quot;, loader);})(window, document);&lt;/script&gt;
+                    </textarea>
 
                     <form class="form-horizontal">
                         <div class="box box-md customize-vnw-widget">
                             <h3>Customize your plugin</h3>
-
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Language</label>
+                                <label class="col-sm-3 control-label" for="jobTitle">Job Title <strong>*</strong></label>
                                 <div class="col-sm-9">
-                                    <div class="border-text-box">
-                                        <select id="lang">
-                                            <option value="1">Tiếng Việt</option>
-                                            <option value="2">English</option>
-                                        </select>
-                                    </div>
+                                    <input type="text" class="form-control" id="jobTitle"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Email</label>
+                                <label class="col-sm-3 control-label" for="jobLevel">Job Level <strong>*</strong></label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="email"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Keyword</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="keyword"/>
+                                    <input type="text" class="form-control" id="jobLevel" placeholder=""/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Location</label>
                                 <div class="col-sm-9">
                                     <div class="border-text-box">
-                                        <select id="location">
+                                        <select id="location" class="form-control">
                                             <option value="-1">Any location</option>
                                             <option value="29">Ho Chi Minh</option>
                                             <option value="24">Ha Noi</option>
@@ -191,91 +178,142 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Industry</label>
-
+                                <label class="col-sm-3 control-label" for="jobSalary">Salary(USD) <strong>*</strong></label>
                                 <div class="col-sm-9">
-                                    <div class="border-text-box">
-                                        <select id="industry">
-                                            <option value="-1">All categories</option>
-                                            <option value="1">Accounting</option>
-                                            <option value="2">Administrative/Clerical</option>
-                                            <option value="3">Advertising/Promotion/PR</option>
-                                            <option value="4">Agriculture/Forestry</option>
-                                            <option value="37">Airlines/Tourism/Hotel</option>
-                                            <option value="5">Architecture/Interior Design</option>
-                                            <option value="10">Arts/Design</option>
-                                            <option value="58">Auditing</option>
-                                            <option value="67">Automotive</option>
-                                            <option value="42">Banking</option>
-                                            <option value="43">Chemical/Biochemical</option>
-                                            <option value="7">Civil/Construction</option>
-                                            <option value="8">Consulting</option>
-                                            <option value="11">Customer Service</option>
-                                            <option value="12">Education/Training</option>
-                                            <option value="64">Electrical/Electronics</option>
-                                            <option value="15">Entry level</option>
-                                            <option value="16">Environment/Waste Services</option>
-                                            <option value="17">Executive management</option>
-                                            <option value="18">Expatriate Jobs in Vietnam</option>
-                                            <option value="19">Export-Import</option>
-                                            <option value="63">Fashion/Lifestyle</option>
-                                            <option value="59">Finance/Investment</option>
-                                            <option value="54">Food &amp; Beverage</option>
-                                            <option value="36">Freight/Logistics</option>
-                                            <option value="22">Health/Medical Care</option>
-                                            <option value="66">High Technology</option>
-                                            <option value="23">Human Resources</option>
-                                            <option value="68">Industrial Products</option>
-                                            <option value="24">Insurance</option>
-                                            <option value="57">Internet/Online Media</option>
-                                            <option value="47">Interpreter/Translator</option>
-                                            <option value="55">IT - Hardware/Networking</option>
-                                            <option value="35">IT - Software</option>
-                                            <option value="25">Legal/Contracts</option>
-                                            <option value="62">Luxury Goods</option>
-                                            <option value="27">Marketing</option>
-                                            <option value="65">Mechanical</option>
-                                            <option value="21">NGO/Non-Profit</option>
-                                            <option value="28">Oil/Gas</option>
-                                            <option value="71">Overseas Jobs</option>
-                                            <option value="6">Pharmaceutical/Biotech</option>
-                                            <option value="69">Planning/Projects</option>
-                                            <option value="26">Production/Process</option>
-                                            <option value="49">Purchasing/Supply Chain</option>
-                                            <option value="70">QA/QC</option>
-                                            <option value="30">Real Estate</option>
-                                            <option value="32">Retail/Wholesale</option>
-                                            <option value="33">Sales</option>
-                                            <option value="34">Sales Technical</option>
-                                            <option value="56">Securities &amp; Trading</option>
-                                            <option value="41">Telecommunications</option>
-                                            <option value="51">Temporary/Contract</option>
-                                            <option value="52">Textiles/Garments/Footwear</option>
-                                            <option value="48">TV/Media/Newspaper</option>
-                                            <option value="53">Warehouse</option>
-                                            <option value="39">Other</option>
-                                        </select>
+                                    <input type="text" class="form-control" id="jobSalary"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Salary Visibility <strong>*</strong></label>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="radShown" value="option1"> Shown
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="radHidden" value="option2"> Hidden
+                                        </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Job Number</label>
+                                <label class="col-sm-3 control-label">Format <strong>*</strong></label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="numjobs" class="form-control" placeholder="10"/>
-                                    <span class="help-block">Maximum is 30</span>
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="radHorizontal" value="option1"> Horizontal
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="radVertical" value="option2"> Meter
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Height</label>
+                                <label class="col-sm-3 control-label" for="jobHeight" placeholder="500px">Height</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="widget-height" class="form-control" placeholder="500"/>
+                                    <input type="text" class="form-control" id="jobHeight"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Width</label>
+                                <label class="col-sm-3 control-label" for="jobWidth">Width</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="widget-width" class="form-control" placeholder="100%"/>
+                                    <input type="text" class="form-control" id="jobWidth" placeholder="100%"/>
                                     <span class="help-block">100% or 500px</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <a href="#">Advanced</a>
+                            </div>
+                            <div class="advanced-plugin">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="jobSkill">Skill</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="jobSkill" class="form-control" placeholder="Maven"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Industry</label>
+                                    <div class="col-sm-9">
+                                        <div class="border-text-box">
+                                            <select id="industry" class="form-control">
+                                                <option value="-1">All categories</option>
+                                                <option value="1">Accounting</option>
+                                                <option value="2">Administrative/Clerical</option>
+                                                <option value="3">Advertising/Promotion/PR</option>
+                                                <option value="4">Agriculture/Forestry</option>
+                                                <option value="37">Airlines/Tourism/Hotel</option>
+                                                <option value="5">Architecture/Interior Design</option>
+                                                <option value="10">Arts/Design</option>
+                                                <option value="58">Auditing</option>
+                                                <option value="67">Automotive</option>
+                                                <option value="42">Banking</option>
+                                                <option value="43">Chemical/Biochemical</option>
+                                                <option value="7">Civil/Construction</option>
+                                                <option value="8">Consulting</option>
+                                                <option value="11">Customer Service</option>
+                                                <option value="12">Education/Training</option>
+                                                <option value="64">Electrical/Electronics</option>
+                                                <option value="15">Entry level</option>
+                                                <option value="16">Environment/Waste Services</option>
+                                                <option value="17">Executive management</option>
+                                                <option value="18">Expatriate Jobs in Vietnam</option>
+                                                <option value="19">Export-Import</option>
+                                                <option value="63">Fashion/Lifestyle</option>
+                                                <option value="59">Finance/Investment</option>
+                                                <option value="54">Food &amp; Beverage</option>
+                                                <option value="36">Freight/Logistics</option>
+                                                <option value="22">Health/Medical Care</option>
+                                                <option value="66">High Technology</option>
+                                                <option value="23">Human Resources</option>
+                                                <option value="68">Industrial Products</option>
+                                                <option value="24">Insurance</option>
+                                                <option value="57">Internet/Online Media</option>
+                                                <option value="47">Interpreter/Translator</option>
+                                                <option value="55">IT - Hardware/Networking</option>
+                                                <option value="35">IT - Software</option>
+                                                <option value="25">Legal/Contracts</option>
+                                                <option value="62">Luxury Goods</option>
+                                                <option value="27">Marketing</option>
+                                                <option value="65">Mechanical</option>
+                                                <option value="21">NGO/Non-Profit</option>
+                                                <option value="28">Oil/Gas</option>
+                                                <option value="71">Overseas Jobs</option>
+                                                <option value="6">Pharmaceutical/Biotech</option>
+                                                <option value="69">Planning/Projects</option>
+                                                <option value="26">Production/Process</option>
+                                                <option value="49">Purchasing/Supply Chain</option>
+                                                <option value="70">QA/QC</option>
+                                                <option value="30">Real Estate</option>
+                                                <option value="32">Retail/Wholesale</option>
+                                                <option value="33">Sales</option>
+                                                <option value="34">Sales Technical</option>
+                                                <option value="56">Securities &amp; Trading</option>
+                                                <option value="41">Telecommunications</option>
+                                                <option value="51">Temporary/Contract</option>
+                                                <option value="52">Textiles/Garments/Footwear</option>
+                                                <option value="48">TV/Media/Newspaper</option>
+                                                <option value="53">Warehouse</option>
+                                                <option value="39">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="jobLang">Language</label>
+                                    <div class="col-sm-9">
+                                        <div class="border-text-box">
+                                            <select id="jobLang" class="form-control">
+                                                <option value="1">Tiếng Việt</option>
+                                                <option value="2">English</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
