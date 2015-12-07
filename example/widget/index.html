@@ -60,264 +60,267 @@
         </style>
         <h1>TechLooper Salary Reivew Widget</h1>
         <div class="row">
-            <div class="col-sm-6 col-sm-push-6">
-                <div id="widget-preview">
-                    <h3>Preview</h3>
-                    <div id="vietnamworks-jobs" data-vnw-keyword="" data-vnw-numjobs="10" data-vnw-userid="" data-vnw-lang="1"
-                         data-vnw-industry="" data-vnw-location="" data-vnw-email="" data-vnw-widget-height="500" data-vnw-widget-width="100%"></div>
-                </div>
-                <script>
-                    (function (window, document) {
-                        var loader = function () {
-                            var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
-                            script.src = "embed.min.js";
-                            tag.parentNode.insertBefore(script, tag);
-                        };
-                        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-                    })(window, document);
-                </script>
-
-            </div>
-            <div class="col-sm-6 col-sm-pull-6">
+            <div class="col-sm-12">
                 <div id="widget">
                     <h3>Place the code for your plugin wherever you want the plugin to appear on your page.</h3>
                     <textarea id="embedded-container" class="form-control" readonly="1" rows="10" spellcheck="false" onclick="this.focus(); this.select()" tabindex="0">&lt;div data-vnw-numjobs=&quot;5&quot; data-vnw-industry=&quot;&quot; data-vnw-location=&quot;&quot; data-vnw-keyword=&quot;&quot; data-vnw-email=&quot;&quot; data-vnw-lang=&quot;2&quot; id=&quot;vietnamworks-jobs&quot;&gt;&lt;/div&gt;&lt;script&gt;(function (window, document) { var loader = function () { var script = document.createElement(&quot;script&quot;), tag = document.getElementsByTagName(&quot;script&quot;)[0];script.src = &quot;http://widget.vietnamworks.com/embed.min.js&quot;;tag.parentNode.insertBefore(script, tag); }; window.addEventListener ? window.addEventListener(&quot;load&quot;, loader, false) : window.attachEvent(&quot;onload&quot;, loader);})(window, document);&lt;/script&gt;
                     </textarea>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <form class="form-horizontal">
+                                <div class="box box-md customize-vnw-widget">
+                                    <h3>Customize your plugin</h3>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="jobTitle">Job Title <strong>*</strong></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="jobTitle"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="jobLevel">Job Level <strong>*</strong></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="jobLevel" placeholder=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Location</label>
+                                        <div class="col-sm-9">
+                                            <div class="border-text-box">
+                                                <select id="location" class="form-control">
+                                                    <option value="-1">Any location</option>
+                                                    <option value="29">Ho Chi Minh</option>
+                                                    <option value="24">Ha Noi</option>
+                                                    <option value="71">Mekong Delta</option>
+                                                    <option value="2">An Giang</option>
+                                                    <option value="3">Ba Ria - Vung Tau</option>
+                                                    <option value="4">Bac Can</option>
+                                                    <option value="5">Bac Giang</option>
+                                                    <option value="6">Bac Lieu</option>
+                                                    <option value="7">Bac Ninh</option>
+                                                    <option value="8">Ben Tre</option>
+                                                    <option value="9">Bien Hoa</option>
+                                                    <option value="10">Binh Dinh</option>
+                                                    <option value="11">Binh Duong</option>
+                                                    <option value="12">Binh Phuoc</option>
+                                                    <option value="13">Binh Thuan</option>
+                                                    <option value="14">Ca Mau</option>
+                                                    <option value="15">Can Tho</option>
+                                                    <option value="16">Cao Bang</option>
+                                                    <option value="17">Da Nang</option>
+                                                    <option value="18">Dac Lac</option>
+                                                    <option value="69">Dien Bien</option>
+                                                    <option value="19">Dong Nai</option>
+                                                    <option value="20">Dong Thap</option>
+                                                    <option value="21">Gia Lai</option>
+                                                    <option value="22">Ha Giang</option>
+                                                    <option value="23">Ha Nam</option>
+                                                    <option value="25">Ha Tay</option>
+                                                    <option value="26">Ha Tinh</option>
+                                                    <option value="27">Hai Duong</option>
+                                                    <option value="28">Hai Phong</option>
+                                                    <option value="30">Hoa Binh</option>
+                                                    <option value="31">Hue</option>
+                                                    <option value="32">Hung Yen</option>
+                                                    <option value="33">Khanh Hoa</option>
+                                                    <option value="34">Kon Tum</option>
+                                                    <option value="35">Lai Chau</option>
+                                                    <option value="36">Lam Dong</option>
+                                                    <option value="37">Lang Son</option>
+                                                    <option value="38">Lao Cai</option>
+                                                    <option value="40">Nam Dinh</option>
+                                                    <option value="41">Nghe An</option>
+                                                    <option value="42">Ninh Binh</option>
+                                                    <option value="43">Ninh Thuan</option>
+                                                    <option value="44">Phu Tho</option>
+                                                    <option value="45">Phu Yen</option>
+                                                    <option value="46">Quang Binh</option>
+                                                    <option value="47">Quang Nam</option>
+                                                    <option value="48">Quang Ngai</option>
+                                                    <option value="49">Quang Ninh</option>
+                                                    <option value="50">Quang Tri</option>
+                                                    <option value="51">Soc Trang</option>
+                                                    <option value="52">Son La</option>
+                                                    <option value="53">Tay Ninh</option>
+                                                    <option value="54">Thai Binh</option>
+                                                    <option value="55">Thai Nguyen</option>
+                                                    <option value="56">Thanh Hoa</option>
+                                                    <option value="57">Thua Thien-Hue</option>
+                                                    <option value="58">Tien Giang</option>
+                                                    <option value="59">Tra Vinh</option>
+                                                    <option value="60">Tuyen Quang</option>
+                                                    <option value="61">Kien Giang</option>
+                                                    <option value="62">Vinh Long</option>
+                                                    <option value="63">Vinh Phuc</option>
+                                                    <option value="65">Yen Bai</option>
+                                                    <option value="66">Other</option>
+                                                    <option value="70">International</option>
+                                                    <option value="72">Hau Giang</option>
+                                                    <option value="39">Long An</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="jobSalary">Salary(USD) <strong>*</strong></label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="jobSalary"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Salary Visibility <strong>*</strong></label>
+                                        <div class="col-sm-9">
+                                            <div class="col-sm-6">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="inlineRadioOptions" id="radShown" value="option1"> Shown
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="inlineRadioOptions" id="radHidden" value="option2"> Hidden
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Format <strong>*</strong></label>
+                                        <div class="col-sm-9">
+                                            <div class="col-sm-6">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="inlineRadioOptions" id="radHorizontal" value="option1"> Horizontal
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="inlineRadioOptions" id="radVertical" value="option2"> Meter
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="jobHeight" placeholder="500px">Height</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="jobHeight"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="jobWidth">Width</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="jobWidth" placeholder="100%"/>
+                                            <span class="help-block">100% or 500px</span>
+                                        </div>
+                                    </div>
 
-                    <form class="form-horizontal">
-                        <div class="box box-md customize-vnw-widget">
-                            <h3>Customize your plugin</h3>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="jobTitle">Job Title <strong>*</strong></label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="jobTitle"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="jobLevel">Job Level <strong>*</strong></label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="jobLevel" placeholder=""/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Location</label>
-                                <div class="col-sm-9">
-                                    <div class="border-text-box">
-                                        <select id="location" class="form-control">
-                                            <option value="-1">Any location</option>
-                                            <option value="29">Ho Chi Minh</option>
-                                            <option value="24">Ha Noi</option>
-                                            <option value="71">Mekong Delta</option>
-                                            <option value="2">An Giang</option>
-                                            <option value="3">Ba Ria - Vung Tau</option>
-                                            <option value="4">Bac Can</option>
-                                            <option value="5">Bac Giang</option>
-                                            <option value="6">Bac Lieu</option>
-                                            <option value="7">Bac Ninh</option>
-                                            <option value="8">Ben Tre</option>
-                                            <option value="9">Bien Hoa</option>
-                                            <option value="10">Binh Dinh</option>
-                                            <option value="11">Binh Duong</option>
-                                            <option value="12">Binh Phuoc</option>
-                                            <option value="13">Binh Thuan</option>
-                                            <option value="14">Ca Mau</option>
-                                            <option value="15">Can Tho</option>
-                                            <option value="16">Cao Bang</option>
-                                            <option value="17">Da Nang</option>
-                                            <option value="18">Dac Lac</option>
-                                            <option value="69">Dien Bien</option>
-                                            <option value="19">Dong Nai</option>
-                                            <option value="20">Dong Thap</option>
-                                            <option value="21">Gia Lai</option>
-                                            <option value="22">Ha Giang</option>
-                                            <option value="23">Ha Nam</option>
-                                            <option value="25">Ha Tay</option>
-                                            <option value="26">Ha Tinh</option>
-                                            <option value="27">Hai Duong</option>
-                                            <option value="28">Hai Phong</option>
-                                            <option value="30">Hoa Binh</option>
-                                            <option value="31">Hue</option>
-                                            <option value="32">Hung Yen</option>
-                                            <option value="33">Khanh Hoa</option>
-                                            <option value="34">Kon Tum</option>
-                                            <option value="35">Lai Chau</option>
-                                            <option value="36">Lam Dong</option>
-                                            <option value="37">Lang Son</option>
-                                            <option value="38">Lao Cai</option>
-                                            <option value="40">Nam Dinh</option>
-                                            <option value="41">Nghe An</option>
-                                            <option value="42">Ninh Binh</option>
-                                            <option value="43">Ninh Thuan</option>
-                                            <option value="44">Phu Tho</option>
-                                            <option value="45">Phu Yen</option>
-                                            <option value="46">Quang Binh</option>
-                                            <option value="47">Quang Nam</option>
-                                            <option value="48">Quang Ngai</option>
-                                            <option value="49">Quang Ninh</option>
-                                            <option value="50">Quang Tri</option>
-                                            <option value="51">Soc Trang</option>
-                                            <option value="52">Son La</option>
-                                            <option value="53">Tay Ninh</option>
-                                            <option value="54">Thai Binh</option>
-                                            <option value="55">Thai Nguyen</option>
-                                            <option value="56">Thanh Hoa</option>
-                                            <option value="57">Thua Thien-Hue</option>
-                                            <option value="58">Tien Giang</option>
-                                            <option value="59">Tra Vinh</option>
-                                            <option value="60">Tuyen Quang</option>
-                                            <option value="61">Kien Giang</option>
-                                            <option value="62">Vinh Long</option>
-                                            <option value="63">Vinh Phuc</option>
-                                            <option value="65">Yen Bai</option>
-                                            <option value="66">Other</option>
-                                            <option value="70">International</option>
-                                            <option value="72">Hau Giang</option>
-                                            <option value="39">Long An</option>
-                                        </select>
+                                    <div class="form-group">
+                                        <a href="#">Advanced</a>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="jobSalary">Salary(USD) <strong>*</strong></label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="jobSalary"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Salary Visibility <strong>*</strong></label>
-                                <div class="col-sm-9">
-                                    <div class="col-sm-6">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="inlineRadioOptions" id="radShown" value="option1"> Shown
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="inlineRadioOptions" id="radHidden" value="option2"> Hidden
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Format <strong>*</strong></label>
-                                <div class="col-sm-9">
-                                    <div class="col-sm-6">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="inlineRadioOptions" id="radHorizontal" value="option1"> Horizontal
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="inlineRadioOptions" id="radVertical" value="option2"> Meter
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="jobHeight" placeholder="500px">Height</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="jobHeight"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="jobWidth">Width</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="jobWidth" placeholder="100%"/>
-                                    <span class="help-block">100% or 500px</span>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <a href="#">Advanced</a>
-                            </div>
-                            <div class="advanced-plugin">
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="jobSkill">Skill</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="jobSkill" class="form-control" placeholder="Maven"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Industry</label>
-                                    <div class="col-sm-9">
-                                        <div class="border-text-box">
-                                            <select id="industry" class="form-control">
-                                                <option value="-1">All categories</option>
-                                                <option value="1">Accounting</option>
-                                                <option value="2">Administrative/Clerical</option>
-                                                <option value="3">Advertising/Promotion/PR</option>
-                                                <option value="4">Agriculture/Forestry</option>
-                                                <option value="37">Airlines/Tourism/Hotel</option>
-                                                <option value="5">Architecture/Interior Design</option>
-                                                <option value="10">Arts/Design</option>
-                                                <option value="58">Auditing</option>
-                                                <option value="67">Automotive</option>
-                                                <option value="42">Banking</option>
-                                                <option value="43">Chemical/Biochemical</option>
-                                                <option value="7">Civil/Construction</option>
-                                                <option value="8">Consulting</option>
-                                                <option value="11">Customer Service</option>
-                                                <option value="12">Education/Training</option>
-                                                <option value="64">Electrical/Electronics</option>
-                                                <option value="15">Entry level</option>
-                                                <option value="16">Environment/Waste Services</option>
-                                                <option value="17">Executive management</option>
-                                                <option value="18">Expatriate Jobs in Vietnam</option>
-                                                <option value="19">Export-Import</option>
-                                                <option value="63">Fashion/Lifestyle</option>
-                                                <option value="59">Finance/Investment</option>
-                                                <option value="54">Food &amp; Beverage</option>
-                                                <option value="36">Freight/Logistics</option>
-                                                <option value="22">Health/Medical Care</option>
-                                                <option value="66">High Technology</option>
-                                                <option value="23">Human Resources</option>
-                                                <option value="68">Industrial Products</option>
-                                                <option value="24">Insurance</option>
-                                                <option value="57">Internet/Online Media</option>
-                                                <option value="47">Interpreter/Translator</option>
-                                                <option value="55">IT - Hardware/Networking</option>
-                                                <option value="35">IT - Software</option>
-                                                <option value="25">Legal/Contracts</option>
-                                                <option value="62">Luxury Goods</option>
-                                                <option value="27">Marketing</option>
-                                                <option value="65">Mechanical</option>
-                                                <option value="21">NGO/Non-Profit</option>
-                                                <option value="28">Oil/Gas</option>
-                                                <option value="71">Overseas Jobs</option>
-                                                <option value="6">Pharmaceutical/Biotech</option>
-                                                <option value="69">Planning/Projects</option>
-                                                <option value="26">Production/Process</option>
-                                                <option value="49">Purchasing/Supply Chain</option>
-                                                <option value="70">QA/QC</option>
-                                                <option value="30">Real Estate</option>
-                                                <option value="32">Retail/Wholesale</option>
-                                                <option value="33">Sales</option>
-                                                <option value="34">Sales Technical</option>
-                                                <option value="56">Securities &amp; Trading</option>
-                                                <option value="41">Telecommunications</option>
-                                                <option value="51">Temporary/Contract</option>
-                                                <option value="52">Textiles/Garments/Footwear</option>
-                                                <option value="48">TV/Media/Newspaper</option>
-                                                <option value="53">Warehouse</option>
-                                                <option value="39">Other</option>
-                                            </select>
+                                    <div class="advanced-plugin">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="jobSkill">Skill</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" id="jobSkill" class="form-control" placeholder="Maven"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Industry</label>
+                                            <div class="col-sm-9">
+                                                <div class="border-text-box">
+                                                    <select id="industry" class="form-control">
+                                                        <option value="-1">All categories</option>
+                                                        <option value="1">Accounting</option>
+                                                        <option value="2">Administrative/Clerical</option>
+                                                        <option value="3">Advertising/Promotion/PR</option>
+                                                        <option value="4">Agriculture/Forestry</option>
+                                                        <option value="37">Airlines/Tourism/Hotel</option>
+                                                        <option value="5">Architecture/Interior Design</option>
+                                                        <option value="10">Arts/Design</option>
+                                                        <option value="58">Auditing</option>
+                                                        <option value="67">Automotive</option>
+                                                        <option value="42">Banking</option>
+                                                        <option value="43">Chemical/Biochemical</option>
+                                                        <option value="7">Civil/Construction</option>
+                                                        <option value="8">Consulting</option>
+                                                        <option value="11">Customer Service</option>
+                                                        <option value="12">Education/Training</option>
+                                                        <option value="64">Electrical/Electronics</option>
+                                                        <option value="15">Entry level</option>
+                                                        <option value="16">Environment/Waste Services</option>
+                                                        <option value="17">Executive management</option>
+                                                        <option value="18">Expatriate Jobs in Vietnam</option>
+                                                        <option value="19">Export-Import</option>
+                                                        <option value="63">Fashion/Lifestyle</option>
+                                                        <option value="59">Finance/Investment</option>
+                                                        <option value="54">Food &amp; Beverage</option>
+                                                        <option value="36">Freight/Logistics</option>
+                                                        <option value="22">Health/Medical Care</option>
+                                                        <option value="66">High Technology</option>
+                                                        <option value="23">Human Resources</option>
+                                                        <option value="68">Industrial Products</option>
+                                                        <option value="24">Insurance</option>
+                                                        <option value="57">Internet/Online Media</option>
+                                                        <option value="47">Interpreter/Translator</option>
+                                                        <option value="55">IT - Hardware/Networking</option>
+                                                        <option value="35">IT - Software</option>
+                                                        <option value="25">Legal/Contracts</option>
+                                                        <option value="62">Luxury Goods</option>
+                                                        <option value="27">Marketing</option>
+                                                        <option value="65">Mechanical</option>
+                                                        <option value="21">NGO/Non-Profit</option>
+                                                        <option value="28">Oil/Gas</option>
+                                                        <option value="71">Overseas Jobs</option>
+                                                        <option value="6">Pharmaceutical/Biotech</option>
+                                                        <option value="69">Planning/Projects</option>
+                                                        <option value="26">Production/Process</option>
+                                                        <option value="49">Purchasing/Supply Chain</option>
+                                                        <option value="70">QA/QC</option>
+                                                        <option value="30">Real Estate</option>
+                                                        <option value="32">Retail/Wholesale</option>
+                                                        <option value="33">Sales</option>
+                                                        <option value="34">Sales Technical</option>
+                                                        <option value="56">Securities &amp; Trading</option>
+                                                        <option value="41">Telecommunications</option>
+                                                        <option value="51">Temporary/Contract</option>
+                                                        <option value="52">Textiles/Garments/Footwear</option>
+                                                        <option value="48">TV/Media/Newspaper</option>
+                                                        <option value="53">Warehouse</option>
+                                                        <option value="39">Other</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="jobLang">Language</label>
+                                            <div class="col-sm-9">
+                                                <div class="border-text-box">
+                                                    <select id="jobLang" class="form-control">
+                                                        <option value="1">Tiếng Việt</option>
+                                                        <option value="2">English</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label" for="jobLang">Language</label>
-                                    <div class="col-sm-9">
-                                        <div class="border-text-box">
-                                            <select id="jobLang" class="form-control">
-                                                <option value="1">Tiếng Việt</option>
-                                                <option value="2">English</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                    </form>
+                        <div class="col-sm-6">
+                            <div id="widget-preview">
+                                <h3>Preview</h3>
+                                <div id="vietnamworks-jobs" data-vnw-keyword="" data-vnw-numjobs="10" data-vnw-userid="" data-vnw-lang="1"
+                                     data-vnw-industry="" data-vnw-location="" data-vnw-email="" data-vnw-widget-height="500" data-vnw-widget-width="100%"></div>
+                            </div>
+                            <script>
+                                (function (window, document) {
+                                    var loader = function () {
+                                        var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+                                        script.src = "embed.min.js";
+                                        tag.parentNode.insertBefore(script, tag);
+                                    };
+                                    window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+                                })(window, document);
+                            </script>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
