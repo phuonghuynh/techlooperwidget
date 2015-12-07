@@ -67,7 +67,7 @@ var translationData =
 }
 };
 
-define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 'text!css/my-widget_embed.css', 'jquery.scrollbar'], function ($widget, Ractive, mainTemplate, jobListTemplate, css, $vnwJQueryScrollbar) {
+define(['jquery', 'ractive', 'rv!templates/template', 'text!css/my-widget_embed.css', 'jquery.scrollbar'], function ($widget, Ractive, mainTemplate, jobListTemplate, css, $vnwJQueryScrollbar) {
 
   'use strict';
   $widget.noConflict(true);
