@@ -1,6 +1,7 @@
 *_embed*
 .fuse*
-*.min.js
 bower_components
 node_modules
 .idea
+embed.js
+embed.min.js
