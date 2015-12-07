@@ -1,147 +1,150 @@
 var dataJobsList = [];
-var translationData =
-{
-  "show_less": {
-    "vn": "Thu gọn",
-    "en": "Show less"
-  }, "show_more": {
-  "vn": "Xem thêm",
-  "en": "Show more"
-}, "load_more": {
-  "vn": "Xem thêm",
-  'en': "Load more"
-}, "Posted": {
-  "vn": "Đăng tuyển",
-  "en": "Posted"
-},
-  "Industries": {
-    "vn": "Ngành nghề",
-    "en": "Industries"
-  },
-  "Benefits": {
-    "vn": "Phúc lợi",
-    "en": "Benefits"
-  },
-  "Skills": {
-    "vn": "Kỹ năng",
-    "en": "Skills"
-  }, "job_not_found": {
-  "vn": "No job found!",
-  "en": "Không tìm thấy việc làm!"
-}, "month_01": {
-  'vn': "T1",
-  'en': "JAN"
-}, "month_02": {
-  'vn': "T2",
-  'en': "FEB"
-}, "month_03": {
-  'vn': "T3",
-  'en': "MAR"
-}, "month_04": {
-  'vn': "T4",
-  'en': "APR"
-}, "month_05": {
-  'vn': "T5",
-  'en': "MAY"
-}, "month_06": {
-  'vn': "T6",
-  'en': "JUN"
-}, "month_07": {
-  'vn': "T7",
-  'en': "JUL"
-}, "month_08": {
-  'vn': "T8",
-  'en': "AUG"
-}, "month_09": {
-  'vn': "T9",
-  'en': "SEP"
-}, "month_10": {
-  'vn': "T10",
-  'en': "OCT"
-}, "month_11": {
-  'vn': "T11",
-  'en': "NOV"
-}, "month_12": {
-  'vn': "T12",
-  'en': "DEC"
-}
-};
+//var translationData = {
+//  "show_less": {
+//    "vn": "Thu gọn",
+//    "en": "Show less"
+//  }, "show_more": {
+//    "vn": "Xem thêm",
+//    "en": "Show more"
+//  }, "load_more": {
+//    "vn": "Xem thêm",
+//    'en': "Load more"
+//  }, "Posted": {
+//    "vn": "Đăng tuyển",
+//    "en": "Posted"
+//  },
+//  "Industries": {
+//    "vn": "Ngành nghề",
+//    "en": "Industries"
+//  },
+//  "Benefits": {
+//    "vn": "Phúc lợi",
+//    "en": "Benefits"
+//  },
+//  "Skills": {
+//    "vn": "Kỹ năng",
+//    "en": "Skills"
+//  }, "job_not_found": {
+//    "vn": "No job found!",
+//    "en": "Không tìm thấy việc làm!"
+//  }, "month_01": {
+//    'vn': "T1",
+//    'en': "JAN"
+//  }, "month_02": {
+//    'vn': "T2",
+//    'en': "FEB"
+//  }, "month_03": {
+//    'vn': "T3",
+//    'en': "MAR"
+//  }, "month_04": {
+//    'vn': "T4",
+//    'en': "APR"
+//  }, "month_05": {
+//    'vn': "T5",
+//    'en': "MAY"
+//  }, "month_06": {
+//    'vn': "T6",
+//    'en': "JUN"
+//  }, "month_07": {
+//    'vn': "T7",
+//    'en': "JUL"
+//  }, "month_08": {
+//    'vn': "T8",
+//    'en': "AUG"
+//  }, "month_09": {
+//    'vn': "T9",
+//    'en': "SEP"
+//  }, "month_10": {
+//    'vn': "T10",
+//    'en': "OCT"
+//  }, "month_11": {
+//    'vn': "T11",
+//    'en': "NOV"
+//  }, "month_12": {
+//    'vn': "T12",
+//    'en': "DEC"
+//  }
+//};
 
-define(['jquery', 'ractive', 'rv!templates/template', 'text!css/my-widget_embed.css', 'jquery.scrollbar'], function ($widget, Ractive, mainTemplate, jobListTemplate, css, $vnwJQueryScrollbar) {
+define(['jquery', 'ractive', 'rv!templates/template', 'text!css/my-widget_embed.css'],
+  function ($widget, Ractive, mainTemplate, jobListTemplate, css) {
 
-  'use strict';
-  $widget.noConflict(true);
-  var app = {
-    init: function () {
-      Ractive.DEBUG = false;
-      dataJobsList = [];
-      var $style = $widget("<style></style>", {type: "text/css"});
-      $style.text(css);
-      $widget("head").append($style);
+    'use strict';
+    $widget.noConflict(true);
+    var app = {
+      init: function () {
+        Ractive.DEBUG = false;
+        dataJobsList = [];
+        var $style = $widget("<style></style>", {type: "text/css"});
+        $style.text(css);
+        $widget("head").append($style);
 
-      // render our main view
-      this.ractive = new Ractive({
-        el: 'techlooper-salary-review',
-        template: mainTemplate,
-        partials: {
-          jobList: jobListTemplate
-        }
-      });
-
-      var lang = $widget('#techlooper-salary-review').data('vnw-lang');
-      if (lang == '2') {
-        lang = 'en';
-      }
-      else {
-        lang = 'vn';
-      }
-
-      //var tranlation = {};
-      //$widget.each(translationData, function (key, value) {
-      //  tranlation[key] = value[lang];
-      //});
-
-      this.ractive.set("translation", tranlation);
-      var domain = document.domain;
-      this.ractive.set("domain", domain);
-      //loadJobListFromVNW($widget, this.ractive, 1);
-
-      $widget(function () {
-        function postDateCheck() {
-          if ($widget('.job-list').width() <= 300) {
-            $widget('.job-list').addClass('no-date');
-          }
-          else {
-            $widget('.job-list').removeClass('no-date');
-          }
-        }
-
-        postDateCheck();
-
-        $widget(window).resize(function () {
-          postDateCheck();
+        // render our main view
+        this.ractive = new Ractive({
+          el: 'tlw',
+          template: mainTemplate
         });
-      });
+        //this.ractive = new Ractive({
+        //  el: 'tlw',
+        //  template: mainTemplate,
+        //  partials: {
+        //    jobList: jobListTemplate
+        //  }
+        //});
 
-    },
+        //var lang = $widget('#tlw').data('vnw-lang');
+        //if (lang == '2') {
+        //  lang = 'en';
+        //}
+        //else {
+        //  lang = 'vn';
+        //}
 
-    reload: function ($email, $job_title, $job_category, $job_location, $page_size, $lang, $height, $width) {
-      //re-set data from agrument
-      $widget('#techlooper-salary-review').data('vnw-email', $email);
-      //$widget('#vietnamworks-jobs').data('vnw-keyword', $job_title);
-      //$widget('#vietnamworks-jobs').data('vnw-industry', $job_category);
-      //$widget('#vietnamworks-jobs').data('vnw-location', $job_location);
-      //$widget('#vietnamworks-jobs').data('vnw-numjobs', $page_size);
-      //$widget('#vietnamworks-jobs').data('vnw-lang', $lang);
-      //$widget('#vietnamworks-jobs').data('vnw-widget-height', $height);
-      //$widget('#vietnamworks-jobs').data('vnw-widget-width', $width);
+        //var tranlation = {};
+        //$widget.each(translationData, function (key, value) {
+        //  tranlation[key] = value[lang];
+        //});
 
-      app.init();
-    }
-  };
-  return app;
+        //this.ractive.set("translation", tranlation);
+        this.ractive.set("domain", document.domain);
+        //loadJobListFromVNW($widget, this.ractive, 1);
 
-});
+        //$widget(function () {
+        //  function postDateCheck() {
+        //    if ($widget('.job-list').width() <= 300) {
+        //      $widget('.job-list').addClass('no-date');
+        //    }
+        //    else {
+        //      $widget('.job-list').removeClass('no-date');
+        //    }
+        //  }
+        //
+        //  postDateCheck();
+        //
+        //  $widget(window).resize(function () {
+        //    postDateCheck();
+        //  });
+        //});
+
+      },
+
+      reload: function ($jobId, $lang, $height, $width) {
+        //re-set data from agrument
+        //$widget('#tlw').data('job-id', $jobId);
+        //$widget('#vietnamworks-jobs').data('vnw-keyword', $job_title);
+        //$widget('#vietnamworks-jobs').data('vnw-industry', $job_category);
+        //$widget('#vietnamworks-jobs').data('vnw-location', $job_location);
+        //$widget('#vietnamworks-jobs').data('vnw-numjobs', $page_size);
+        //$widget('#vietnamworks-jobs').data('vnw-lang', $lang);
+        //$widget('#vietnamworks-jobs').data('vnw-widget-height', $height);
+        //$widget('#vietnamworks-jobs').data('vnw-widget-width', $width);
+
+        app.init();
+      }
+    };
+    return app;
+
+  });
 
 //function loadJobListFromVNW($widget,that,currentPage){
 //    pageSize = $widget('#vietnamworks-jobs').data('vnw-numjobs');
