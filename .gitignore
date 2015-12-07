@@ -3,5 +3,4 @@
 bower_components
 node_modules
 .idea
-embed.js
 embed.min.js
