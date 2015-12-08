@@ -1,3 +1,13 @@
+.customize-vnw-widget{
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+.customize-vnw-widget .form-group a{
+  float: right;
+  margin-right: 5px;
+}
+/* --- Horizontal version ---- */
 .salary-review{
   border: 1px dashed #333;
   background-color: #fff;
@@ -169,16 +179,16 @@ a.techlooper-logo:hover{
   width: 100%;
   clear: both;
   display: inline-block;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
-.meter-chart{
+.meter-chart-version .meter-chart{
   width: 280px;
   margin: auto;
   position: relative;
   height: 136px;
   text-align: center;
 }
-.meter-images{
+.meter-chart-version .meter-images{
   position: absolute;
   z-index: 88;
   background: url(../img/meter-chart.png) left top no-repeat;
@@ -219,7 +229,7 @@ a.techlooper-logo:hover{
   left: 205px;
   bottom: 0px;
 }
-.meter-arrow{
+.meter-chart-version .meter-arrow{
   background: url("../img/meter-arrow.png") left top no-repeat;
   width: 67px;
   height: 105px;
@@ -227,4 +237,12 @@ a.techlooper-logo:hover{
   z-index: 99;
   bottom: 0;
   right: 0; left: 120px;
+}
+.meter-chart-version .current-salary{
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+  padding: 20px 0 0 0;
 }
