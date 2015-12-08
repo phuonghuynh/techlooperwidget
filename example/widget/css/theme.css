@@ -164,3 +164,67 @@ a.techlooper-logo:hover{
 .salary-review ul.percent-list li{
   padding-top: 5px;
 }
+/* ----- meter version ----- */
+.meter-chart-version{
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  padding-bottom: 20px;
+}
+.meter-chart{
+  width: 280px;
+  margin: auto;
+  position: relative;
+  height: 136px;
+  text-align: center;
+}
+.meter-images{
+  position: absolute;
+  z-index: 88;
+  background: url(../img/meter-chart.png) left top no-repeat;
+  width: 280px;
+  height: 136px;
+  left: 0;
+  right: 0;
+}
+.meter-chart .number-chart{
+  position: absolute;
+  z-index: 90;
+}
+.meter-chart .number-chart.zero-percent{
+  left: 45px;
+  bottom: 0;
+}
+.meter-chart .number-chart.zero-dollar{
+  left: -15px;
+  bottom: 0;
+}
+.meter-chart .number-chart.ten-percent{
+  left: 65px;
+  bottom: 45px;
+}
+.meter-chart .number-chart.ten-dollar{
+  left: -5px;
+  bottom: 70px;
+}
+.meter-chart .number-chart.ninety-percent{
+  left: 195px;
+  bottom: 45px;
+}
+.meter-chart .number-chart.ninety-dollar{
+  left: 260px;
+  bottom: 70px;
+}
+.meter-chart .number-chart.one-hundred-percent{
+  left: 205px;
+  bottom: 0px;
+}
+.meter-arrow{
+  background: url("../img/meter-arrow.png") left top no-repeat;
+  width: 67px;
+  height: 105px;
+  position: absolute;
+  z-index: 99;
+  bottom: 0;
+  right: 0; left: 120px;
+}
