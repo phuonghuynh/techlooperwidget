@@ -1,0 +1,101 @@
+{
+  "createdDateTime": 1449564416180,
+  "jobTitle": "java",
+  "jobLevelIds": [
+    5,
+    6
+  ],
+  "locationId": 29,
+  "netSalary": 1000,
+  "skills": [
+    "git"
+  ],
+  "reportTo": null,
+  "jobCategories": [
+    35,
+    55,
+    57
+  ],
+  "companySizeId": 3,
+  "gender": 1,
+  "age": 0,
+  "salaryReport": {
+    "netSalary": 1000,
+    "percentRank": 10.0,
+    "numberOfJobs": 4,
+    "numberOfSurveys": 209,
+    "salaryRanges": [
+      {
+        "percent": 10.0,
+        "percentile": 1000.0
+      },
+      {
+        "percent": 25.0,
+        "percentile": 1200.0
+      }
+    ]
+  },
+  "topPaidJobs": [],
+  "salaryReviewSurvey": null,
+  "campaign": null,
+  "usdToVndRate": 21810,
+  "similarSalaryReviews": [
+    {
+      "addedPercent": 130.0,
+      "jobTitle": "Java Developer",
+      "skills": [
+        "Agile",
+        "Git",
+        "Java",
+        "Javascript"
+      ],
+      "jobLevelIds": [
+        5,
+        6
+      ],
+      "locationId": 29,
+      "companySizeId": 3,
+      "jobCategories": [
+        35
+      ],
+      "netSalary": 2300
+    },
+    {
+      "addedPercent": 20.0,
+      "jobTitle": "Java Developer",
+      "skills": [
+        "agile",
+        "git"
+      ],
+      "jobLevelIds": [
+        5,
+        6
+      ],
+      "locationId": 29,
+      "companySizeId": 3,
+      "jobCategories": [
+        35
+      ],
+      "netSalary": 1200
+    },
+    {
+      "addedPercent": 20.0,
+      "jobTitle": "Java Developer",
+      "skills": [
+        "Agile",
+        "Java",
+        "Git"
+      ],
+      "jobLevelIds": [
+        5,
+        6
+      ],
+      "locationId": 29,
+      "companySizeId": 3,
+      "jobCategories": [
+        35
+      ],
+      "netSalary": 1200
+    }
+  ]
+}
