@@ -7,6 +7,20 @@
   float: right;
   margin-right: 5px;
 }
+.customize-vnw-widget .form-group label strong{
+  color: red;
+  font-weight: 500;
+}
+.customize-vnw-widget .select2-container--default .select2-selection--single{
+  border: 1px solid #dddddd;
+  height: 38px;
+}
+.customize-vnw-widget .select2-container--default .select2-selection--single .select2-selection__rendered{
+  line-height: 38px;
+}
+.customize-vnw-widget .select2-container--default .select2-selection--single .select2-selection__arrow{
+  height: 36px;
+}
 /* --- Horizontal version ---- */
 .salary-review{
   border: 1px dashed #333;
