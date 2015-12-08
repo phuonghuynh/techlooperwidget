@@ -40,6 +40,10 @@
       {
         "percent": 75.0,
         "percentile": 2200.0
+      },
+      {
+        "percent": 90.0,
+        "percentile": 2800.0
       }
     ]
   },

@@ -65,6 +65,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           //  });
           //});
           var salaryReview ={};
+          var myPosition = 0;
           $.getJSON( "js/salaryReviewSample.json", function( data ) {
             salaryReview = data;
             _this.ractive.set("netSalary", salaryReview.netSalary);
@@ -72,6 +73,9 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             _this.ractive.set("percentJob", salaryReview.salaryReport.percentRank);
             var salaryRanges = JSON.stringify(salaryReview.salaryReport.salaryRanges);
             _this.ractive.set("salaryRanges", salaryReview.salaryReport.salaryRanges);
+            myPosition = ($('.salary-chart').width() * salaryReview.salaryReport.percentRank)/100;
+            _this.ractive.set("myPosition", myPosition);
+            console.log($('.salary-chart').width());
           });
           //TODO draw the chart
 
