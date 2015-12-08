@@ -63,6 +63,11 @@
   margin: 0;
   padding: 0;
 }
+.techlooper-widget .tech-header{
+  width: 100%;
+  clear: both;
+  display: inline-block;
+}
 .techlooper-widget .col-sm-11{
   width: 91.66666667%;
   float: left;
@@ -104,6 +109,9 @@
   border: 1px dashed #333;
   background-color: #fff;
   box-shadow: 0px 1px 1px #D5D5D5;
+  width: 100%;
+  clear: both;
+  display: inline-block;
 }
 .techlooper-widget .salary-review.horizontal{
   padding: 30px;
@@ -138,7 +146,7 @@
   color: #979797;
   font-weight: 300;
 }
-a.techlooper-logo{
+.techlooper-widget a.techlooper-logo{
   display: inline-block;
   height: 30px;
   width: 31px;
@@ -148,15 +156,15 @@ a.techlooper-logo{
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAeCAIAAABbkFLLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEMUVGMUU1RDk0QzMxMUU1QUQxNjk1NURDMzZGNzAwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEMUVGMUU1RTk0QzMxMUU1QUQxNjk1NURDMzZGNzAwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQxRUYxRTVCOTRDMzExRTVBRDE2OTU1REMzNkY3MDBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQxRUYxRTVDOTRDMzExRTVBRDE2OTU1REMzNkY3MDBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+m6wgQQAAA0tJREFUeNq0VktLalEUTjv2MgsLK0OKysgeoghSBEUlUTQzaBKlEog16Ff0CxpVgyAa2Cx0IopgUTSIoIQiK1AwiMhU7B328H63DYdzj+fYuffaGhz2Xmft9fzW2lv0+fn58PDw+vqKRUGeSCwWl5SUyGQyCqqfn58L8kpwFDpFIpEYXhf8DL28vFCcCbm/v9/Z2Tk+Pr65uYEAYlSr1b29vW1tbX8Vgej6+jr7x93d3dnZGYwnEomjoyMYI3yDwTA5OVlUVCTQALd2JqXTaafTeXh4SLZwf25uDnUTVN5vJeDp9PR0fX092Z6fn29vbwsFD3NzcnJCp2xvb8/r9T4+PmJbWFjY19dHi/n9foHwpZgbl8tVW1urUChQ0s3NTXCi0ajD4cCipqaGFnt6ekIEmUwmlUpJJBIcUalUnLn6Q/vt7e3l5SW002VEeVkLQisrK0z3KyoqhoaGBgYGWDbYBvf39/GFqE6na2lpmZiYYPKZaGMhGHEvLy8DAryYWVhYgPtjY2MjIyPoNMJEBnw+n8fjEZJovV4/MzPDnRmtVhsIBKAoFAr19PRUV1cD7/A6Eolw6qqqqhocHGxqanp7e7u4uACWgsEgzra3t3P4juTCfVZ0fNTc3AzgFxcX05xkMrm4uIgK2+12jrxXVlaiFemc5CBg1GKxENUYGGtrawcHBwhlamoqHA5zZ4ZkWaDj0EXqubq6iiKjmeF1a2srysaNGWRmY2NDiAFEyedNf38/t+9bW1sk6ShU7qpeXV3RZmw2GyadRqNRKpW5ugkZxJeFSJjJRiSwcHp62tHRQVAI+n7OxONxuDA6OsosLNbgZE92VBLgY3IQKN3k3FXt7u4mrQj8yuVyzBCaj9nClMSltrS01NjYiJZ+f3/HX5yan5/n1Y4J09DQgMX6+jowAK+BaETDLCOLol8ESaPROD4+XlZWxqvdbDbDABYEs8AD6km0x2IxWkwqlVqtVvwCxiiKqqur6+rqQqDfzMjOzk6yMJlMbrcb/sIjbD8+PnZ3d2mx4eFhzRf9+80HjWjI7JsPSmdnZwXefBQnN/etLVA1r3ZUCaP4P18cv/WQ8z/xWhKTB98PvcVKS0spRE1aI++v1PLy8l8CDADwSsolcvsIPQAAAABJRU5ErkJggg==) #e7e7e7 left top no-repeat;
   float: right;
 }
-a.techlooper-logo:hover{
+.techlooper-widget a.techlooper-logo:hover{
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAeCAMAAADjLDWuAAABMlBMVEXn5+cnfL2JKJCkpqTm5ufy8vLp6enk5eXMr861t7X+/v7V1dXNzs27vLuKKpHU3ePg4ODd0t7c3dzcz9y2y9ydvteSuNWIstKArtHKyspamchTlce/lsI3hcGvsK+qrKqUPZqPM5Xf4+XX3uTi3OLe1N7XxtiZvNbUwNXQ0NDOtdBpoctincrFocfGx8bDnMXExcRIj8RDjMPCw8Isfr24h7uxeLWtcLGqaq+oZ62srqyoqqiiWqeeU6RjSqOeiaCXRJ1xPJuGKpLj4OTL1+G7z92ux9q1xdmlwtmkwtijwdjW19bW1tbRudLP0M96qs9ooMvIqMpMkcW9kcAvgb8zgLsvdbk+hLizfrdPe7JkkbFCZbFLXa16mKymY6uZoqZcT6Wgk6GZSJ+aeJ2PRZWNPJN2M6VkAAABaUlEQVQoz4XT5XLCQBSG4W/3BEmRFi9WoO7e4oVSd3e3+7+FnkDZ0IHAO/n3nNnZyexBn80Oq+y2PtjQJVZ7V1faP7i0KpLnQVjUHwqfJYUQM8OwbHiGB2IaLHMs8UAYbe0C2kRkBJhgTzrafHkbYSFmgaDg9pwLc5Naq4sDDApxCRwaviG59JXW4jGMzMZ3gFjTudKWeb6IGNNaRBhtykZ55Xx4PBQMxet8W5PpxOTJWkY61c+5FmbvsjwKLpB+RbN9k5+kNwA4c3OYziifeln94+eaLAFjXinHkWjyQJHeHu+EuHkw7pYDfHVXrRDp7mO3Th+S+wRwkV+AWYHmYTRP3+zq3irS0UiveNkz9YHAmOlT0Fx+AKf0JY3K9+vVqk/5kB8eIhdwRFT5kfWyo1CxpIgWATcRFafXsusJH/4XpYIf2hB71OLt8Odh1rWOPOCOrqSYPQ509kU+O+VxtUGP/ei1X7328xdniyCnWF1n6wAAAABJRU5ErkJggg==) #e7e7e7 left top no-repeat;
 }
-.salary-chart{
+.techlooper-widget .salary-chart{
   padding-top: 30px;
   position: relative;
   width: 100%;
 }
-.current-position{
+.techlooper-widget .current-position{
   position: absolute;
   left: 200px;
   top: 52px;
@@ -335,7 +343,7 @@ a.techlooper-logo:hover{
   bottom: 70px;
 }
 .meter-chart .number-chart.one-hundred-percent{
-  left: 205px;
+  left: 200px;
   bottom: 0px;
 }
 .meter-chart-version .meter-arrow{
