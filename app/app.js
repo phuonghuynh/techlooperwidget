@@ -67,8 +67,8 @@
 //};
 
 if (typeof define === "function" && define.amd && define.amd.jQuery) {
-  define(['jquery', 'ractive', 'rv!templates/template'],
-    function ($, Ractive, mainTemplate) {
+  define(['jquery', 'ractive', 'rv!templates/template', 'text!css/my-widget_embed.css'],
+    function ($, Ractive, mainTemplate, css) {
       'use strict';
       $.noConflict(true);
 
@@ -76,9 +76,11 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
         init: function () {
           Ractive.DEBUG = false;
           //dataJobsList = [];
-          //var $style = $("<style></style>", {type: "text/css"});
-          //$style.text(css);
-          //$("head").append($style);
+          var $style = $("<style></style>", {type: "text/css"});
+          $style.text(css);
+          $("head").append($style);
+
+          //$('head').append('<style type="text/css">' + css + '</style>');
 
           // render our main view
           this.ractive = new Ractive({
