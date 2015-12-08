@@ -1,70 +1,4 @@
-//var dataJobsList = [];
-//var translationData = {
-//  "show_less": {
-//    "vn": "Thu gọn",
-//    "en": "Show less"
-//  }, "show_more": {
-//    "vn": "Xem thêm",
-//    "en": "Show more"
-//  }, "load_more": {
-//    "vn": "Xem thêm",
-//    'en': "Load more"
-//  }, "Posted": {
-//    "vn": "Đăng tuyển",
-//    "en": "Posted"
-//  },
-//  "Industries": {
-//    "vn": "Ngành nghề",
-//    "en": "Industries"
-//  },
-//  "Benefits": {
-//    "vn": "Phúc lợi",
-//    "en": "Benefits"
-//  },
-//  "Skills": {
-//    "vn": "Kỹ năng",
-//    "en": "Skills"
-//  }, "job_not_found": {
-//    "vn": "No job found!",
-//    "en": "Không tìm thấy việc làm!"
-//  }, "month_01": {
-//    'vn': "T1",
-//    'en': "JAN"
-//  }, "month_02": {
-//    'vn': "T2",
-//    'en': "FEB"
-//  }, "month_03": {
-//    'vn': "T3",
-//    'en': "MAR"
-//  }, "month_04": {
-//    'vn': "T4",
-//    'en': "APR"
-//  }, "month_05": {
-//    'vn': "T5",
-//    'en': "MAY"
-//  }, "month_06": {
-//    'vn': "T6",
-//    'en': "JUN"
-//  }, "month_07": {
-//    'vn': "T7",
-//    'en': "JUL"
-//  }, "month_08": {
-//    'vn': "T8",
-//    'en': "AUG"
-//  }, "month_09": {
-//    'vn': "T9",
-//    'en': "SEP"
-//  }, "month_10": {
-//    'vn': "T10",
-//    'en': "OCT"
-//  }, "month_11": {
-//    'vn': "T11",
-//    'en': "NOV"
-//  }, "month_12": {
-//    'vn': "T12",
-//    'en': "DEC"
-//  }
-//};
+//var tlSalaryReviewUrl = "";
 
 if (typeof define === "function" && define.amd && define.amd.jQuery) {
   define(['jquery', 'ractive', 'rv!templates/template', 'text!css/my-widget_embed.css'],
@@ -75,16 +9,14 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       var app = {
         init: function () {
           Ractive.DEBUG = false;
-          //dataJobsList = [];
           var $style = $("<style></style>", {type: "text/css"});
           $style.text(css);
           $("head").append($style);
 
-          //$('head').append('<style type="text/css">' + css + '</style>');
+          var $container = $("#tlw");
 
-          // render our main view
           this.ractive = new Ractive({
-            el: 'tlw',
+            el: $container.attr("id"),
             template: mainTemplate
           });
 
@@ -96,7 +28,9 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           //  }
           //});
 
-          //var lang = $widget('#tlw').data('vnw-lang');
+          var jobId = $container.data('job-id');
+
+          //var lang = $container.data('lang') ==;
           //if (lang == '2') {
           //  lang = 'en';
           //}
@@ -110,7 +44,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           //});
 
           //this.ractive.set("translation", tranlation);
-          this.ractive.set("domain", document.domain);
+          //this.ractive.set("domain", document.domain);
           //loadJobListFromVNW($widget, this.ractive, 1);
 
           //$widget(function () {
@@ -130,20 +64,33 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           //  });
           //});
 
-        },
+          var salaryReviewObject = {
+            salaryMax: 1200,
+            salaryMin: 900,
+            topDemandedSkills: [
+              {skillName: "Java", count: 3}
+            ],
+            totalJob: 7
+          }
+          //TODO draw the chart
 
-        reload: function (jobId, $lang, $height, $width) {
-          //re-set data from agrument
-          //$widget('#tlw').data('job-id', jobId);
-          //$widget('#vietnamworks-jobs').data('vnw-keyword', $job_title);
-          //$widget('#vietnamworks-jobs').data('vnw-industry', $job_category);
-          //$widget('#vietnamworks-jobs').data('vnw-location', $job_location);
-          //$widget('#vietnamworks-jobs').data('vnw-numjobs', $page_size);
-          //$widget('#vietnamworks-jobs').data('vnw-lang', $lang);
-          //$widget('#vietnamworks-jobs').data('vnw-widget-height', $height);
-          //$widget('#vietnamworks-jobs').data('vnw-widget-width', $width);
-          console.log("reload");
-          app.init();
+          //$.ajax({
+          //  url: tlSalaryReviewUrl,
+          //  dataType: "jsonp",
+          //  data: {
+          //    //'CONTENT-MD5': "4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348",
+          //    //'email': $widget('#vietnamworks-jobs').data('vnw-email'),
+          //    //'lang': $widget('#vietnamworks-jobs').data('vnw-lang'),
+          //    //'job_title': $widget('#vietnamworks-jobs').data('vnw-keyword'),
+          //    //'job_category': $widget('#vietnamworks-jobs').data('vnw-industry'),
+          //    //'job_location': $widget('#vietnamworks-jobs').data('vnw-location'),
+          //    //'page_size': pageSize,
+          //    //'current_page': currentPage
+          //  }
+          //
+          //}).then(function (resp) {
+          //
+          //});
         }
       };
 
