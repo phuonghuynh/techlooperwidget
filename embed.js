@@ -1,8 +1,7 @@
-require(["jquery", "app/app"], function($, app) {
+require(["jquery", "app/app"], function ($, app) {
+  "use strict";
 
-    "use strict";
-
-    $(function() {
-        app.init();
-    });
+  $(function () {
+    app.init();
+  });
 });

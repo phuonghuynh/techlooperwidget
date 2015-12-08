@@ -1,18 +1,37 @@
-$(function () {
-  var js_script_escape = "&lt;script&gt;(function (window, document) {  var loader = function () {    var script = document.createElement(&quot;script&quot;), tag = document.getElementsByTagName(&quot;script&quot;)[0];script.src = &quot;http://widget.vietnamworks.com/embed.min.js&quot;;tag.parentNode.insertBefore(script, tag); }; window.addEventListener ? window.addEventListener(&quot;load&quot;, loader, false) : window.attachEvent(&quot;onload&quot;, loader);})(window, document);&lt;/script&gt;";
+//var reloadWidget = function() {
+//  //require(["jquery"], function ($) {
+//  //  "use strict";
+//  //  console.log($.TechlooperWidgets);
+//  //});
+//}
 
-  function change_config($dataProp) {
-    var $code = $("#embedded-container");
+var loadCodeSample = function(attrs) {
+  attrs = attrs || "";
+  $.get("codeSample.text", function(codeSample) {
+    var wdHtml = codeSample.replace("${attrs}", attrs);
+    $("#embedded-container").val(wdHtml);
+    $("#widget-preview > div").html(wdHtml);
+    $.getScript("/embed.min.js");
+  });
+}
+
+$(function () {
+
+  function change_config() {
+    //var $code = $("#embedded-container");
 
     var attrs = "";
+    var inputs = $(".tlwForm").find("[data-prop]");
 
-    var $attrs = $(".tlwForm").find("[data-prop]");
-    $.each($attrs, function(i, attr) {
-      if ($dataProp.val().length == 0) return true;
-      attrs += 'data-' + $dataProp.data('prop') + '="' + $dataProp.val() + '"';
+    $.each(inputs, function(i, input) {
+      var $input = $(input);
+      if ($input.val().length == 0) return true;
+      attrs += 'data-' + $input.data('prop') + '="' + $input.val() + '" ';
     });
+
     loadCodeSample(attrs);
 
+    //reloadWidget();
     //console.log($dataProp.val());
     //console.log($dataProp.data("prop"));
 //        var $lang_val = $("#vietnamworks-jobs").data("vnw-lang");
@@ -60,72 +79,23 @@ $(function () {
 
 //        var strvnwjobscontainer = tlwContainer.outerHTML;
 //    $("#embedded-container").html(tlwContainer.outerHTML + js_script_escape);
-    require(["app/app"], function (app) {
-      "use strict";
-      app.reload();
-//                    app.reload($email_val,$keyword_val,$industry_val,$location_val,$numjobs_val,$lang_val,$widget_height_val,$widget_width_val);
-    });
-  }
-
-  var loadCodeSample = function(attrs) {
-    attrs = attrs || "";
-    $.get("codeSample.text", function(codeSample) {
-      $("#embedded-container").val(codeSample.replace("${attrs}", attrs));
-    });
+//    require(["app/app"], function (app) {
+//      "use strict";
+//      app.reload();
+////                    app.reload($email_val,$keyword_val,$industry_val,$location_val,$numjobs_val,$lang_val,$widget_height_val,$widget_width_val);
+//    });
   }
 
   $(".tlwForm").find("[data-prop]").on("input", function (e) {
-    change_config($(e.currentTarget));
+    change_config();
+  });
+
+  $(".tlwForm select[data-prop]").on("change", function (e) {
+    change_config();
   });
 
   loadCodeSample();
-
-//            $("#lang").change(function () {
-//                var $lang_val = $(this).val();
-//                $("#vietnamworks-jobs").data("vnw-lang", $lang_val);
-//                change_config();
-//            });
-//            $("#email").change(function () {
-//                var $email_val = $(this).val();
-//                $("#vietnamworks-jobs").data("vnw-email", $email_val);
-//                change_config();
-//            });
-//            $("#keyword").change(function () {
-//                var $keyword_val = $(this).val();
-//                $("#vietnamworks-jobs").data("vnw-keyword", $keyword_val);
-//                change_config();
-//            });
-//            $("#industry").change(function () {
-//                var $industry_val = $(this).val();
-//                if ($industry_val == "-1") {
-//                    $industry_val = "";
-//                }
-//                $("#vietnamworks-jobs").data("vnw-industry", $industry_val);
-//                change_config();
-//            });
-//            $("#location").change(function () {
-//                var $location_val = $(this).val();
-//                if ($location_val == "-1") {
-//                    $location_val = "";
-//                }
-//                $("#vietnamworks-jobs").data("vnw-location", $location_val);
-//                change_config();
-//            });
-//            $("#numjobs").change(function () {
-//                var $numjobs_val = $(this).val();
-//                $("#vietnamworks-jobs").data("vnw-numjobs",$numjobs_val);
-//                change_config();
-//            });
-//            $("#widget-height").change(function () {
-//                var $widget_height_val = $(this).val();
-//                $("#vietnamworks-jobs").data("vnw-widget-height",$widget_height_val);
-//                change_config();
-//            });
-//            $("#widget-width").change(function () {
-//                var $widget_width_val = $(this).val();
-//                $("#vietnamworks-jobs").data("vnw-widget-width",$widget_width_val);
-//                change_config();
-//            });
+  change_config();
 });
 
 $(function () {

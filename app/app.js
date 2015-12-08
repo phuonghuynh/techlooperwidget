@@ -1,4 +1,4 @@
-var dataJobsList = [];
+//var dataJobsList = [];
 //var translationData = {
 //  "show_less": {
 //    "vn": "Thu gọn",
@@ -66,85 +66,169 @@ var dataJobsList = [];
 //  }
 //};
 
-define(['jquery', 'ractive', 'rv!templates/template', 'text!css/my-widget_embed.css'],
-  function ($widget, Ractive, mainTemplate, jobListTemplate, css) {
+if (typeof define === "function" && define.amd && define.amd.jQuery) {
+  define(['jquery', 'ractive', 'rv!templates/template'],
+    function ($, Ractive, mainTemplate) {
+      'use strict';
+      $.noConflict(true);
 
-    'use strict';
-    $widget.noConflict(true);
-    var app = {
-      init: function () {
-        Ractive.DEBUG = false;
-        dataJobsList = [];
-        var $style = $widget("<style></style>", {type: "text/css"});
-        $style.text(css);
-        $widget("head").append($style);
+      var app = {
+        init: function () {
+          Ractive.DEBUG = false;
+          //dataJobsList = [];
+          //var $style = $("<style></style>", {type: "text/css"});
+          //$style.text(css);
+          //$("head").append($style);
 
-        // render our main view
-        this.ractive = new Ractive({
-          el: 'tlw',
-          template: mainTemplate
-        });
-        //this.ractive = new Ractive({
-        //  el: 'tlw',
-        //  template: mainTemplate,
-        //  partials: {
-        //    jobList: jobListTemplate
-        //  }
-        //});
+          // render our main view
+          this.ractive = new Ractive({
+            el: 'tlw',
+            template: mainTemplate
+          });
 
-        //var lang = $widget('#tlw').data('vnw-lang');
-        //if (lang == '2') {
-        //  lang = 'en';
-        //}
-        //else {
-        //  lang = 'vn';
-        //}
+          //this.ractive = new Ractive({
+          //  el: 'tlw',
+          //  template: mainTemplate,
+          //  partials: {
+          //    jobList: jobListTemplate
+          //  }
+          //});
 
-        //var tranlation = {};
-        //$widget.each(translationData, function (key, value) {
-        //  tranlation[key] = value[lang];
-        //});
+          //var lang = $widget('#tlw').data('vnw-lang');
+          //if (lang == '2') {
+          //  lang = 'en';
+          //}
+          //else {
+          //  lang = 'vn';
+          //}
 
-        //this.ractive.set("translation", tranlation);
-        this.ractive.set("domain", document.domain);
-        //loadJobListFromVNW($widget, this.ractive, 1);
+          //var tranlation = {};
+          //$widget.each(translationData, function (key, value) {
+          //  tranlation[key] = value[lang];
+          //});
 
-        //$widget(function () {
-        //  function postDateCheck() {
-        //    if ($widget('.job-list').width() <= 300) {
-        //      $widget('.job-list').addClass('no-date');
-        //    }
-        //    else {
-        //      $widget('.job-list').removeClass('no-date');
-        //    }
-        //  }
-        //
-        //  postDateCheck();
-        //
-        //  $widget(window).resize(function () {
-        //    postDateCheck();
-        //  });
-        //});
+          //this.ractive.set("translation", tranlation);
+          this.ractive.set("domain", document.domain);
+          //loadJobListFromVNW($widget, this.ractive, 1);
 
-      },
+          //$widget(function () {
+          //  function postDateCheck() {
+          //    if ($widget('.job-list').width() <= 300) {
+          //      $widget('.job-list').addClass('no-date');
+          //    }
+          //    else {
+          //      $widget('.job-list').removeClass('no-date');
+          //    }
+          //  }
+          //
+          //  postDateCheck();
+          //
+          //  $widget(window).resize(function () {
+          //    postDateCheck();
+          //  });
+          //});
 
-      reload: function ($jobId, $lang, $height, $width) {
-        //re-set data from agrument
-        //$widget('#tlw').data('job-id', $jobId);
-        //$widget('#vietnamworks-jobs').data('vnw-keyword', $job_title);
-        //$widget('#vietnamworks-jobs').data('vnw-industry', $job_category);
-        //$widget('#vietnamworks-jobs').data('vnw-location', $job_location);
-        //$widget('#vietnamworks-jobs').data('vnw-numjobs', $page_size);
-        //$widget('#vietnamworks-jobs').data('vnw-lang', $lang);
-        //$widget('#vietnamworks-jobs').data('vnw-widget-height', $height);
-        //$widget('#vietnamworks-jobs').data('vnw-widget-width', $width);
+        },
 
-        app.init();
-      }
-    };
-    return app;
+        reload: function (jobId, $lang, $height, $width) {
+          //re-set data from agrument
+          //$widget('#tlw').data('job-id', jobId);
+          //$widget('#vietnamworks-jobs').data('vnw-keyword', $job_title);
+          //$widget('#vietnamworks-jobs').data('vnw-industry', $job_category);
+          //$widget('#vietnamworks-jobs').data('vnw-location', $job_location);
+          //$widget('#vietnamworks-jobs').data('vnw-numjobs', $page_size);
+          //$widget('#vietnamworks-jobs').data('vnw-lang', $lang);
+          //$widget('#vietnamworks-jobs').data('vnw-widget-height', $height);
+          //$widget('#vietnamworks-jobs').data('vnw-widget-width', $width);
+          console.log("reload");
+          app.init();
+        }
+      };
 
-  });
+      return app;
+    });
+}
+
+
+//define("$tlw", ['jquery', 'ractive', 'rv!templates/template', 'text!css/my-widget_embed.css'],
+//  function ($widget, Ractive, mainTemplate, jobListTemplate, css) {
+//
+//    'use strict';
+//    $widget.noConflict(true);
+//    var app = {
+//      init: function () {
+//        Ractive.DEBUG = false;
+//        dataJobsList = [];
+//        var $style = $widget("<style></style>", {type: "text/css"});
+//        $style.text(css);
+//        $widget("head").append($style);
+//
+//        // render our main view
+//        this.ractive = new Ractive({
+//          el: 'tlw',
+//          template: mainTemplate
+//        });
+//        //this.ractive = new Ractive({
+//        //  el: 'tlw',
+//        //  template: mainTemplate,
+//        //  partials: {
+//        //    jobList: jobListTemplate
+//        //  }
+//        //});
+//
+//        //var lang = $widget('#tlw').data('vnw-lang');
+//        //if (lang == '2') {
+//        //  lang = 'en';
+//        //}
+//        //else {
+//        //  lang = 'vn';
+//        //}
+//
+//        //var tranlation = {};
+//        //$widget.each(translationData, function (key, value) {
+//        //  tranlation[key] = value[lang];
+//        //});
+//
+//        //this.ractive.set("translation", tranlation);
+//        this.ractive.set("domain", document.domain);
+//        //loadJobListFromVNW($widget, this.ractive, 1);
+//
+//        //$widget(function () {
+//        //  function postDateCheck() {
+//        //    if ($widget('.job-list').width() <= 300) {
+//        //      $widget('.job-list').addClass('no-date');
+//        //    }
+//        //    else {
+//        //      $widget('.job-list').removeClass('no-date');
+//        //    }
+//        //  }
+//        //
+//        //  postDateCheck();
+//        //
+//        //  $widget(window).resize(function () {
+//        //    postDateCheck();
+//        //  });
+//        //});
+//
+//      },
+//
+//      reload: function (jobId, $lang, $height, $width) {
+//        //re-set data from agrument
+//        //$widget('#tlw').data('job-id', jobId);
+//        //$widget('#vietnamworks-jobs').data('vnw-keyword', $job_title);
+//        //$widget('#vietnamworks-jobs').data('vnw-industry', $job_category);
+//        //$widget('#vietnamworks-jobs').data('vnw-location', $job_location);
+//        //$widget('#vietnamworks-jobs').data('vnw-numjobs', $page_size);
+//        //$widget('#vietnamworks-jobs').data('vnw-lang', $lang);
+//        //$widget('#vietnamworks-jobs').data('vnw-widget-height', $height);
+//        //$widget('#vietnamworks-jobs').data('vnw-widget-width', $width);
+//        console.log("reload");
+//        app.init();
+//      }
+//    };
+//
+//    return app;
+//  });
 
 //function loadJobListFromVNW($widget,that,currentPage){
 //    pageSize = $widget('#vietnamworks-jobs').data('vnw-numjobs');
