@@ -10,7 +10,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       app.$container = $("#tlw");
 
       //const values used to calculate salary-review data
-      var preferMeterValues = [160, 130, 90, 85, 45, 18];
+      var preferMeterValues = [170, 162, 148, 135, 112, 90, 67, 45, 31, 18, 8];
       var mapProperties = {
         jobId: "techlooperJobId",
         jobCategories: function(val) {if (!val) return []; return "[" + val + "]";},
