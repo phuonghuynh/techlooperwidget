@@ -15,7 +15,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           ofJobLikeThis: "các công việc tương tự khác",
           baseOn: "Dựa trên",
           jobs: "việc làm",
-          thisJob: "Công việc này"
+          thisJob: "Việc làm này"
         }
       }
     });
