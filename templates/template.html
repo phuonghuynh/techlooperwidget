@@ -34,7 +34,7 @@
                 </ul>
 
             </div>
-            <div class="current-position" style="left:{{myPosition}}px">
+            <div class="current-position" style="left:{{myPositionArrow}}px">
 
                 <div class="current-salary">
                     <div class="salary">This job: ${{netSalary}}</div>
@@ -54,8 +54,8 @@
     <div class="salary-review meter">
         <div class="tech-header">
             <div class="col-sm-10">
-                <h4>This job is better paid than 20% of jobs like this.
-                    <span>Based on 1230 jobs</span>
+                <h4>This job is better paid than {{percentJob}}% of jobs like this.
+                    <span>Based on {{totalJobs}} jobs</span>
                 </h4>
             </div>
             <div class="col-sm-02">
@@ -66,17 +66,17 @@
             <div class="col-sm-12 meter-chart-version">
                 <div class="meter-chart">
                     <div class="meter-images"></div>
-                    <div class="number-chart zero-percent">0%</div>
-                    <div class="number-chart zero-dollar">$0</div>
-                    <div class="number-chart ten-percent">10%</div>
-                    <div class="number-chart ten-dollar">$800</div>
-                    <div class="number-chart ninety-percent">90%</div>
-                    <div class="number-chart ninety-dollar">$1890</div>
-                    <div class="number-chart one-hundred-percent">100%</div>
-                    <div class="meter-arrow"></div>
+                    <div class="number-chart percent0">0%</div>
+                    <div class="number-chart dollar0">$0</div>
+                        <div class="number-chart percent1">{{salaryRanges[0].percent}}%</div>
+                        <div class="number-chart dollar1">${{salaryRanges[0].percentile}}</div>
+                        <div class="number-chart percent2">{{salaryRanges[salaryRanges.length-1].percent}}%</div>
+                        <div class="number-chart dollar2">${{salaryRanges[salaryRanges.length-1].percentile}}</div>
+                    <div class="number-chart percent3">100%</div>
+                    <div class="meter-arrow position{{myPositionMeter}}"></div>
                 </div>
                 <div class="current-salary">
-                    This job: $12,000
+                    This job: ${{netSalary}}
                 </div>
             </div>
         </div>

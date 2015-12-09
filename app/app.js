@@ -65,7 +65,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           //  });
           //});
           var salaryReview ={};
-          var myPosition = 0;
+          var myPositionArrow = 0;
+          var myPositionMeter = 0;
           $.getJSON( "js/salaryReviewSample.json", function( data ) {
             salaryReview = data;
             _this.ractive.set("netSalary", salaryReview.netSalary);
@@ -73,8 +74,31 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             _this.ractive.set("percentJob", salaryReview.salaryReport.percentRank);
             var salaryRanges = JSON.stringify(salaryReview.salaryReport.salaryRanges);
             _this.ractive.set("salaryRanges", salaryReview.salaryReport.salaryRanges);
-            myPosition = (($('.salary-chart').width() * salaryReview.salaryReport.percentRank)/100) - 40;
-            _this.ractive.set("myPosition", myPosition);
+            myPositionArrow = (($('.salary-chart').width() * salaryReview.salaryReport.percentRank)/100) - 40;
+            var position = (180* salaryReview.salaryReport.percentRank/100);
+            if(position < 18){
+              myPositionMeter = 1
+            }
+            if(position >= 18 && position < 45){
+              myPositionMeter = 2
+            }
+            if(position >= 45 && position < 85){
+              myPositionMeter = 3
+            }
+            if(position >= 85 && position < 90){
+              myPositionMeter = 4
+            }
+            if(position >= 90 && position < 130){
+              myPositionMeter = 5
+            }
+            if(position >= 130 && position < 160){
+              myPositionMeter = 6
+            }
+            if(position >= 160){
+              myPositionMeter = 7
+            }
+            _this.ractive.set("myPositionArrow", myPositionArrow);
+            _this.ractive.set("myPositionMeter", myPositionMeter);
           });
           //TODO draw the chart
 

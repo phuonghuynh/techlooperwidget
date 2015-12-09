@@ -21,7 +21,7 @@
   "age": 0,
   "salaryReport": {
     "netSalary": 1000,
-    "percentRank": 10.0,
+    "percentRank": 90.0,
     "numberOfJobs": 4,
     "numberOfSurveys": 209,
     "salaryRanges": [
