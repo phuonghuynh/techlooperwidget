@@ -1,126 +1,79 @@
 //var tlSalaryReviewUrl = "";
 
 if (typeof define === "function" && define.amd && define.amd.jQuery) {
-  define(['jquery', 'ractive', 'rv!templates/template', 'text!css/my-widget_embed.css'],
-    function ($, Ractive, mainTemplate, css) {
-      'use strict';
+  define(["jquery", "ractive", "rv!templates/template", "text!css/my-widget_embed.css", "app/translate"],
+    function ($, Ractive, mainTemplate, css, translate) {
+      "use strict";
       $.noConflict(true);
 
-      var app = {
+      var app = {};
+      app.$container = $("#tlw");
+
+      //const values used to calculate salary-review data
+      var preferMeterValues = [160, 130, 90, 85, 45, 18];
+      var mapProperties = {
+        jobId: "techlooperJobId"
+      }
+
+      $.extend(true, app, {
+        render: function (salaryReview) {
+          var myPositionArrow = (($('.salary-chart').width() * salaryReview.salaryReport.percentRank) / 100) - 40;
+
+          var myPositionMeter = 0;
+          var position = (180 * salaryReview.salaryReport.percentRank / 100);
+          $.each(preferMeterValues, function(i, preferValue) {
+            if (position >= preferValue) {
+              myPositionMeter = preferMeterValues.length - i + 1;
+              return false;
+            }
+          });
+          myPositionMeter = Math.max(myPositionMeter, 1);
+
+          this.ractive = new Ractive({
+            el: app.$container.attr("id"),
+            template: mainTemplate,
+            data: {
+              translation: translate[app.$container.data('lang')],
+              salaryReview: salaryReview,
+              salaryRanges: salaryReview.salaryReport.salaryRanges,
+              myPositionArrow: myPositionArrow,
+              myPositionMeter: myPositionMeter
+            }
+          });
+        },
+
         init: function () {
           Ractive.DEBUG = false;
           var $style = $("<style></style>", {type: "text/css"});
           $style.text(css);
           $("head").append($style);
 
-          var $container = $("#tlw");
+          var salaryReviewPostData = app.$container.data();
+          for (var prop in mapProperties) {
+            salaryReviewPostData[mapProperties[prop]] = salaryReviewPostData[prop];
+          }
 
-          var _this = this;
-          this.ractive = new Ractive({
-            el: $container.attr("id"),
-            template: mainTemplate
+          var url = "http://localhost:8080/salaryReview";
+          $.getJSON("js/salaryReviewSample.json", function (salaryReview) {
+            app.render(salaryReview);
           });
 
-          //this.ractive = new Ractive({
-          //  el: 'tlw',
-          //  template: mainTemplate,
-          //  partials: {
-          //    jobList: jobListTemplate
-          //  }
-          //});
-
-          var jobId = $container.data('job-id');
-
-          //var lang = $container.data('lang') ==;
-          //if (lang == '2') {
-          //  lang = 'en';
-          //}
-          //else {
-          //  lang = 'vn';
-          //}
-
-          //var tranlation = {};
-          //$widget.each(translationData, function (key, value) {
-          //  tranlation[key] = value[lang];
-          //});
-
-          //this.ractive.set("translation", tranlation);
-          //this.ractive.set("domain", document.domain);
-          //loadJobListFromVNW($widget, this.ractive, 1);
-
-          //$widget(function () {
-          //  function postDateCheck() {
-          //    if ($widget('.job-list').width() <= 300) {
-          //      $widget('.job-list').addClass('no-date');
-          //    }
-          //    else {
-          //      $widget('.job-list').removeClass('no-date');
-          //    }
-          //  }
-          //
-          //  postDateCheck();
-          //
-          //  $widget(window).resize(function () {
-          //    postDateCheck();
-          //  });
-          //});
-          var salaryReview ={};
-          var myPositionArrow = 0;
-          var myPositionMeter = 0;
-          $.getJSON( "js/salaryReviewSample.json", function( data ) {
-            salaryReview = data;
-            _this.ractive.set("netSalary", salaryReview.netSalary);
-            _this.ractive.set("totalJobs", salaryReview.salaryReport.numberOfJobs);
-            _this.ractive.set("percentJob", salaryReview.salaryReport.percentRank);
-            var salaryRanges = JSON.stringify(salaryReview.salaryReport.salaryRanges);
-            _this.ractive.set("salaryRanges", salaryReview.salaryReport.salaryRanges);
-            myPositionArrow = (($('.salary-chart').width() * salaryReview.salaryReport.percentRank)/100) - 40;
-            var position = (180* salaryReview.salaryReport.percentRank/100);
-            if(position < 18){
-              myPositionMeter = 1
-            }
-            if(position >= 18 && position < 45){
-              myPositionMeter = 2
-            }
-            if(position >= 45 && position < 85){
-              myPositionMeter = 3
-            }
-            if(position >= 85 && position < 90){
-              myPositionMeter = 4
-            }
-            if(position >= 90 && position < 130){
-              myPositionMeter = 5
-            }
-            if(position >= 130 && position < 160){
-              myPositionMeter = 6
-            }
-            if(position >= 160){
-              myPositionMeter = 7
-            }
-            _this.ractive.set("myPositionArrow", myPositionArrow);
-            _this.ractive.set("myPositionMeter", myPositionMeter);
-          });
-          //TODO draw the chart
 
           //$.ajax({
-          //  url: tlSalaryReviewUrl,
-          //  dataType: "jsonp",
-          //  data: {
-          //    //'CONTENT-MD5': "4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348",
-          //    //'email': $widget('#vietnamworks-jobs').data('vnw-email'),
-          //    //'lang': $widget('#vietnamworks-jobs').data('vnw-lang'),
-          //    //'job_title': $widget('#vietnamworks-jobs').data('vnw-keyword'),
-          //    //'job_category': $widget('#vietnamworks-jobs').data('vnw-industry'),
-          //    //'job_location': $widget('#vietnamworks-jobs').data('vnw-location'),
-          //    //'page_size': pageSize,
-          //    //'current_page': currentPage
+          //  type: "POST",
+          //  url: url,
+          //  headers: {
+          //    "Accept": "application/json",
+          //    "Content-Type": "application/json"
+          //  },
+          //  data: JSON.stringify(salaryReviewPostData),
+          //  dataType: "json",
+          //  success: function (salaryReview) {
+          //    app.render(salaryReview);
           //  }
-          //
-          //}).then(function (resp) {
-          //
           //});
         }
-      };
+      });
 
       return app;
     });
