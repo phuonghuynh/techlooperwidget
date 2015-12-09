@@ -19,7 +19,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       }
 
       $.extend(true, app, {
-        render: function (salaryReview) {
+        render: function (salaryReview, config) {
           var myPositionArrow = (($('.salary-chart').width() * salaryReview.salaryReport.percentRank) / 100) - 40;
 
           var myPositionMeter = 0;
@@ -39,6 +39,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               translation: translate[app.$container.data('lang')],
               salaryReview: salaryReview,
               salaryRanges: salaryReview.salaryReport.salaryRanges,
+              //visibleSalary: true,
+              visibleSalary: salaryReview.visibleSalary,
               myPositionArrow: myPositionArrow,
               myPositionMeter: myPositionMeter
             }
@@ -51,17 +53,17 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           $style.text(css);
           $("head").append($style);
 
-          var salaryReviewPostData = app.$container.data();
+          var config = app.$container.data();
           for (var prop in mapProperties) {
             var mapProperty = mapProperties[prop];
             if ($.isFunction(mapProperty)) {
-              salaryReviewPostData[prop] = mapProperty(salaryReviewPostData[prop]);
+              config[prop] = mapProperty(config[prop]);
             }
             else {
-              salaryReviewPostData[mapProperty] = salaryReviewPostData[prop];
+              config[mapProperty] = config[prop];
             }
           }
-          console.log(salaryReviewPostData);
+          //console.log(config);
 
           var url = "http://staging.techlooper.com/salaryReview";
           //var url = "http://localhost:8080/salaryReview";
@@ -76,11 +78,11 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               "Accept": "application/json",
               "Content-Type": "application/json"
             },
-            data: JSON.stringify(salaryReviewPostData),
+            data: JSON.stringify(config),
             dataType: "json",
             success: function (salaryReview) {
               if (salaryReview.salaryReport.numberOfJobs > 0) {
-                app.render(salaryReview);
+                app.render(salaryReview, config);
               }
             }
           });
