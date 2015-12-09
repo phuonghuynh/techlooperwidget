@@ -73,9 +73,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             _this.ractive.set("percentJob", salaryReview.salaryReport.percentRank);
             var salaryRanges = JSON.stringify(salaryReview.salaryReport.salaryRanges);
             _this.ractive.set("salaryRanges", salaryReview.salaryReport.salaryRanges);
-            myPosition = ($('.salary-chart').width() * salaryReview.salaryReport.percentRank)/100;
+            myPosition = (($('.salary-chart').width() * salaryReview.salaryReport.percentRank)/100) - 40;
             _this.ractive.set("myPosition", myPosition);
-            console.log($('.salary-chart').width());
           });
           //TODO draw the chart
 

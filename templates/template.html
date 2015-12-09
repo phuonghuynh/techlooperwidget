@@ -8,21 +8,26 @@
                 <a href="http://techlooper.com/#/home" target="_blank" class="techlooper-logo" title="Click here go to the TechLooper">TechLooper.com</a>
             </div>
         </div>
-        <div class="row salary-chart salary-range-col-0{{salaryRanges.length}}">
+        <div class="row salary-chart salary-range-col-0{{salaryRanges.length+1}}">
             <div class="col-sm-12">
                 <ul class="salary-list">
+                    <li>$0</li>
                     {{#each salaryRanges: i}}
                     <li>${{this.percentile}}</li>
                     {{/each}}
                 </ul>
                 <ul class="phase-list">
+                    <li>
+                        <div class="phase-item percent0"></div>
+                    </li>
                     {{#each salaryRanges: i}}
                     <li>
-                        <div class="phase-item percent{{i}}"></div>
+                        <div class="phase-item percent{{i+1}}"></div>
                     </li>
                     {{/each}}
                 </ul>
                 <ul class="percent-list">
+                    <li>0%</li>
                     {{#each salaryRanges: i}}
                     <li>{{this.percent}}%</li>
                     {{/each}}
