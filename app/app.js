@@ -11,7 +11,10 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       var preferMeterValues = [170, 162, 148, 135, 112, 90, 67, 45, 31, 18, 8];
       var mapProperties = {
         jobId: "techlooperJobId",
-        jobCategories: function(val) {if (!val) return []; return "[" + val + "]";},
+        jobCategories: function(vals) {
+          if (!vals) return [];
+          return vals.split(",").map(function(v) {return parseInt(v);});
+        },
         skills: function(vals) {if (!vals) return []; return vals.split(",");}
       }
 
@@ -58,7 +61,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               salaryReviewPostData[mapProperty] = salaryReviewPostData[prop];
             }
           }
-          //console.log(salaryReviewPostData);
+          console.log(salaryReviewPostData);
 
           var url = "http://staging.techlooper.com/salaryReview";
           //var url = "http://localhost:8080/salaryReview";
