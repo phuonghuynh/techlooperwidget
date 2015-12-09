@@ -32,6 +32,18 @@
       {
         "percent": 25.0,
         "percentile": 1200.0
+      },
+      {
+        "percent": 50.0,
+        "percentile": 1800.0
+      },
+      {
+        "percent": 75.0,
+        "percentile": 2200.0
+      },
+      {
+        "percent": 90.0,
+        "percentile": 2800.0
       }
     ]
   },

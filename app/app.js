@@ -15,6 +15,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
           var $container = $("#tlw");
 
+          var _this = this;
           this.ractive = new Ractive({
             el: $container.attr("id"),
             template: mainTemplate
@@ -63,15 +64,18 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           //    postDateCheck();
           //  });
           //});
-
-          var salaryReviewObject = {
-            salaryMax: 1200,
-            salaryMin: 900,
-            topDemandedSkills: [
-              {skillName: "Java", count: 3}
-            ],
-            totalJob: 7
-          }
+          var salaryReview ={};
+          var myPosition = 0;
+          $.getJSON( "js/salaryReviewSample.json", function( data ) {
+            salaryReview = data;
+            _this.ractive.set("netSalary", salaryReview.netSalary);
+            _this.ractive.set("totalJobs", salaryReview.salaryReport.numberOfJobs);
+            _this.ractive.set("percentJob", salaryReview.salaryReport.percentRank);
+            var salaryRanges = JSON.stringify(salaryReview.salaryReport.salaryRanges);
+            _this.ractive.set("salaryRanges", salaryReview.salaryReport.salaryRanges);
+            myPosition = (($('.salary-chart').width() * salaryReview.salaryReport.percentRank)/100) - 40;
+            _this.ractive.set("myPosition", myPosition);
+          });
           //TODO draw the chart
 
           //$.ajax({

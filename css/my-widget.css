@@ -200,7 +200,7 @@
   height: 11px;
   display: inline-block;
 }
-.techlooper-widget .salary-review ul{
+.techlooper-widget .salary-chart ul{
   list-style: none;
   padding: 0 12px 0 0;
   margin: 0;
@@ -208,25 +208,25 @@
   float: left;
   width: 100%;
 }
-.techlooper-widget .salary-review ul li{
+.techlooper-widget .salary-chart ul li{
   float: left;
   width: 18%;
   border-left: 1px dashed #e6e6e6;
   padding-left: 5px;
 }
-.techlooper-widget .salary-review ul li:last-child{
+.techlooper-widget .salary-chart ul li:last-child{
   width: 10%;
 }
-.techlooper-widget .salary-review ul.salary-list{
+.techlooper-widget .salary-chart ul.salary-list{
   clear: both;
   display: inline-block;
   width: 100%;
 }
-.techlooper-widget .salary-review ul.salary-list li{
+.techlooper-widget .salary-chart ul.salary-list li{
   padding-bottom: 42px;
 
 }
-.techlooper-widget .salary-review ul.phase-list{
+.techlooper-widget .salary-chart ul.phase-list{
   clear: both;
   display: inline-block;
   width: 100%;
@@ -234,33 +234,50 @@
   height: 19px;
   padding-top: 5px;
 }
-.techlooper-widget .salary-review ul.phase-list li{
+.techlooper-widget .salary-chart ul.phase-list li{
   border-left: 0;
   height: 8px;
   padding-left: 0
 }
-.techlooper-widget .salary-review ul.phase-list .phase-item{
+.techlooper-widget .salary-chart ul.phase-list .phase-item{
   width: 100%;
   height: 9px;
   float: left;
 }
-
-.techlooper-widget .phase-item.zero-percent{
+.techlooper-widget .salary-chart.salary-range-col-02 ul li{
+  width: 50%;
+}
+.techlooper-widget .salary-chart.salary-range-col-03 ul li{
+  width: 33%;
+}
+.techlooper-widget .salary-chart.salary-range-col-03 ul li:last-child{
+  width: 34%;
+}
+.techlooper-widget .salary-chart.salary-range-col-04 ul li{
+  width: 25%;
+}
+.techlooper-widget .salary-chart.salary-range-col-05 ul li{
+  width: 20%;
+}
+.techlooper-widget .salary-chart.salary-range-col-06 ul li{
+  width: 16.6666666667%;
+}
+.techlooper-widget .phase-item.percent0{
   background-color: #c6e6fe;
 }
-.techlooper-widget .phase-item.ten-percent{
+.techlooper-widget .phase-item.percent1{
   background-color: #97d1fe;
 }
-.techlooper-widget .phase-item.twenty-five-percent{
+.techlooper-widget .phase-item.percent2{
   background-color: #60b4f5;
 }
-.techlooper-widget .phase-item.fifty-percent{
+.techlooper-widget .phase-item.percent3{
   background-color: #3c96dc;
 }
-.techlooper-widget .phase-item.seventy-five-percent{
+.techlooper-widget .phase-item.percent4{
   background-color: #207cc3;
 }
-.techlooper-widget .phase-item.ninety-percent{
+.techlooper-widget .phase-item.percent5{
   background-color: #1765a1;
 }
 .techlooper-widget .salary-review ul.phase-list .zero-percent{
@@ -345,4 +362,11 @@
   text-align: center;
   font-size: 14px;
   padding: 20px 0 0 0;
+}
+.techlooper-widget .meter-chart-version .meter-arrow.tenPercent{
+  -ms-transform: rotate(8deg); /* IE 9 */
+  -webkit-transform: rotate(8deg); /* Chrome, Safari, Opera */
+  transform: rotate(50deg);
+  left: 146px;
+  bottom: -28px;
 }

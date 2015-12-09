@@ -2,44 +2,42 @@
     <div class="salary-review horizontal">
         <div class="tech-header">
             <div class="col-sm-11">
-                <h2>This job is better paid than 20% of jobs like this. <span>Based on 1230 jobs</span></h2>
+                <h2>This job is better paid than {{percentJob}}% of jobs like this. <span>Based on {{totalJobs}} jobs</span></h2>
             </div>
             <div class="col-sm-01">
                 <a href="http://techlooper.com/#/home" target="_blank" class="techlooper-logo" title="Click here go to the TechLooper">TechLooper.com</a>
             </div>
         </div>
-        <div class="row salary-chart">
+        <div class="row salary-chart salary-range-col-0{{salaryRanges.length+1}}">
             <div class="col-sm-12">
                 <ul class="salary-list">
                     <li>$0</li>
-                    <li>$500</li>
-                    <li>$900</li>
-                    <li>$1,300</li>
-                    <li>$1,800</li>
-                    <li>$2,600</li>
+                    {{#each salaryRanges: i}}
+                    <li>${{this.percentile}}</li>
+                    {{/each}}
                 </ul>
                 <ul class="phase-list">
-                    <li><div class="phase-item zero-percent"></div></li>
-                    <li><div class="phase-item ten-percent"></div></li>
-                    <li><div class="phase-item twenty-five-percent"></div></li>
-                    <li><div class="phase-item fifty-percent"></div></li>
-                    <li><div class="phase-item seventy-five-percent"></div></li>
                     <li>
-                        <div class="phase-item ninety-percent"></div>
+                        <div class="phase-item percent0"></div>
                     </li>
+                    {{#each salaryRanges: i}}
+                    <li>
+                        <div class="phase-item percent{{i+1}}"></div>
+                    </li>
+                    {{/each}}
                 </ul>
                 <ul class="percent-list">
                     <li>0%</li>
-                    <li>10%</li>
-                    <li>25%</li>
-                    <li>50%</li>
-                    <li>75%</li>
-                    <li>90%</li>
+                    {{#each salaryRanges: i}}
+                    <li>{{this.percent}}%</li>
+                    {{/each}}
                 </ul>
+
             </div>
-            <div class="current-position">
+            <div class="current-position" style="left:{{myPosition}}px">
+
                 <div class="current-salary">
-                    <div class="salary">This job: $12,000</div>
+                    <div class="salary">This job: ${{netSalary}}</div>
                     <div class="arrow">
                         <i class="fa fa-caret-down"></i>
                     </div>
