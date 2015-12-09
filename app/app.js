@@ -77,7 +77,9 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             data: JSON.stringify(salaryReviewPostData),
             dataType: "json",
             success: function (salaryReview) {
-              app.render(salaryReview);
+              if (salaryReview.salaryReport.numberOfJobs > 0) {
+                app.render(salaryReview);
+              }
             }
           });
         }
