@@ -12,7 +12,9 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       //const values used to calculate salary-review data
       var preferMeterValues = [160, 130, 90, 85, 45, 18];
       var mapProperties = {
-        jobId: "techlooperJobId"
+        jobId: "techlooperJobId",
+        jobCategories: function(val) {if (!val) return []; return "[" + val + "]";},
+        skills: function(vals) {if (!vals) return []; return vals.split(",");}
       }
 
       $.extend(true, app, {
@@ -50,14 +52,20 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
           var salaryReviewPostData = app.$container.data();
           for (var prop in mapProperties) {
-            salaryReviewPostData[mapProperties[prop]] = salaryReviewPostData[prop];
+            var mapProperty = mapProperties[prop];
+            if ($.isFunction(mapProperty)) {
+              salaryReviewPostData[prop] = mapProperty(salaryReviewPostData[prop]);
+            }
+            else {
+              salaryReviewPostData[mapProperty] = salaryReviewPostData[prop];
+            }
           }
+          //console.log(salaryReviewPostData);
 
           var url = "http://localhost:8080/salaryReview";
-          $.getJSON("js/salaryReviewSample.json", function (salaryReview) {
-            app.render(salaryReview);
-          });
-
+          //$.getJSON("js/salaryReviewSample.json", function (salaryReview) {
+          //  app.render(salaryReview);
+          //});
 
           //$.ajax({
           //  type: "POST",

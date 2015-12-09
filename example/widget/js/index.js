@@ -25,8 +25,9 @@ $(function () {
 
     $.each(inputs, function(i, input) {
       var $input = $(input);
-      if ($input.val().length == 0) return true;
-      attrs += 'data-' + $input.data('prop') + '="' + $input.val() + '" ';
+      var val = $input.val();
+      if (!val || val.length == 0) return true;
+      attrs += 'data-' + $input.data('prop') + '="' + val + '" ';
     });
 
     loadCodeSample(attrs);
@@ -99,7 +100,13 @@ $(function () {
 });
 
 $(function () {
-  $('#widget select').select2({
+  $('#widget select:not(.tags)').select2({
     width: '100%'
+  });
+
+  $('#widget select.tags').select2({
+    tags: true,
+    allowClear: true,
+    tokenSeparators: [';', " "]
   });
 })
