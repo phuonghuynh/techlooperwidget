@@ -73,11 +73,9 @@
                     <div class="number-chart percent4">75%</div>
                     <div class="number-chart percent5">90%</div>
                     <div class="number-chart dollar0">$0</div>
-                    <div class="number-chart dollar1">${{salaryRanges[0].percentile}}</div>
-                    <div class="number-chart dollar2">${{salaryRanges[1].percentile}}</div>
-                    <div class="number-chart dollar3">${{salaryRanges[2].percentile}}</div>
-                    <div class="number-chart dollar4">${{salaryRanges[3].percentile}}</div>
-                    <div class="number-chart dollar5">${{salaryRanges[4].percentile}}</div>
+                    {{#each salaryRanges: i}}
+                    <div class="number-chart dollar{{i+1}}">${{salaryRanges[i].percentile}}</div>
+                    {{/each}}
                     <div class="number-chart percent6">100%</div>
                     <div class="meter-arrow position{{myPositionMeter}}"></div>
                 </div>

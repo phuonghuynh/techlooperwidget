@@ -25,7 +25,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           var position = (180 * salaryReview.salaryReport.percentRank / 100);
           $.each(preferMeterValues, function(i, preferValue) {
             if (position >= preferValue) {
-              myPositionMeter = preferMeterValues.length - i + 1;
+              myPositionMeter = preferMeterValues.length - i;
               return false;
             }
           });
@@ -67,19 +67,19 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           //  app.render(salaryReview);
           //});
 
-          //$.ajax({
-          //  type: "POST",
-          //  url: url,
-          //  headers: {
-          //    "Accept": "application/json",
-          //    "Content-Type": "application/json"
-          //  },
-          //  data: JSON.stringify(salaryReviewPostData),
-          //  dataType: "json",
-          //  success: function (salaryReview) {
-          //    app.render(salaryReview);
-          //  }
-          //});
+          $.ajax({
+            type: "POST",
+            url: url,
+            headers: {
+              "Accept": "application/json",
+              "Content-Type": "application/json"
+            },
+            data: JSON.stringify(salaryReviewPostData),
+            dataType: "json",
+            success: function (salaryReview) {
+              app.render(salaryReview);
+            }
+          });
         }
       });
 
