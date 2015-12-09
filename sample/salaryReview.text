@@ -1,4 +1,4 @@
-<div ${attrs} id="tlw" data-env="localhost">
+<div ${attrs} id="tlw">
   <script type="text/javascript">
     (function (window, document) {
       var loader = function () {
