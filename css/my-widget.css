@@ -55,7 +55,14 @@
   padding: 0;
   margin: 0;
 }
-.select2-container
+.customize-techlooper-widget .select2-container{
+  width: 100% !important;
+}
+.customize-techlooper-widget .select2-container--default .select2-selection--multiple{
+  border: 1px solid #ccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
 .techlooper-widget h2{
   margin: 0;
   padding: 0;
