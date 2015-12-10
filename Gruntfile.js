@@ -1,13 +1,10 @@
 module.exports = function (grunt) {
   var timestamp = Date.now();
+  var version = "1.0";
 
   grunt.file.defaultEncoding = "utf8";
-  //grunt.file.delete("target");
-  //grunt.file.mkdir("target");
-  //grunt.file.setBase("target");
 
   grunt.initConfig({
-    //pkg: grunt.file.readJSON("package.json"),
 
     "bower-install-simple": {
       options: {
@@ -28,6 +25,13 @@ module.exports = function (grunt) {
         optimizeAllPluginResources: true,
         findNestedDependencies: true
       },
+      css: {
+        options: {
+          cssIn: "<%=baseDir%>/css/embed.css",
+          out: "<%=baseDir%>/css/embed.min.css",
+          optimizeCss: "standard"
+        }
+      },
       js: {
         options: {
           paths: {
@@ -38,19 +42,12 @@ module.exports = function (grunt) {
             rv: "bower_components/rv/rv",
             almond: "bower_components/almond/almond"
           },
-          //name: "bower_components/almond/almond",
-          almond: true,
+          name: "bower_components/almond/almond",
+          //almond: true,
           include: ['app/_main.js'],
-          out: "embed.min.js",
+          out: "<%=baseDir%>/embed.min.js",
           optimize: "none",
           stubModules: ['rv', 'amd-loader', 'text']
-        }
-      },
-      css: {
-        options: {
-          cssIn: "css/my-widget.css",
-          out: "css/my-widget_embed.css",
-          optimizeCss: "standard"
         }
       }
     },
@@ -61,11 +58,64 @@ module.exports = function (grunt) {
           {
             cwd: "<%=src%>",
             expand: true,
-            src: ["**", "!node_modules/"],
-            //src: ["'**',  '!**/node_modules/**'"],
+            //src: ["**", "!**/node_modules/**"],
+            src: ["app/**", "css/**", "js/**", "sample/**", "templates/**", "*.html"],
             dest: "<%=baseDir%>"
           }
         ]
+      }
+    },
+
+    replace: {
+      staging: {
+        options: {
+          patterns: [{json: {backendUrl: "http://staging.techlooper.com", version: version}}]
+        },
+        files: [
+          {cwd: "<%=baseDir%>/app", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/app"},
+          {cwd: "<%=baseDir%>/sample", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/sample"}
+        ]
+      },
+
+      prod: {
+        options: {
+          patterns: [{json: {backendUrl: "http://techlooper.com", version: version}}]
+        },
+        files: [
+          {cwd: "<%=baseDir%>/app", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/app"},
+          {cwd: "<%=baseDir%>/sample", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/sample"}
+        ]
+      }
+    },
+
+    watch: {
+      scripts: {
+        files: ["*.js", "*.json"],
+        options: {
+          livereload: true
+        }
+      },
+      markup: {
+        files: ["*.html"],
+        options: {
+          livereload: true
+        }
+      },
+      stylesheets: {
+        files: ["*.css"],
+        options: {
+          livereload: true
+        }
+      }
+    },
+
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          base: "<%=baseDir%>",
+          keepalive: true
+        }
       }
     }
   });
@@ -79,7 +129,8 @@ module.exports = function (grunt) {
     grunt.file.delete("embed.min.js");
   });
 
-  grunt.registerTask("build", ["bower-install-simple:build", "requirejs:js", "requirejs:css"]);
+  grunt.registerTask("build", ["bower-install-simple:build", "requirejs:css", "requirejs:js"]);
+  grunt.registerTask("run", ["connect", "watch"]);
 
   grunt.task.registerTask("local", "build dev env", function () {
     grunt.config("baseDir", ".");
@@ -90,9 +141,17 @@ module.exports = function (grunt) {
     grunt.file.mkdir("target");
     grunt.config("src", ".");
     grunt.config("baseDir", "./target");
-    grunt.task.run(["clean", "copy:src"]);
+    grunt.task.run(["clean", "copy:src", "replace:staging", "build"]);
   });
 
-  // start a http server and serve at folder "assets"
-  //grunt.registerTask("run", ["connect", "watch"]);
+  grunt.task.registerTask("staging-run", "build and run staging env", function () {
+    grunt.task.run(["staging", "run"]);
+  });
+
+  grunt.task.registerTask("prod", "build prod env", function () {
+    grunt.file.mkdir("target");
+    grunt.config("src", ".");
+    grunt.config("baseDir", "./target");
+    grunt.task.run(["clean", "copy:src", "replace:prod", "build"]);
+  });
 };

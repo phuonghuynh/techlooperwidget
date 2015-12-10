@@ -1,6 +1,6 @@
 if (typeof define === "function" && define.amd && define.amd.jQuery) {
-  define(["jquery", "ractive", "rv!templates/template", "text!css/my-widget_embed.css", "app/translate"],
-    function ($, Ractive, mainTemplate, css, translate) {
+  define(["jquery", "ractive", "rv!templates/template", "text!css/embed.min.css", "app/translate"],
+    function ($, Ractive, mainTemplate, css, translate, env) {
       "use strict";
       $.noConflict(true);
 
@@ -69,8 +69,9 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           }
           //console.log(config);
 
+          var url = "@@backendUrl" + "/salaryReview";
           //var url = "http://staging.techlooper.com/salaryReview";
-          var url = "http://localhost:8080/salaryReview";
+          //var url = "http://localhost:8080/salaryReview";
           //$.getJSON("js/salaryReviewSample.json", function (salaryReview) {
           //  app.render(salaryReview);
           //});
