@@ -113,7 +113,7 @@ module.exports = function (grunt) {
   grunt.task.registerTask("clean", "clean last build", function () {
     grunt.file.delete("target");
     grunt.file.delete("bower_components");
-    grunt.file.delete("css/my-widget_embed.css");
+    grunt.file.delete("css/embed.min.css");
     grunt.file.delete("embed.min.js");
   });
 
