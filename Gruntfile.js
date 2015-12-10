@@ -126,29 +126,35 @@ module.exports = function (grunt) {
     grunt.file.delete("embed.min.js");
   });
 
+  grunt.task.registerTask("clear-target", "clean last build", function () {
+    grunt.file.delete("target/bower_components");
+    grunt.file.delete("target/templates");
+  });
+
   grunt.registerTask("build", ["bower-install-simple:build", "requirejs:css", "requirejs:js"]);
+  grunt.registerTask("build-target", ["build", "clear-target", "compress:target"]);
   grunt.registerTask("run", ["connect", "watch"]);
 
   grunt.registerTask("staging-run", ["staging", "run"]);
 
-  grunt.task.registerTask("local", "build dev env", function () {
+  grunt.task.registerTask("local", "build dev env", function () {//build local
     grunt.config("baseDir", ".");
     grunt.task.run(["clean", "build", "replace:local", "run"]);
   });
 
-  grunt.task.registerTask("staging", "build staging env", function () {
+  grunt.task.registerTask("staging", "build staging env", function () {//build staging
     grunt.file.mkdir("target");
     grunt.config("src", ".");
     grunt.config("baseDir", "./target");
     grunt.config("env", "staging");
-    grunt.task.run(["clean", "copy:src", "replace:staging", "build", "compress:target"]);
+    grunt.task.run(["clean", "copy:src", "replace:staging", "build-target"]);
   });
 
-  grunt.task.registerTask("prod", "build prod env", function () {
+  grunt.task.registerTask("prod", "build prod env", function () {//build prod
     grunt.file.mkdir("target");
     grunt.config("src", ".");
     grunt.config("baseDir", "./target");
     grunt.config("env", "prod");
-    grunt.task.run(["clean", "copy:src", "replace:prod", "build"]);
+    grunt.task.run(["clean", "copy:src", "replace:prod", "build-target"]);
   });
 };
