@@ -10,12 +10,14 @@
         </div>
         <div class="row salary-chart salary-range-col-0{{salaryRanges.length+1}}">
             <div class="col-sm-12">
+                {{#if visibleSalary == true}}
                 <ul class="salary-list">
                     <li>$0</li>
                     {{#each salaryRanges: i}}
                     <li>${{this.percentile}}</li>
                     {{/each}}
                 </ul>
+                {{/if}}
                 <ul class="phase-list">
                     <li>
                         <div class="phase-item percent0"></div>
@@ -37,7 +39,7 @@
             <div class="current-position" style="left: {{myPositionArrow}}px">
 
                 <div class="current-salary">
-                    <div class="salary">{{translation.thisJob}}: ${{salaryReview.netSalary}}</div>
+                    <div class="salary">{{translation.thisJob}}{{#if visibleSalary == true}}: ${{salaryReview.netSalary}}{{/if}}</div>
                     <div class="arrow">
                         <i class="fa fa-caret-down"></i>
                     </div>
