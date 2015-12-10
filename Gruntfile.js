@@ -89,44 +89,21 @@ module.exports = function (grunt) {
     },
 
     watch: {
-      scripts: {
-        files: ["*.js", "*.json"],
-        options: {
-          livereload: true
-        }
-      },
-      markup: {
-        files: ["*.html"],
-        options: {
-          livereload: true
-        }
-      },
-      stylesheets: {
-        files: ["*.css"],
-        options: {
-          livereload: true
-        }
-      }
+      scripts: {files: ["*.js", "*.json"], options: {livereload: true}},
+      markup: {files: ["*.html"], options: {livereload: true}},
+      stylesheets: {files: ["*.css"], options: {livereload: true}}
     },
 
     connect: {
       server: {
-        options: {
-          port: 8000,
-          base: "<%=baseDir%>",
-          keepalive: true
-        }
+        options: {port: 8000, base: "<%=baseDir%>", keepalive: true}
       }
     },
 
     compress: {
       target: {
-        options: {
-          archive: "techlooper-widget-<%=env%>.zip"
-        },
-        files: [
-          {expand: true, cwd: 'target/', src: ['**']}
-        ]
+        options: {archive: "techlooper-widget-<%=env%>.zip"},
+        files: [{expand: true, cwd: 'target/', src: ['**']}]
       }
     }
   });
