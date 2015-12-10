@@ -6,3 +6,4 @@ node_modules
 embed.min.js
 embed.min.css
 target/
+*.zip
