@@ -13,6 +13,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
         jobId: "techlooperJobId",
         jobCategories: function(vals) {
           if (!vals) return [];
+          vals = "" + vals;
           return vals.split(",").map(function(v) {return parseInt(v);});
         },
         skills: function(vals) {
