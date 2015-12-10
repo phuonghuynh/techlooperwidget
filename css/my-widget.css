@@ -55,6 +55,7 @@
   padding: 0;
   margin: 0;
 }
+.select2-container
 .techlooper-widget h2{
   margin: 0;
   padding: 0;
@@ -251,7 +252,7 @@
   width: 33%;
 }
 .techlooper-widget .salary-chart.salary-range-col-03 ul li:last-child{
-  width: 34%;
+  width: 34.005%;
 }
 .techlooper-widget .salary-chart.salary-range-col-04 ul li{
   width: 25%;
