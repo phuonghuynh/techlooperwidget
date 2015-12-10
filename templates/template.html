@@ -69,15 +69,16 @@
                 <div class="meter-chart">
                     <div class="meter-images"></div>
                     <div class="number-chart percent0">0%</div>
-                    <div class="number-chart percent1">10%</div>
-                    <div class="number-chart percent2">25%</div>
-                    <div class="number-chart percent3">50%</div>
-                    <div class="number-chart percent4">75%</div>
-                    <div class="number-chart percent5">90%</div>
+
+                    <!--<div class="number-chart percent2">25%</div>-->
+                    <!--<div class="number-chart percent3">50%</div>-->
+                    <!--<div class="number-chart percent4">75%</div>-->
+                    <!--<div class="number-chart percent5">90%</div>-->
                     {{#if visibleSalary == true}}
                         <div class="number-chart dollar0">$0</div>
                         {{#each salaryRanges: i}}
-                        <div class="number-chart dollar{{i+1}}">${{salaryRanges[i].percentile}}</div>
+                        <div class="number-chart percent{{salaryRanges[i].percent}}">{{salaryRanges[i].percent}}%</div>
+                        <div class="number-chart dollar{{salaryRanges[i].percent}}">${{salaryRanges[i].percentile}}</div>
                         {{/each}}
                     {{/if}}
                     <div class="number-chart percent6">100%</div>
