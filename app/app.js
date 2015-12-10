@@ -53,9 +53,6 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               salaryLabel = translation.negotiable;
             }
           }
-          if(!salaryReview.isSalaryVisible){
-            salaryLabel = translation.negotiable;
-          }
           this.ractive = new Ractive({
             el: app.$container.attr("id"),
             template: mainTemplate,
