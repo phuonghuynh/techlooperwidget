@@ -67,6 +67,15 @@ module.exports = function (grunt) {
     },
 
     replace: {
+      local: {
+        options: {
+          patterns: [{json: {backendUrl: "http://localhost:8080", version: version}}]
+        },
+        files: {
+          "<%=baseDir%>/embed.min.js": "<%=baseDir%>/embed.min.js"
+        }
+      },
+
       staging: {
         options: {
           patterns: [{json: {backendUrl: "http://staging.techlooper.com", version: version}}]
@@ -124,7 +133,7 @@ module.exports = function (grunt) {
 
   grunt.task.registerTask("local", "build dev env", function () {
     grunt.config("baseDir", ".");
-    grunt.task.run(["clean", "build", "run"]);
+    grunt.task.run(["clean", "build", "replace:local", "run"]);
   });
 
   grunt.task.registerTask("staging", "build staging env", function () {
