@@ -120,6 +120,8 @@ module.exports = function (grunt) {
   grunt.registerTask("build", ["bower-install-simple:build", "requirejs:css", "requirejs:js"]);
   grunt.registerTask("run", ["connect", "watch"]);
 
+  grunt.registerTask("staging-run", ["staging", "run"]);
+
   grunt.task.registerTask("local", "build dev env", function () {
     grunt.config("baseDir", ".");
     grunt.task.run(["clean", "build", "run"]);
@@ -131,10 +133,6 @@ module.exports = function (grunt) {
     grunt.config("baseDir", "./target");
     grunt.config("env", "staging");
     grunt.task.run(["clean", "copy:src", "replace:staging", "build", "compress:target"]);
-  });
-
-  grunt.task.registerTask("staging-run", "build and run staging env", function () {
-    grunt.task.run(["staging", "run"]);
   });
 
   grunt.task.registerTask("prod", "build prod env", function () {
