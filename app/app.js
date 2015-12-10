@@ -15,7 +15,10 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           if (!vals) return [];
           return vals.split(",").map(function(v) {return parseInt(v);});
         },
-        skills: function(vals) {if (!vals) return []; return vals.split(",");}
+        skills: function(vals) {
+          if (!vals) return [];
+          return vals.split(",");
+        }
       }
 
       $.extend(true, app, {
