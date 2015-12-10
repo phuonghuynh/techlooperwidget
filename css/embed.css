@@ -117,17 +117,28 @@
   margin: 0;
   float: left;
 }
+.techlooper-widget .salary-review h2 strong{
+  color: #337ab7;
+  font-size: 23px;
+}
 .techlooper-widget .salary-review h2 span{
   display: inline-block;
   clear: both;
   width: 100%;
   font-size: 14px;
-  color: #979797;
+  color: #333;
   font-weight: 300;
+}
+.techlooper-widget .salary-review h2 span strong{
+  color: #333;
 }
 .techlooper-widget .salary-review h4{
   font-size: 17px;
   font-weight: 600;
+}
+.techlooper-widget .salary-review h4 strong{
+  color: #337ab7;
+  font-size: 17px;
 }
 .techlooper-widget .salary-review h4 span{
   display: inline-block;
@@ -136,6 +147,9 @@
   font-size: 12px;
   color: #979797;
   font-weight: 300;
+}
+.techlooper-widget .salary-review h4 span strong{
+  color: #333;
 }
 .techlooper-widget a.techlooper-logo{
   display: inline-block;

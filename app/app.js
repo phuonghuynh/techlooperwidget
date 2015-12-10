@@ -1,6 +1,6 @@
 if (typeof define === "function" && define.amd && define.amd.jQuery) {
   define(["jquery", "ractive", "rv!templates/template", "text!css/embed.min.css", "app/translate"],
-    function ($, Ractive, mainTemplate, css, translate, env) {
+    function ($, Ractive, mainTemplate, css, translate) {
       "use strict";
       $.noConflict(true);
 
@@ -35,18 +35,39 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             }
           });
           myPositionMeter = Math.max(myPositionMeter, 1);
+          var translation =translate[app.$container.data('lang')];
+          var salaryLabel = '';
 
+          if(salaryReview.salaryMax != null){
+            if(salaryReview.salaryMin == null){
+              salaryLabel = translation.upTo+ ' $' + salaryReview.salaryMax;
+            }
+            else{
+              salaryLabel = '$'+salaryReview.salaryMin+ ' - $' + salaryReview.salaryMax;
+            }
+          }
+          else{
+            if(salaryReview.salaryMin != null){
+              salaryLabel = translation.from+ ' $'+ salaryReview.salaryMin;
+            }else{
+              salaryLabel = translation.negotiable;
+            }
+          }
+          if(!salaryReview.isSalaryVisible){
+            salaryLabel = translation.negotiable;
+          }
           this.ractive = new Ractive({
             el: app.$container.attr("id"),
             template: mainTemplate,
             data: {
-              translation: translate[app.$container.data('lang')],
+              translation: translation,
               salaryReview: salaryReview,
               salaryRanges: salaryReview.salaryReport.salaryRanges,
               //visibleSalary: true,
               visibleSalary: salaryReview.isSalaryVisible,
               myPositionArrow: myPositionArrow,
-              myPositionMeter: myPositionMeter
+              myPositionMeter: myPositionMeter,
+              currentSalary: salaryLabel
             }
           });
         },

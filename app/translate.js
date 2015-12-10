@@ -8,7 +8,10 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           ofJobLikeThis: "of similar jobs",
           baseOn: "Based on",
           jobs: "jobs",
-          thisJob: "This job"
+          thisJob: "Salary",
+          upTo: "Up to",
+          from: "From",
+          negotiable :"Negotiable"
         },
 
         vi: {
@@ -16,7 +19,10 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           ofJobLikeThis: "các công việc tương tự khác",
           baseOn: "Dựa trên",
           jobs: "việc làm",
-          thisJob: "Việc làm này"
+          thisJob: "Mức lương",
+          upTo: "Tới",
+          from: "Từ",
+          negotiable :"Thương lượng"
         }
       }
     });
