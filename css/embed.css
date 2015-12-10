@@ -337,43 +337,43 @@
 .techlooper-widget .meter-chart .number-chart{
   font-size: 12px;
 }
-.techlooper-widget .meter-chart .number-chart.percent1{
+.techlooper-widget .meter-chart .number-chart.percent10{
   left: 49px;
   bottom: 22px;
 }
-.techlooper-widget .meter-chart .number-chart.dollar1{
+.techlooper-widget .meter-chart .number-chart.dollar10{
   left: -25px;
   bottom: 37px;
 }
-.techlooper-widget .meter-chart .number-chart.percent2{
+.techlooper-widget .meter-chart .number-chart.percent25{
   left: 70px;
   bottom: 55px;
 }
-.techlooper-widget .meter-chart .number-chart.dollar2{
+.techlooper-widget .meter-chart .number-chart.dollar25{
   left: 7px;
   bottom: 88px;
 }
-.techlooper-widget .meter-chart .number-chart.percent3{
+.techlooper-widget .meter-chart .number-chart.percent50{
   left: 130px;
   bottom: 82px;
 }
-.techlooper-widget .meter-chart .number-chart.dollar3{
+.techlooper-widget .meter-chart .number-chart.dollar50{
   left: 124px;
   bottom: 134px;
 }
-.techlooper-widget .meter-chart .number-chart.percent4{
+.techlooper-widget .meter-chart .number-chart.percent75{
   left: 184px;
   bottom: 58px;
 }
-.techlooper-widget .meter-chart .number-chart.dollar4{
+.techlooper-widget .meter-chart .number-chart.dollar75{
   left: 242px;
   bottom: 89px;
 }
-.techlooper-widget .meter-chart .number-chart.percent5{
+.techlooper-widget .meter-chart .number-chart.percent90{
   left: 203px;
   bottom: 32px;
 }
-.techlooper-widget .meter-chart .number-chart.dollar5{
+.techlooper-widget .meter-chart .number-chart.dollar90{
   left: 269px;
   bottom: 52px;
 }

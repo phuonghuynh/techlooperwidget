@@ -5,7 +5,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       return {
         en: {
           thisJobIsBetterThan: "This job is better paid than",
-          ofJobLikeThis: "of jobs like this",
+          ofJobLikeThis: "of similar jobs",
           baseOn: "Based on",
           jobs: "jobs",
           thisJob: "This job"
