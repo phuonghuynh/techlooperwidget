@@ -1,6 +1,7 @@
 if (typeof define === "function" && define.amd && define.amd.jQuery) {
   define([],
     function () {
+      "use strict";
       return {
         en: {
           thisJobIsBetterThan: "This job is better paid than",
