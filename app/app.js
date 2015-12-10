@@ -83,6 +83,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             },
             data: JSON.stringify(config),
             dataType: "json",
+            timeout: 30000,
             success: function (salaryReview) {
               if ($.isNumeric(salaryReview.salaryReport.percentRank)) {
                 app.render(salaryReview, config);
