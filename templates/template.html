@@ -82,7 +82,7 @@
                     <div class="meter-arrow position{{myPositionMeter}}"></div>
                 </div>
                 <div class="current-salary">
-                    {{translation.thisJob}}: ${{salaryReview.netSalary}}
+                    {{translation.thisJob}}{{#if visibleSalary == true}}: ${{salaryReview.netSalary}}{{/if}}
                 </div>
             </div>
         </div>

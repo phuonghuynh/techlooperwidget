@@ -40,7 +40,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               salaryReview: salaryReview,
               salaryRanges: salaryReview.salaryReport.salaryRanges,
               //visibleSalary: true,
-              visibleSalary: salaryReview.visibleSalary,
+              visibleSalary: salaryReview.isSalaryVisible,
               myPositionArrow: myPositionArrow,
               myPositionMeter: myPositionMeter
             }
@@ -65,8 +65,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           }
           //console.log(config);
 
-          var url = "http://staging.techlooper.com/salaryReview";
-          //var url = "http://localhost:8080/salaryReview";
+          //var url = "http://staging.techlooper.com/salaryReview";
+          var url = "http://localhost:8080/salaryReview";
           //$.getJSON("js/salaryReviewSample.json", function (salaryReview) {
           //  app.render(salaryReview);
           //});
@@ -81,7 +81,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             data: JSON.stringify(config),
             dataType: "json",
             success: function (salaryReview) {
-              if (salaryReview.salaryReport.numberOfJobs > 0) {
+              if ($.isNumeric(salaryReview.salaryReport.percentRank)) {
                 app.render(salaryReview, config);
               }
             }
