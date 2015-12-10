@@ -134,7 +134,7 @@ module.exports = function (grunt) {
 
   grunt.task.registerTask("local", "build dev env", function () {
     grunt.config("baseDir", ".");
-    grunt.task.run(["clean", "build"]);
+    grunt.task.run(["clean", "build", "run"]);
   });
 
   grunt.task.registerTask("staging", "build staging env", function () {
