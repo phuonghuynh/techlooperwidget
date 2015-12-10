@@ -1,56 +1,57 @@
+{{#if salaryReview.salaryReport.percentRank !== 'NaN'}}
 <div class="techlooper-widget">
-    <!--<div class="salary-review horizontal">-->
-        <!--<div class="tech-header">-->
-            <!--<div class="col-sm-11">-->
-                <!--<h2>{{translation.thisJobIsBetterThan}} {{salaryReview.salaryReport.percentRank}}% {{translation.ofJobLikeThis}}. <span>{{translation.baseOn}} {{salaryReview.salaryReport.numberOfJobs}} {{translation.jobs}}</span></h2>-->
-            <!--</div>-->
-            <!--<div class="col-sm-01">-->
-                <!--<a href="http://techlooper.com/#/home" target="_blank" class="techlooper-logo" title="Click here go to the TechLooper">TechLooper.com</a>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row salary-chart salary-range-col-0{{salaryRanges.length+1}}">-->
-            <!--<div class="col-sm-12">-->
-                <!--<ul class="salary-list">-->
-                    <!--<li>$0</li>-->
-                    <!--{{#each salaryRanges: i}}-->
-                    <!--<li>${{this.percentile}}</li>-->
-                    <!--{{/each}}-->
-                <!--</ul>-->
-                <!--<ul class="phase-list">-->
-                    <!--<li>-->
-                        <!--<div class="phase-item percent0"></div>-->
-                    <!--</li>-->
-                    <!--{{#salaryRanges: i}}-->
-                    <!--<li>-->
-                        <!--<div class="phase-item percent{{i+1}}"></div>-->
-                    <!--</li>-->
-                    <!--{{/salaryRanges}}-->
-                <!--</ul>-->
-                <!--<ul class="percent-list">-->
-                    <!--<li>0%</li>-->
-                    <!--{{#each salaryRanges: i}}-->
-                    <!--<li>{{this.percent}}%</li>-->
-                    <!--{{/each}}-->
-                <!--</ul>-->
+    <div class="salary-review horizontal">
+        <div class="tech-header">
+            <div class="col-sm-11">
+                <h2>{{translation.thisJobIsBetterThan}} {{salaryReview.salaryReport.percentRank}}% {{translation.ofJobLikeThis}}. <span>{{translation.baseOn}} {{salaryReview.salaryReport.numberOfJobs}} {{translation.jobs}}</span></h2>
+            </div>
+            <div class="col-sm-01">
+                <a href="http://techlooper.com/#/home" target="_blank" class="techlooper-logo" title="Click here go to the TechLooper">TechLooper.com</a>
+            </div>
+        </div>
+        <div class="row salary-chart salary-range-col-0{{salaryRanges.length+1}}">
+            <div class="col-sm-12">
+                <ul class="salary-list">
+                    <li>$0</li>
+                    {{#each salaryRanges: i}}
+                    <li>${{this.percentile}}</li>
+                    {{/each}}
+                </ul>
+                <ul class="phase-list">
+                    <li>
+                        <div class="phase-item percent0"></div>
+                    </li>
+                    {{#salaryRanges: i}}
+                    <li>
+                        <div class="phase-item percent{{i+1}}"></div>
+                    </li>
+                    {{/salaryRanges}}
+                </ul>
+                <ul class="percent-list">
+                    <li>0%</li>
+                    {{#each salaryRanges: i}}
+                    <li>{{this.percent}}%</li>
+                    {{/each}}
+                </ul>
 
-            <!--</div>-->
-            <!--<div class="current-position" style="left: {{myPositionArrow}}px">-->
+            </div>
+            <div class="current-position" style="left: {{myPositionArrow}}px">
 
-                <!--<div class="current-salary">-->
-                    <!--<div class="salary">{{translation.thisJob}}: ${{salaryReview.netSalary}}</div>-->
-                    <!--<div class="arrow">-->
-                        <!--<i class="fa fa-caret-down"></i>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="position">-->
-                    <!--<div class="dot">-->
-                        <!--<i class="circle"></i>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <br/><br/><br/>
+                <div class="current-salary">
+                    <div class="salary">{{translation.thisJob}}: ${{salaryReview.netSalary}}</div>
+                    <div class="arrow">
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                </div>
+                <div class="position">
+                    <div class="dot">
+                        <i class="circle"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
     <div class="salary-review meter">
         <div class="tech-header">
             <div class="col-sm-10">
@@ -88,3 +89,4 @@
         </div>
     </div>
 </div>
+{{/if}}
