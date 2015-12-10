@@ -9,6 +9,7 @@
     "grunt-contrib-requirejs": "latest",
     "grunt-replace": "latest",
     "grunt-contrib-copy": "latest",
+    "grunt-contrib-compress": "latest",
     "matchdep": "latest"
   }
 }

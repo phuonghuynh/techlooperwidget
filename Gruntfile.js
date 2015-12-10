@@ -46,7 +46,7 @@ module.exports = function (grunt) {
           //almond: true,
           include: ['app/_main.js'],
           out: "<%=baseDir%>/embed.min.js",
-          optimize: "none",
+          //optimize: "none",
           stubModules: ['rv', 'amd-loader', 'text']
         }
       }
@@ -117,6 +117,17 @@ module.exports = function (grunt) {
           keepalive: true
         }
       }
+    },
+
+    compress: {
+      target: {
+        options: {
+          archive: "techlooper-widget-<%=env%>.zip"
+        },
+        files: [
+          {expand: true, cwd: 'target/', src: ['**']}
+        ]
+      }
     }
   });
 
@@ -141,7 +152,8 @@ module.exports = function (grunt) {
     grunt.file.mkdir("target");
     grunt.config("src", ".");
     grunt.config("baseDir", "./target");
-    grunt.task.run(["clean", "copy:src", "replace:staging", "build"]);
+    grunt.config("env", "staging");
+    grunt.task.run(["clean", "copy:src", "replace:staging", "build", "compress:target"]);
   });
 
   grunt.task.registerTask("staging-run", "build and run staging env", function () {
@@ -152,6 +164,7 @@ module.exports = function (grunt) {
     grunt.file.mkdir("target");
     grunt.config("src", ".");
     grunt.config("baseDir", "./target");
+    grunt.config("env", "prod");
     grunt.task.run(["clean", "copy:src", "replace:prod", "build"]);
   });
 };
