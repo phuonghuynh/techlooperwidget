@@ -1,7 +1,15 @@
+var baseUrl = (function () {
+  var paths = window.location.pathname.split('/');
+  paths.pop();
+  return window.location.protocol + '//' + window.location.host + paths.join('/');
+})();
+
 var loadCodeSample = function(attrs) {
   attrs = attrs || "";
-  $.get("codeSample.text", function(codeSample) {
-    var wdHtml = codeSample.replace("${attrs}", attrs);
+  $.get("sample/salaryReview.text", function(codeSample) {
+    var wdHtml = codeSample
+      .replace("${baseUrl}", baseUrl)
+      .replace("${attrs}", attrs);
     $("#embedded-container").val(wdHtml);
     $("#widget-preview > div").html(wdHtml);
     $.getScript("/embed.min.js");

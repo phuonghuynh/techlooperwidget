@@ -5,5 +5,6 @@
   include: ['embed'],
   out: "embed.min.js",
   optimizeCss: "standard",
+  optimize: "none",
   stubModules: ['rv', 'amd-loader', 'text']
 })
