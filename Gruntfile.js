@@ -138,9 +138,9 @@ module.exports = function (grunt) {
         options: {
           questions: [
             {
-              config: "selectedProfile", // arbitrary name or config for any other grunt task
-              type: "list", // list, checkbox, confirm, input, password
-              message: "Please choose a profile to build:", // Question to ask the user, function needs to return a string,
+              config: "selectedProfile",
+              type: "list",
+              message: "Please choose a profile to build:",
               choices: [
                 {value: "local", name: "Local - for developer use"},
                 {value: "staging", name: "Staging - for staging use"},
