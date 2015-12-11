@@ -51,7 +51,7 @@ The growth of IT needs is limiting the growth of companies. There is a serious c
 </ul>
 
 #Building the widget
-Assuming [Node!](https://nodejs.org) and [GruntJS!](gruntjs.com) are already installed:
+Assuming [Node](https://nodejs.org) and [GruntJS](gruntjs.com) are already installed:
 ```shell
 $ npm install
 $ grunt
