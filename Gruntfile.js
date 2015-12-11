@@ -119,14 +119,14 @@ module.exports = function (grunt) {
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.task.registerTask("clean", "clean last build", function () {
+  grunt.registerTask("clean", "clean last build", function () {
     grunt.file.delete("target");
     grunt.file.delete("bower_components");
     grunt.file.delete("css/embed.min.css");
     grunt.file.delete("embed.min.js");
   });
 
-  grunt.task.registerTask("clear-target", "clean last build", function () {
+  grunt.registerTask("clear-target", "clean last build", function () {
     grunt.file.delete("target/bower_components");
     grunt.file.delete("target/templates");
   });
@@ -137,12 +137,12 @@ module.exports = function (grunt) {
 
   grunt.registerTask("staging-run", ["staging", "run"]);
 
-  grunt.task.registerTask("local", "build dev env", function () {//build local
+  grunt.registerTask("local", "build dev env", function () {//build local
     grunt.config("baseDir", ".");
     grunt.task.run(["clean", "build", "replace:local", "run"]);
   });
 
-  grunt.task.registerTask("staging", "build staging env", function () {//build staging
+  grunt.registerTask("staging", "build staging env", function () {//build staging
     grunt.file.mkdir("target");
     grunt.config("src", ".");
     grunt.config("baseDir", "./target");
@@ -150,7 +150,7 @@ module.exports = function (grunt) {
     grunt.task.run(["clean", "copy:src", "replace:staging", "build-target"]);
   });
 
-  grunt.task.registerTask("prod", "build prod env", function () {//build prod
+  grunt.registerTask("prod", "build prod env", function () {//build prod
     grunt.file.mkdir("target");
     grunt.config("src", ".");
     grunt.config("baseDir", "./target");
