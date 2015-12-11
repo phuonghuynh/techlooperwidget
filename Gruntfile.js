@@ -146,12 +146,7 @@ module.exports = function (grunt) {
                 {value: "staging", name: "Staging - for staging use"},
                 {value: "staging-run", name: "Staging and start server"},
                 {value: "prod", name: "Production - for" + chalk.bold.yellow(" LIVE") + " use"}
-              ],
-              then: function(results, done) {
-                grunt.log.ok(results);
-                grunt.log.ok(done);
-                return true;
-              }
+              ]
             }
           ]
         }
