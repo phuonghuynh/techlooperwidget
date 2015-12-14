@@ -24,7 +24,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
       $.extend(true, app, {
         render: function (salaryReview, config) {
-          config.$arrowPosition = (($('.salary-chart').width() * salaryReview.salaryReport.percentRank) / 100) - 40;
+          config.$arrowPosition = ((app.$container.width() * salaryReview.salaryReport.percentRank) / 100) - 40;
 
           config.$meterPosition = 0;
           var position = (180 * salaryReview.salaryReport.percentRank / 100);
@@ -80,7 +80,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
           $.ajax({
             type: "POST",
-            url: "@@backendUrl" + "/widget/salaryReview",
+            url: "@@backendUrl" + "/salaryReview",
             headers: {
               "Accept": "application/json",
               "Content-Type": "application/json"
