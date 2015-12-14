@@ -14,8 +14,9 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             min_nmax: "From $%min", //has min & not max
             nmin_max: "Up to $%max", //not min & has max
             nmin_nmax: "Negotiable" //not min & not max
-          }
-        },
+          },
+          noDataChart : "No data available now"
+    },
 
         vi: {
           thisJobIsBetterThan: "Công việc này có mức lương cao hơn",
@@ -28,7 +29,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             min_nmax: "Từ $%s", //has min & not max
             nmin_max: "Tới $%s", //not min & has max
             nmin_nmax: "Thương lượng" //not min & not max
-          }
+          },
+          noDataChart: "Không có dữ liệu"
         }
       }
     });

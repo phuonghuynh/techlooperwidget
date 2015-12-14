@@ -57,7 +57,13 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             }
           });
         },
-
+        noData: function(){
+          app.$container.html('');
+          var lang = (app.$container.data('lang') == "vi" ? "vi" : "en");
+          var translation = translate[lang];
+          var noDataChart = translation.noDataChart;
+          app.$container.append('<p>' + noDataChart + '</p>')
+        },
         init: function () {
           Ractive.DEBUG = false;
           var $style = $("<style></style>", {type: "text/css"});
@@ -91,6 +97,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             success: function (salaryReview) {
               if ($.isNumeric(salaryReview.salaryReport.percentRank)) {
                 app.render(salaryReview, config);
+              }else{
+                app.noData();
               }
             }
           });
