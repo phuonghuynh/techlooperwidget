@@ -1,5 +1,6 @@
 {
   "name": "techlooper-widget",
+  "$version": "1.0",
   "devDependencies": {
     "grunt": "latest",
     "grunt-cli": "latest",
@@ -10,6 +11,9 @@
     "grunt-replace": "latest",
     "grunt-contrib-copy": "latest",
     "grunt-contrib-compress": "latest",
+    "chalk": "latest",
+    "inquirer": "latest",
+    "grunt-prompt": "latest",
     "matchdep": "latest"
   }
 }
