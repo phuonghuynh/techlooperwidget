@@ -39,7 +39,9 @@ var changeConfig = function () {
 
   if (tlwFormValidator.form()) {
     updateSampleConfig(attrs);
-    //preview();
+  }
+  else {
+    $("#widget-preview > div").html("");
   }
 }
 
@@ -48,7 +50,7 @@ $(function () {
     errorElement: "span",
     rules: {
       jobTitle: {required: true},
-      jobSalary: {required: true}
+      jobSalary: {required: true, number: true}
     },
     errorPlacement: function (error, element) {
       error.appendTo(element.parents('.form-group'));
@@ -63,7 +65,7 @@ $(function () {
     changeConfig();
   });
 
-  $("input[type=radio][data-prop]").change(function() {
+  $("input[type=radio][data-prop]").change(function () {
     changeConfig();
   });
 
