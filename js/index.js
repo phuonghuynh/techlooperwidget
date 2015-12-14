@@ -13,14 +13,9 @@ var updateSampleConfig = function (attrs) {
       .replace("${baseUrl}", baseUrl)
       .replace("${attrs}", attrs);
     $("#embedded-container").val(wdHtml);
-  });
-}
-
-var preview = function () {
-  if (tlwFormValidator.form()) {
     $("#widget-preview > div").html($("#embedded-container").val());
     $.getScript("/embed.min.js");
-  }
+  });
 }
 
 var changeConfig = function () {
@@ -44,6 +39,7 @@ var changeConfig = function () {
 
   if (tlwFormValidator.form()) {
     updateSampleConfig(attrs);
+    //preview();
   }
 }
 
@@ -67,9 +63,8 @@ $(function () {
     changeConfig();
   });
 
-  $("button.preview").click(function () {
+  $("input[type=radio][data-prop]").change(function() {
     changeConfig();
-    preview();
   });
 
   $("a.advance").click(function () {
@@ -78,7 +73,6 @@ $(function () {
   });
 
   changeConfig();
-  preview();
   $("div.advanced-plugin").toggle();
 });
 
