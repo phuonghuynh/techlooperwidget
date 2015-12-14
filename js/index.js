@@ -17,8 +17,10 @@ var updateSampleConfig = function (attrs) {
 }
 
 var preview = function () {
-  $("#widget-preview > div").html($("#embedded-container").val());
-  $.getScript("/embed.min.js");
+  if (tlwFormValidator.form()) {
+    $("#widget-preview > div").html($("#embedded-container").val());
+    $.getScript("/embed.min.js");
+  }
 }
 
 var changeConfig = function () {
