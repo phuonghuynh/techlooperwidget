@@ -68,17 +68,13 @@
             <div class="col-sm-12 meter-chart-version">
                 <div class="meter-chart">
                     <div class="meter-images"></div>
-                    <div class="number-chart percent0">0%</div>
+                    {{#if visibleSalary == true}}
                         <div class="number-chart dollar0">$0</div>
                         {{#each salaryRanges: i}}
-                            <div class="number-chart percent{{salaryRanges[i].percent}}">{{salaryRanges[i].percent}}%</div>
-                            {{#if visibleSalary == true}}
-                                <div class="number-chart dollar{{salaryRanges[i].percent}}">${{salaryRanges[i].percentile}}</div>
-                            {{/if}}
+                            <div class="number-chart dollar{{salaryRanges[i].percent}}">${{salaryRanges[i].percentile}}</div>
                         {{/each}}
-
-                    <div class="number-chart percent6">100%</div>
-                    <div class="meter-arrow position{{meterPosition}}"></div>
+                        <div class="meter-arrow position{{meterPosition}}"></div>
+                    {{/if}}
                 </div>
                 <div class="current-salary">
                     {{translation.thisJob}}: {{salaryLabel}}
