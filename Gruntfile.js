@@ -49,7 +49,7 @@ module.exports = function (grunt) {
           //almond: true,
           include: ['app/_main.js'],
           out: "<%=baseDir%>/embed.min.js",
-          //optimize: "none",
+          optimize: "none",
           stubModules: ['rv', 'amd-loader', 'text']
         }
       }
@@ -115,9 +115,9 @@ module.exports = function (grunt) {
     },
 
     watch: {
-      scripts: {files: ["*.js", "*.json"], options: {livereload: true}},
-      markup: {files: ["*.html"], options: {livereload: true}},
-      stylesheets: {files: ["*.css"], options: {livereload: true}}
+      scripts: {files: ["**/*.js", "**/*.json"], options: {livereload: true}},
+      markup: {files: ["**/*.html"], options: {livereload: true}},
+      stylesheets: {files: ["**/*.css"], options: {livereload: true}}
     },
 
     connect: {
@@ -145,7 +145,8 @@ module.exports = function (grunt) {
                 {value: "local", name: "Local - for developer use"},
                 {value: "staging", name: "Staging - for staging use"},
                 {value: "staging-run", name: "Staging and start server"},
-                {value: "prod", name: "Production - for" + chalk.bold.yellow(" LIVE") + " use"}
+                {value: "prod", name: "Production - for " + chalk.bold.yellow("LIVE") + " use"},
+                {value: "exit", name: "Exit"}
               ]
             }
           ]
@@ -158,8 +159,13 @@ module.exports = function (grunt) {
 
   grunt.registerTask("default", ["prompt:build", "invoke-build"])
 
-  grunt.registerTask("invoke-build", "invoke the build of selected profile", function() {
+  grunt.registerTask("invoke-build", "invoke the build of selected profile", function () {
     var profile = grunt.config("selectedProfile");
+    if (profile == "exit") {
+      grunt.log.ok("Nothing to build, exit the app!");
+      return false;
+    }
+
     grunt.log.ok("Invoke the build of selected profile " + chalk.cyan(profile));
     grunt.task.run(profile);
   });

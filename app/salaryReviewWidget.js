@@ -1,5 +1,5 @@
 if (typeof define === "function" && define.amd && define.amd.jQuery) {
-  define(["jquery", "ractive", "rv!templates/template", "text!css/embed.min.css", "app/translate"],
+  define(["jquery", "ractive", "rv!templates/salaryReview", "text!css/embed.min.css", "app/translate"],
     function ($, Ractive, mainTemplate, css, translate) {
       "use strict";
       $.noConflict(true);
@@ -11,12 +11,12 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       var preferMeterValues = [170, 162, 148, 135, 112, 90, 67, 45, 31, 18, 8];
       var mapProperties = {
         jobId: "techlooperJobId",
-        jobCategories: function(vals) {
+        jobCategories: function (vals) {
           if (!vals) return [];
           vals = "" + vals;
-          return vals.split(",").map(function(v) {return parseInt(v);});
+          return vals.split(",").map(function (v) {return parseInt(v);});
         },
-        skills: function(vals) {
+        skills: function (vals) {
           if (!vals) return [];
           return vals.split(",");
         }
@@ -24,35 +24,24 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
       $.extend(true, app, {
         render: function (salaryReview, config) {
-          var myPositionArrow = (($('.salary-chart').width() * salaryReview.salaryReport.percentRank) / 100) - 40;
+          config.$arrowPosition = (($('.salary-chart').width() * salaryReview.salaryReport.percentRank) / 100) - 40;
 
-          var myPositionMeter = 0;
+          config.$meterPosition = 0;
           var position = (180 * salaryReview.salaryReport.percentRank / 100);
-          $.each(preferMeterValues, function(i, preferValue) {
+          $.each(preferMeterValues, function (i, preferValue) {
             if (position >= preferValue) {
-              myPositionMeter = preferMeterValues.length - i;
+              config.$meterPosition = preferMeterValues.length - i;
               return false;
             }
           });
-          myPositionMeter = Math.max(myPositionMeter, 1);
-          var translation =translate[app.$container.data('lang')];
-          var salaryLabel = '';
+          config.$meterPosition = Math.max(config.$meterPosition, 1);
 
-          if(salaryReview.salaryMax != null){
-            if(salaryReview.salaryMin == null){
-              salaryLabel = translation.upTo+ ' $' + salaryReview.salaryMax;
-            }
-            else{
-              salaryLabel = '$'+salaryReview.salaryMin+ ' - $' + salaryReview.salaryMax;
-            }
-          }
-          else{
-            if(salaryReview.salaryMin != null){
-              salaryLabel = translation.from+ ' $'+ salaryReview.salaryMin;
-            }else{
-              salaryLabel = translation.negotiable;
-            }
-          }
+          var lang = (app.$container.data('lang') == "vi" ? "vi" : "en");
+          var translation = translate[lang];
+          var min = $.isNumeric(salaryReview.salaryMin) ? "min" : "nmin";
+          var max = $.isNumeric(salaryReview.salaryMax) ? "max" : "nmax";
+          config.$salaryLabel = translation.salaryLabel[min + "_" + max].replace("%min", salaryReview.salaryMin).replace("%max", salaryReview.salaryMax);
+
           this.ractive = new Ractive({
             el: app.$container.attr("id"),
             template: mainTemplate,
@@ -60,11 +49,11 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               translation: translation,
               salaryReview: salaryReview,
               salaryRanges: salaryReview.salaryReport.salaryRanges,
-              //visibleSalary: true,
-              visibleSalary: salaryReview.isSalaryVisible,
-              myPositionArrow: myPositionArrow,
-              myPositionMeter: myPositionMeter,
-              currentSalary: salaryLabel
+              visibleSalary: config.salaryVisible || salaryReview.isSalaryVisible,
+              widgetFormat: config.widgetFormat,//"arrow" / "meter"
+              arrowPosition: config.$arrowPosition,
+              meterPosition: config.$meterPosition,
+              salaryLabel: config.$salaryLabel
             }
           });
         },
@@ -87,16 +76,9 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           }
           //console.log(config);
 
-          var url = "@@backendUrl" + "/salaryReview";
-          //var url = "http://staging.techlooper.com/salaryReview";
-          //var url = "http://localhost:8080/salaryReview";
-          //$.getJSON("js/salaryReviewSample.json", function (salaryReview) {
-          //  app.render(salaryReview);
-          //});
-
           $.ajax({
             type: "POST",
-            url: url,
+            url: "@@backendUrl" + "/salaryReview",
             headers: {
               "Accept": "application/json",
               "Content-Type": "application/json"

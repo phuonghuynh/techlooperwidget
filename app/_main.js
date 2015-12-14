@@ -1,6 +1,6 @@
-require(["jquery", "app/app"], function ($, app) {
+require(["jquery", "app/salaryReviewWidget"], function ($, salaryReviewWidget) {
   "use strict";
   $(function () {
-    app.init();
+    salaryReviewWidget.init();
   });
 });

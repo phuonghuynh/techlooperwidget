@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="shortcut icon" href="icon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="images/icon.ico" type="image/x-icon"/>
 
   <title>TechLooper | Career Analytics. Open Source. Awesome!</title>
   <meta name="description" content="Techlooper is a Career Analytics">
@@ -33,6 +33,7 @@
   <link rel="stylesheet" type="text/css" href="css/select2.min.css">
 
   <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
   <script type="text/javascript" src="js/select2.full.min.js"></script>
 
 </head>
@@ -109,22 +110,23 @@
               <form class="form-horizontal tlwForm">
                 <div class="box box-md customize-techlooper-widget">
                   <h3>Customize your plugin</h3>
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label" for="jobId">Job Id <strong>*</strong></label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="jobId" data-prop="job-id"/>
-                    </div>
-                  </div>
+                  <!--<div class="form-group">-->
+                    <!--<label class="col-sm-3 control-label" for="jobId">Job Id</label>-->
+                    <!--<div class="col-sm-9">-->
+                      <!--<input type="text" class="form-control" id="jobId" data-prop="job-id"/>-->
+                    <!--</div>-->
+                  <!--</div>-->
                   <div class="form-group">
                     <label class="col-sm-3 control-label" for="jobTitle">Job Title <strong>*</strong></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="jobTitle" data-prop="job-title"/>
+                      <input name="jobTitle" type="text" class="form-control" id="jobTitle" data-prop="job-title" value="Java Developer" />
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label" for="jobLevel">Job Level <strong>*</strong></label>
+                    <label class="col-sm-3 control-label" for="jobLevel">Job Level</label>
                     <div class="col-sm-9">
-                      <select id="jobLevel" data-prop="job-level-ids">
+                      <select name="jobLevel" id="jobLevel" data-prop="job-level-ids">
+                        <option value="-1">All job levels</option>
                         <option value="[1]">Entry</option>
                         <option value="[5,6]">Experienced</option>
                         <option value="[7]">Manager</option>
@@ -213,35 +215,35 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label" for="jobSalary">Salary(USD) <strong>*</strong></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="jobSalary" data-prop="net-salary"/>
+                      <input type="text" class="form-control" id="jobSalary" data-prop="net-salary" name="jobSalary" value="1000"/>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Salary Visibility <strong>*</strong></label>
+                    <label class="col-sm-3 control-label">Salary Visibility</label>
                     <div class="col-sm-9">
                       <div class="col-sm-6">
                         <label class="radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="radShown" value="option1"> Shown
+                          <input data-prop="salary-visible" type="radio" name="salaryVisible" value="true" checked> Shown
                         </label>
                       </div>
                       <div class="col-sm-6">
                         <label class="radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="radHidden" value="option2"> Hidden
+                          <input data-prop="salary-visible" type="radio" name="salaryVisible" value="false"> Hidden
                         </label>
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Format <strong>*</strong></label>
+                    <label class="col-sm-3 control-label">Format</label>
                     <div class="col-sm-9">
                       <div class="col-sm-6">
                         <label class="radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="radHorizontal" value="option1"> Arrow
+                          <input data-prop="widget-format" type="radio" name="widgetFormat" value="arrow" checked> Arrow
                         </label>
                       </div>
                       <div class="col-sm-6">
                         <label class="radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="radVertical" value="option2"> Meter
+                          <input  data-prop="widget-format" type="radio" name="widgetFormat" value="meter"> Meter
                         </label>
                       </div>
                     </div>
@@ -261,7 +263,7 @@
                   <!--</div>-->
 
                   <div class="form-group">
-                    <a href="#">Advanced</a>
+                    <a class="advance">Advanced</a>
                   </div>
                   <div class="advanced-plugin">
                     <div class="form-group">
@@ -345,16 +347,16 @@
                         <div class="border-text-box">
                           <select id="jobLang" class="form-control" data-prop="lang">
                             <option value="vi">Tiếng Việt</option>
-                            <option value=en>English</option>
+                            <option value="en" selected>English</option>
                           </select>
                         </div>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <div class="col-sm-3"></div>
-                      <div class="col-sm-9">
-                        <button type="button" class="btn btn-default">Review</button>
-                      </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-9">
+                      <button type="button" class="btn btn-default preview">Review</button>
                     </div>
                   </div>
                 </div>

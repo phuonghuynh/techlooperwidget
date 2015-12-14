@@ -9,9 +9,12 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           baseOn: "Based on",
           jobs: "jobs",
           thisJob: "Salary",
-          upTo: "Up to",
-          from: "From",
-          negotiable :"Negotiable"
+          salaryLabel: {
+            min_max: "$%min - $%max", //has min & max
+            min_nmax: "From $%min", //has min & not max
+            nmin_max: "Up to $%max", //not min & has max
+            nmin_nmax: "Negotiable" //not min & not max
+          }
         },
 
         vi: {
@@ -20,9 +23,12 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           baseOn: "Dựa trên",
           jobs: "việc làm",
           thisJob: "Mức lương",
-          upTo: "Tới",
-          from: "Từ",
-          negotiable :"Thương lượng"
+          salaryLabel: {
+            min_max: "$%s - $%s", //has min & max
+            min_nmax: "Từ $%s", //has min & not max
+            nmin_max: "Tới $%s", //not min & has max
+            nmin_nmax: "Thương lượng" //not min & not max
+          }
         }
       }
     });
