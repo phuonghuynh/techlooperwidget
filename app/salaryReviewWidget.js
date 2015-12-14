@@ -80,7 +80,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
           $.ajax({
             type: "POST",
-            url: "@@backendUrl" + "/salaryReview",
+            url: "@@backendUrl" + "/widget/salaryReview",
             headers: {
               "Accept": "application/json",
               "Content-Type": "application/json"
