@@ -65,6 +65,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           $("head").append($style);
 
           var config = app.$container.data();
+          if (!config) return false;
+
           for (var prop in mapProperties) {
             var mapProperty = mapProperties[prop];
             if ($.isFunction(mapProperty)) {

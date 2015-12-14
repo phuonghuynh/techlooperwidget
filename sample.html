@@ -3,17 +3,50 @@
   <meta charset="utf-8">
 </head>
 <body>
-<div data-job-id="620961" data-job-title="Java Developer" data-net-salary="1000" data-salary-visible="true" data-widget-format="arrow" data-lang="en"  id="tlw">
+
+<div data-job-title="Java Developer" data-net-salary="1000" data-salary-visible="true" data-widget-format="arrow" data-lang="en"  id="tlw1">
   <script type="text/javascript">
-    (function (window, document) {
-      var loader = function () {
-        var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
-        script.src = "http://localhost:8000/embed.min.js?v=1.0";
-        tag.parentNode.insertBefore(script, tag);
+    console.log(window.$tlws);
+    window.$tlws = (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.$tlws || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "http://localhost:8000/embed.min.js?v=1.0";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function (f) {
+        t._e.push(f);
       };
-      window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-    })(window, document);
+
+      return t;
+    }(document, "script", "$tlws"));
   </script>
 </div>
+
+<div data-job-title=".Net Developer" data-net-salary="1000" data-salary-visible="true" data-widget-format="arrow" data-lang="en"  id="tlw2">
+  <script type="text/javascript">
+    console.log(window.$tlws);
+    window.$tlws = (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.$tlws || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "http://localhost:8000/embed.min.js?v=1.0";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function (f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "$tlws"));
+  </script>
+</div>
+
 </body>
 </html>

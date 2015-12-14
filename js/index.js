@@ -8,7 +8,7 @@ var tlwFormValidator = undefined;
 
 var updateSampleConfig = function (attrs) {
   attrs = attrs || "";
-  $.get("sample/salaryReview.text", function (codeSample) {
+  $.get("sample/sampleSalaryReview.html", function (codeSample) {
     var wdHtml = codeSample
       .replace("${baseUrl}", baseUrl)
       .replace("${attrs}", attrs);
