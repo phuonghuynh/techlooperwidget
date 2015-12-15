@@ -175,10 +175,10 @@
   left: 200px;
   top: 52px;
   text-align: center;
-  width: 150px;
+  width: auto;
 }
 .techlooper-widget .current-position .current-salary{
-  width: 150px;
+  width: 100%;
 }
 .techlooper-widget .current-salary .salary{
   display: inline-block;
@@ -193,7 +193,8 @@
   width: 100%;
   clear: both;
   position: relative;
-  left: 67px;
+  left: 0;
+  right: 0;
   bottom: -9px;
 }
 .techlooper-widget .current-salary .arrow i{
@@ -205,6 +206,7 @@
   top: -10px;
   width: 15px;
   height: 8px;
+  margin: auto;
 }
 .techlooper-widget .current-position .position{
   width: 100%;
