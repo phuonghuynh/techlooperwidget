@@ -142,10 +142,10 @@ module.exports = function (grunt) {
               type: "list",
               message: "Please choose a profile to build:",
               choices: [
-                {value: "local", name: "Local - for developer use"},
-                {value: "staging", name: "Staging - for staging use"},
-                {value: "staging-run", name: "Staging and start server"},
-                {value: "prod", name: "Production - for " + chalk.bold.yellow("LIVE") + " use"},
+                {value: "local", name: "Local"},
+                {value: "staging", name: "Staging"},
+                {value: "staging-run", name: "Staging & start-server"},
+                {value: "prod", name: "Production - " + chalk.bold.yellow("LIVE")},
                 {value: "exit", name: "Exit"}
               ]
             }
