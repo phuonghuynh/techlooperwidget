@@ -4,8 +4,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       "use strict";
       $.noConflict(true);
 
-      var app = {};
-      app.$container = $("#tlw");
+      var widget = {};
+      widget.$container = $("#tlw");
 
       //const values used to calculate salary-review data
       var preferMeterValues = [170, 162, 148, 135, 112, 90, 67, 45, 31, 18, 8];
@@ -22,9 +22,12 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
         }
       }
 
-      $.extend(true, app, {
+      var lang = (widget.$container.data('lang') == "vi" ? "vi" : "en");
+      var translation = translate[lang];
+
+      $.extend(true, widget, {
         render: function (salaryReview, config) {
-          config.$arrowPosition = ((app.$container.width() * salaryReview.salaryReport.percentRank) / 100) - 40;
+          config.$arrowPosition = ((widget.$container.width() * salaryReview.salaryReport.percentRank) / 100) - 40;
 
           config.$meterPosition = 0;
           var position = (180 * salaryReview.salaryReport.percentRank / 100);
@@ -36,14 +39,12 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           });
           config.$meterPosition = Math.max(config.$meterPosition, 1);
 
-          var lang = (app.$container.data('lang') == "vi" ? "vi" : "en");
-          var translation = translate[lang];
           var min = $.isNumeric(salaryReview.salaryMin) ? "min" : "nmin";
           var max = $.isNumeric(salaryReview.salaryMax) ? "max" : "nmax";
           config.$salaryLabel = translation.salaryLabel[min + "_" + max].replace("%min", salaryReview.salaryMin).replace("%max", salaryReview.salaryMax);
 
           this.ractive = new Ractive({
-            el: app.$container.attr("id"),
+            el: widget.$container.attr("id"),
             template: mainTemplate,
             data: {
               translation: translation,
@@ -57,54 +58,41 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             }
           });
         },
-        noData: function(){
-          app.$container.html('');
-          var lang = (app.$container.data('lang') == "vi" ? "vi" : "en");
-          var translation = translate[lang];
-          var noDataChart = translation.noDataChart;
-          app.$container.append('<p>' + noDataChart + '</p>')
-        },
+
         init: function () {
           Ractive.DEBUG = false;
           var $style = $("<style></style>", {type: "text/css"});
           $style.text(css);
           $("head").append($style);
 
-          var config = app.$container.data();
-          if (!config) return false;
+          var config = widget.$container.data();
+          if (!config) {return false;}
 
           for (var prop in mapProperties) {
-            var mapProperty = mapProperties[prop];
-            if ($.isFunction(mapProperty)) {
-              config[prop] = mapProperty(config[prop]);
-            }
-            else {
-              config[mapProperty] = config[prop];
-            }
+            var mapProp = mapProperties[prop];
+            $.isFunction(mapProp) ? (config[prop] = mapProp(config[prop])) : (config[mapProp] = config[prop]);
           }
           //console.log(config);
 
           $.ajax({
             type: "POST",
             url: "@@backendUrl" + "/widget/salaryReview",
-            headers: {
-              "Accept": "application/json",
-              "Content-Type": "application/json"
-            },
+            headers: {"Accept": "application/json", "Content-Type": "application/json"},
             data: JSON.stringify(config),
             dataType: "json",
             timeout: 30000,
             success: function (salaryReview) {
               if ($.isNumeric(salaryReview.salaryReport.percentRank)) {
-                app.render(salaryReview, config);
-              }else{
-                app.noData();
+                return widget.render(salaryReview, config);
               }
+
+              widget.$container.html("");
+              widget.$container.append("<p>" + translation.noDataChart + "</p>")
             }
           });
         }
       });
 
-      return app;
+      return widget;
     });
 }

@@ -1,9 +1,7 @@
 module.exports = function (grunt) {
-  var timestamp = Date.now();
-  var chalk = require('chalk');
-
   grunt.file.defaultEncoding = "utf8";
 
+  var chalk = require('chalk');
   var pkgJson = require('./package.json');
   var version = pkgJson.$version;
 
@@ -215,5 +213,4 @@ module.exports = function (grunt) {
     grunt.log.ok("Building" + chalk.cyan(" PRODUCTION ") + "environment");
     grunt.task.run(["clean", "copy:src", "replace:prod", "build-target"]);
   });
-
 };
