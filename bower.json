@@ -1,0 +1,11 @@
+{
+  "name": "techlooper-widget",
+  "dependencies": {
+    "almond": "latest",
+    "requirejs": "latest",
+    "text": "latest",
+    "jquery": "latest",
+    "ractive": "latest",
+    "rv": "latest"
+  }
+}
