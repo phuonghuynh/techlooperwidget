@@ -1,9 +1,7 @@
 module.exports = function (grunt) {
-  var timestamp = Date.now();
-  var chalk = require('chalk');
-
   grunt.file.defaultEncoding = "utf8";
 
+  var chalk = require('chalk');
   var pkgJson = require('./package.json');
   var version = pkgJson.$version;
 
@@ -142,10 +140,10 @@ module.exports = function (grunt) {
               type: "list",
               message: "Please choose a profile to build:",
               choices: [
-                {value: "local", name: "Local - for developer use"},
-                {value: "staging", name: "Staging - for staging use"},
-                {value: "staging-run", name: "Staging and start server"},
-                {value: "prod", name: "Production - for " + chalk.bold.yellow("LIVE") + " use"},
+                {value: "local", name: "Local"},
+                {value: "staging", name: "Staging"},
+                {value: "staging-run", name: "Staging & start-server"},
+                {value: "prod", name: "Production - " + chalk.bold.yellow("LIVE")},
                 {value: "exit", name: "Exit"}
               ]
             }
@@ -215,5 +213,4 @@ module.exports = function (grunt) {
     grunt.log.ok("Building" + chalk.cyan(" PRODUCTION ") + "environment");
     grunt.task.run(["clean", "copy:src", "replace:prod", "build-target"]);
   });
-
 };
