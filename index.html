@@ -31,10 +31,12 @@
   <!--CSS and JS-->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="css/easy-autocomplete.min.css">
 
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery.validate.min.js"></script>
   <script type="text/javascript" src="js/select2.full.min.js"></script>
+  <script type="text/javascript" src="js/jquery.easy-autocomplete.min.js"></script>
 
 </head>
 <body>
@@ -144,7 +146,7 @@
                     <!--</div>-->
                   <!--</div>-->
                   <div class="form-group">
-                    <label class="col-sm-3 control-label" for="jobTitle">Job Title <strong>*</strong></label>
+                    <label class="col-sm-3 control-label">Job Title <strong>*</strong></label>
                     <div class="col-sm-9">
                       <input name="jobTitle" type="text" class="form-control" id="jobTitle" data-prop="job-title" value="Java Developer" />
                     </div>
@@ -282,9 +284,9 @@
                     <div class="form-group">
                       <label class="col-sm-3 control-label" for="jobSkill">Skill</label>
                       <div class="col-sm-9">
-                        <!--<input type="text" id="jobSkill" class="form-control" placeholder="Maven"/>-->
-                        <select id="jobSkill" class="form-control tags" multiple data-prop="skills">
-                        </select>
+                        <input type="text" id="jobSkill" class="form-control" data-prop="skills" />
+                        <!--<select id="jobSkill" class="form-control" multiple data-prop="skills">-->
+                        <!--</select>-->
                       </div>
                     </div>
                     <div class="form-group">

@@ -90,8 +90,6 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               widget.$container.html("");
               widget.$container.append("<p>" + translation.noDataChart + "</p>")
             }
-          }).done(function() {
-
           });
         }
       });
