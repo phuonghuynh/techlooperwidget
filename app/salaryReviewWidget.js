@@ -28,12 +28,12 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       $.extend(true, widget, {
         render: function (salaryReview, config) {
           if(salaryReview.salaryReport.percentRank > 92){
-            config.$arrowPosition = widget.$container.width() - 225;
+            $('.current-position').addClass('right-position');
           }else{
             if(salaryReview.salaryReport.percentRank < 10){
-              config.$arrowPosition = 0;
+              $('.current-position').addClass('left-position');
             }else{
-              config.$arrowPosition = ((widget.$container.width() * salaryReview.salaryReport.percentRank) / 100) - 100;
+              config.$arrowPosition = ((widget.$container.width() * salaryReview.salaryReport.percentRank) / 100) - 65;
             }
           }
           config.$meterPosition = 0;

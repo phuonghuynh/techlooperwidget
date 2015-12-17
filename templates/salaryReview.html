@@ -34,6 +34,35 @@
                         {{/each}}
                     </div>
                     <div class="arrow-right"></div>
+                    {{#if salaryReview.salaryReport.percentRank > 85}}
+                    <div class="current-position right-position">
+                        <div class="current-salary">
+                            <div class="salary">{{translation.thisJob}}: {{salaryLabel}}</div>
+                            <div class="arrow">
+                                <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="position">
+                            <div class="dot">
+                                <i class="circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    {{elseif salaryReview.salaryReport.percentRank < 10}}
+                    <div class="current-position left-position">
+                        <div class="current-salary">
+                            <div class="salary">{{translation.thisJob}}: {{salaryLabel}}</div>
+                            <div class="arrow">
+                                <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="position">
+                            <div class="dot">
+                                <i class="circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    {{else}}
                     <div class="current-position" style="left: {{arrowPosition}}px">
                         <div class="current-salary">
                             <div class="salary">{{translation.thisJob}}: {{salaryLabel}}</div>
@@ -47,6 +76,8 @@
                             </div>
                         </div>
                     </div>
+                    {{/if}}
+
                 </div>
             </div>
 
