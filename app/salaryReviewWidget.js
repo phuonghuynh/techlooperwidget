@@ -39,8 +39,10 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           });
           config.$meterPosition = Math.max(config.$meterPosition, 1);
 
-          var min = $.isNumeric(salaryReview.salaryMin) ? "min" : "nmin";
-          var max = $.isNumeric(salaryReview.salaryMax) ? "max" : "nmax";
+          salaryReview.salaryMin = "" + salaryReview.salaryMin;
+          salaryReview.salaryMax = "" + salaryReview.salaryMax;
+          var min = ($.isNumeric(salaryReview.salaryMin) && salaryReview.salaryMin != "0") ? "min" : "nmin";
+          var max = ($.isNumeric(salaryReview.salaryMax) && salaryReview.salaryMax != "0") ? "max" : "nmax";
           config.$salaryLabel = translation.salaryLabel[min + "_" + max].replace("%min", salaryReview.salaryMin).replace("%max", salaryReview.salaryMax);
 
           this.ractive = new Ractive({
