@@ -88,7 +88,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
                 return widget.render(salaryReview, config);
               }
               widget.$container.html("");
-              widget.$container.append("<p>" + translation.noDataChart + "</p>")
+              widget.$container.append("<p>" + translation.noDataChart + ' <strong>'+salaryReview.jobTitle + "</strong></p>")
             }
           }).done(function() {
 
