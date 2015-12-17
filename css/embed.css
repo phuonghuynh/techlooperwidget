@@ -106,9 +106,10 @@
   width: 100%;
   clear: both;
   display: inline-block;
+  min-height: 250px;
 }
 .techlooper-widget .salary-review.horizontal{
-  padding: 30px;
+  padding: 15px;
   display: inline-block;
 }
 .techlooper-widget .salary-review.meter{
@@ -176,7 +177,7 @@
 .techlooper-widget .current-position{
   position: absolute;
   left: 200px;
-  top: 52px;
+  top: 6px;
   text-align: center;
   width: auto;
 }
@@ -268,28 +269,25 @@
   height: 8px;
   padding-left: 0
 }
+.techlooper-widget .salary-chart ul.phase-list li:nth-child(1){
+  width: 10%;
+}
+.techlooper-widget .salary-chart ul.phase-list li:nth-child(2){
+  width: 15%;
+}
+.techlooper-widget .salary-chart ul.phase-list li:nth-child(3){
+  width: 25%;
+}
+.techlooper-widget .salary-chart ul.phase-list li:nth-child(4){
+  width: 25%;
+}
+.techlooper-widget .salary-chart ul.phase-list li:nth-child(5){
+  width: 15%;
+}
 .techlooper-widget .salary-chart ul.phase-list .phase-item{
   width: 100%;
   height: 9px;
   float: left;
-}
-.techlooper-widget .salary-chart.salary-range-col-02 ul li{
-  width: 50%;
-}
-.techlooper-widget .salary-chart.salary-range-col-03 ul li{
-  width: 33%;
-}
-.techlooper-widget .salary-chart.salary-range-col-03 ul li:last-child{
-  width: 34.005%;
-}
-.techlooper-widget .salary-chart.salary-range-col-04 ul li{
-  width: 25%;
-}
-.techlooper-widget .salary-chart.salary-range-col-05 ul li{
-  width: 20%;
-}
-.techlooper-widget .salary-chart.salary-range-col-06 ul li{
-  width: 16.6666666667%;
 }
 .techlooper-widget .phase-item.percent0{
   background-color: #c6e6fe;
@@ -319,6 +317,24 @@
 }
 .techlooper-widget .salary-review ul.percent-list li{
   padding-top: 5px;
+}
+.techlooper-widget .salary-chart ul.percent-list li.dollar0{
+  width: 10%;
+}
+.techlooper-widget .salary-chart ul.percent-list li.dollar10{
+  width: 15%;
+}
+.techlooper-widget .salary-chart ul.percent-list li.dollar25{
+  width: 25%;
+}
+.techlooper-widget .salary-chart ul.percent-list li.dollar50{
+  width: 50%;
+}
+.techlooper-widget .salary-chart ul.percent-list li.dollar75{
+  width: 25%;
+}
+.techlooper-widget .salary-chart ul.percent-list li.dollar90{
+  width: 15%;
 }
 /* ----- meter version ----- */
 .techlooper-widget .meter-chart-version{
@@ -812,4 +828,97 @@
   100% {
     opacity: 1;
   }
+}
+.arrow-chart-version{
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  position: relative;
+}
+.arrow-chart-version .current-position{
+  position: absolute;
+  z-index: 999;
+}
+.arrow-chart-version .arrow-line{
+  width: 95%;
+  float: left;
+  display: inline-block;
+  height: 70px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAANCAYAAABo1wTyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDRDAxQkZGRDlDRjYxMUU1QTRFREQ0RTlFM0IyQUY1NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDRDAxQkZGRTlDRjYxMUU1QTRFREQ0RTlFM0IyQUY1NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNEMDFCRkZCOUNGNjExRTVBNEVERDRFOUUzQjJBRjU2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNEMDFCRkZDOUNGNjExRTVBNEVERDRFOUUzQjJBRjU2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+b0/B9QAAACFJREFUeNpi+P//PwMTAxAgCOYtvy3+o4mBCQYsigECDABwjgj4kfvRswAAAABJRU5ErkJggg==) left 49px repeat-x;
+}
+.arrow-chart-version .arrow-right{
+  width: 5%;
+  float: left;
+  display: inline-block;
+  height: 70px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAANCAYAAADrEz3JAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDRDAxQkZGOTlDRjYxMUU1QTRFREQ0RTlFM0IyQUY1NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDRDAxQkZGQTlDRjYxMUU1QTRFREQ0RTlFM0IyQUY1NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNEMDFCRkY3OUNGNjExRTVBNEVERDRFOUUzQjJBRjU2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNEMDFCRkY4OUNGNjExRTVBNEVERDRFOUUzQjJBRjU2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+m8zTzQAAAHVJREFUeNpi/P//P8NQASbVO0COZTzT6oEhx8Qw9MB/oIeGhUewemaoegTDM4zGVdv/MwxtAM4zTAxDH4BjZjh4BOyZ4eIRxuHgEUYQwQJjDJUkhM0TeItfUEmArQYdbDEBcyvjEGyiYHhiqFaIGJ4AAYAAAwBD8iQRgc7/rQAAAABJRU5ErkJggg==) right 49px no-repeat;
+}
+.arrow-chart-version .percent-data{
+  position: absolute;
+  left: 0;
+}
+.arrow-chart-version .percent-data .salary-number-label{
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  text-align: right;
+  border-right: 1px dashed #c1c1c1;
+  padding-right: 5px;
+  height: 50px;
+  font-size: 12px;
+}
+.arrow-chart-version .percent-data .percent-number-label{
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  text-align: right;
+  font-size: 12px;
+}
+.arrow-chart-version .percent-data .percent-color{
+  clear: both;
+  display: block;
+  height: 5px
+}
+.arrow-chart-version .percent-data:first-child{
+  width: 10%;
+  z-index: 99;
+}
+.arrow-chart-version .percent-data:first-child .percent-number-label{
+  text-align: left;
+}
+.arrow-chart-version .percent-data:first-child .salary-number-label{
+  text-align: left;
+  border-left: 1px dashed #c1c1c1;
+  padding-left: 5px;
+}
+.arrow-chart-version .percent-data:first-child .percent-color{
+  background-color: #ebf6ff;
+}
+.arrow-chart-version .percent-data:nth-child(2){
+  width: 10%;
+  z-index: 88;
+}
+.arrow-chart-version .percent-data:nth-child(2) .percent-color{
+  background-color: #bbe1fe;
+}
+.arrow-chart-version .percent-data:nth-child(3){
+  width: 10%;
+  z-index: 77;
+}
+.arrow-chart-version .percent-data:nth-child(3) .percent-color{
+  background-color: #99d1fa;
+}
+.arrow-chart-version .percent-data:nth-child(4){
+  width: 10%;
+  z-index: 66;
+}
+.arrow-chart-version .percent-data:nth-child(4) .percent-color{
+  background-color: #4398da;
+}
+.arrow-chart-version .percent-data:nth-child(5){
+  width: 10%;
+  z-index: 55;
+}
+.arrow-chart-version .percent-data:nth-child(5) .percent-color{
+  background-color: #1266a8;
 }

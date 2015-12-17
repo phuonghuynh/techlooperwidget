@@ -10,49 +10,46 @@
                 <a href="http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign=salarywidget" target="_blank" class="techlooper-logo" title="Click here go to the TechLooper">TechLooper.com</a>
             </div>
         </div>
-        <div class="row salary-chart salary-range-col-0{{salaryRanges.length+1}}">
+        <div class="row salary-chart">
             <div class="col-sm-12">
-
-                <ul class="salary-list">
-                    {{#if visibleSalary == true}}
-                    <li>$0</li>
-                    {{#each salaryRanges: i}}
-                     <li>${{this.percentile}}</li>
-                    {{/each}}
-                    {{/if}}
-                </ul>
-                <ul class="phase-list">
-                    <li>
-                        <div class="phase-item percent0"></div>
-                    </li>
-                    {{#salaryRanges: i}}
-                    <li>
-                        <div class="phase-item percent{{i+1}}"></div>
-                    </li>
-                    {{/salaryRanges}}
-                </ul>
-                <ul class="percent-list">
-                    <li>0%</li>
-                    {{#each salaryRanges: i}}
-                    <li>{{this.percent}}%</li>
-                    {{/each}}
-                </ul>
-
-            </div>
-            <div class="current-position" style="left: {{arrowPosition}}px">
-
-                <div class="current-salary">
-                    <div class="salary">{{translation.thisJob}}: {{salaryLabel}}</div>
-                    <div class="arrow">
-                        <i class="fa fa-caret-down"></i>
+                <div class="arrow-chart-version">
+                    <div class="arrow-line">
+                        <div class="percent-data">
+                            <div class="salary-number-label">
+                                {{#if visibleSalary == true}}$0{{/if}}
+                            </div>
+                            <div class="percent-color"></div>
+                            <div class="percent-number-label">0%</div>
+                        </div>
+                        {{#each salaryRanges: i}}
+                        <div class="percent-data" style="width: {{this.percent}}%">
+                            <div class="salary-number-label">
+                                {{#if visibleSalary == true}}
+                                ${{this.percentile}}
+                                {{/if}}
+                            </div>
+                            <div class="percent-color"></div>
+                            <div class="percent-number-label">{{this.percent}}%</div>
+                        </div>
+                        {{/each}}
                     </div>
-                </div>
-                <div class="position">
-                    <div class="dot">
-                        <i class="circle"></i>
+                    <div class="arrow-right"></div>
+                    <div class="current-position" style="left: {{arrowPosition}}px">
+                        <div class="current-salary">
+                            <div class="salary">{{translation.thisJob}}: {{salaryLabel}}</div>
+                            <div class="arrow">
+                                <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="position">
+                            <div class="dot">
+                                <i class="circle"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     {{else}}
