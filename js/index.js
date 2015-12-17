@@ -4,6 +4,8 @@ var baseUrl = (function () {
   return window.location.protocol + '//' + window.location.host + paths.join('/');
 })();
 
+var backendUrl = "@@backendUrl";
+
 var tlwFormValidator = undefined;
 
 var updateSampleConfig = function (attrs) {
@@ -74,6 +76,7 @@ $(function () {
     $(this).toggleClass('arrow-up');
     $(document).scrollTop($(document).height());
   });
+
   changeConfig();
   $("div.advanced-plugin").toggle();
 });
@@ -87,5 +90,14 @@ $(function () {
     tags: true,
     allowClear: true,
     tokenSeparators: [';', " "]
+  });
+
+  $("#jobSkill").easyAutocomplete({
+    url: function (term) {return backendUrl + "/suggestion/skills/" + term;}
+  });
+
+  $("#jobTitle").easyAutocomplete({
+    url: function (term) {return backendUrl + "/widget/suggestion/jobTitle/" + term;},
+    width: "100%"
   });
 });

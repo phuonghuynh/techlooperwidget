@@ -90,6 +90,7 @@ module.exports = function (grunt) {
         files: [
           {cwd: "<%=baseDir%>/app", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/app"},
           {cwd: "<%=baseDir%>/sample", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/sample"},
+          {"<%=baseDir%>/js/index.js": "<%=baseDir%>/js/index.js"},
           {"<%=baseDir%>/index.html": "<%=baseDir%>/index.html"}
         ]
       },
@@ -107,6 +108,7 @@ module.exports = function (grunt) {
         files: [
           {cwd: "<%=baseDir%>/app", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/app"},
           {cwd: "<%=baseDir%>/sample", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/sample"},
+          {"<%=baseDir%>/js/index.js": "<%=baseDir%>/js/index.js"},
           {"<%=baseDir%>/index.html": "<%=baseDir%>/index.html"}
         ]
       }
