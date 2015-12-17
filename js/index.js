@@ -97,6 +97,7 @@ $(function () {
   });
 
   $("#jobTitle").easyAutocomplete({
-    url: function (term) {return backendUrl + "/widget/suggestion/jobTitle/" + term;}
+    url: function (term) {return backendUrl + "/widget/suggestion/jobTitle/" + term;},
+    width: "100%"
   });
 });

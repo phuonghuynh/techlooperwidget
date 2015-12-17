@@ -37,8 +37,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             }
           }
 
-          console.log(config.$arrowPosition);
-          console.log(widget.$container.width());
+          //console.log(config.$arrowPosition);
+          //console.log(widget.$container.width());
           config.$meterPosition = 0;
           var position = (180 * salaryReview.salaryReport.percentRank / 100);
           $.each(preferMeterValues, function (i, preferValue) {
@@ -55,6 +55,10 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           var max = ($.isNumeric(salaryReview.salaryMax) && salaryReview.salaryMax != "0") ? "max" : "nmax";
           config.$salaryLabel = translation.salaryLabel[min + "_" + max].replace("%min", salaryReview.salaryMin).replace("%max", salaryReview.salaryMax);
 
+          var visibleSalary = (salaryReview.isSalaryVisible == false) ? false : config.salaryVisible;
+          console.log(visibleSalary);
+          if (!visibleSalary) config.$salaryLabel = translation.salaryLabel.nmin_nmax;
+
           this.ractive = new Ractive({
             el: widget.$container.attr("id"),
             template: mainTemplate,
@@ -62,7 +66,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               translation: translation,
               salaryReview: salaryReview,
               salaryRanges: salaryReview.salaryReport.salaryRanges,
-              visibleSalary: config.salaryVisible || salaryReview.isSalaryVisible,
+              visibleSalary: visibleSalary,
               widgetFormat: config.widgetFormat,//"arrow" / "meter"
               arrowPosition: config.$arrowPosition,
               meterPosition: config.$meterPosition,
