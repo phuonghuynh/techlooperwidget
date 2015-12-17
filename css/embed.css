@@ -451,11 +451,14 @@
 .loading-page-time{
   width: 100%;
   clear: both;
-  display: inline-block;
+  display: none;
   min-height: 300px;
   border-radius: 5px;
   background: rgba(0, 0, 0, .5);
   padding-top: 70px;
+}
+#widget .loading-page-time{
+  display: inline-block;
 }
 .cssload-container {
   width: 72px;
