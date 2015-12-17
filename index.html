@@ -31,10 +31,12 @@
   <!--CSS and JS-->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="css/easy-autocomplete.min.css">
 
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery.validate.min.js"></script>
   <script type="text/javascript" src="js/select2.full.min.js"></script>
+  <script type="text/javascript" src="js/jquery.easy-autocomplete.min.js"></script>
 
 </head>
 <body>
@@ -68,6 +70,19 @@
         margin-top: 20px;
       }
 
+      #widget .customize-techlooper-widget h3{
+        width: auto;
+        float: left;
+      }
+      #widget .customize-techlooper-widget .submit-form{
+        width: auto;
+        float: right;
+        padding-right: 15px;
+      }
+      .customize-techlooper-widget .submit-form button.btn-default{
+        background-color: #337ab7 !important;
+        color: #fff;
+      }
       #widget-preview h3 {
         margin-top: 20px;
       }
@@ -91,6 +106,10 @@
         float: right;
         margin-right: 15px;
         cursor: pointer;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAFCAYAAACXU8ZrAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3RDRDRDRDRjlDQjExMUU1ODg4RTkwQzIyQ0ExN0FBMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3RDRDRDREMDlDQjExMUU1ODg4RTkwQzIyQ0ExN0FBMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdENENENENEOUNCMTExRTU4ODhFOTBDMjJDQTE3QUExIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdENENENENFOUNCMTExRTU4ODhFOTBDMjJDQTE3QUExIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+viv1EAAAADFJREFUeNpiMTY2/s9AADABMSMBNYxMMAYuBWCTzpw5w4BDISOydQxYFMIVgOQAAgwAJ/UI2amuhkwAAAAASUVORK5CYII=) 4px 8px no-repeat;
+      }
+      .customize-techlooper-widget .form-group a.advance{
+        padding-left: 20px;
       }
       .customize-techlooper-widget .form-group span.error{
         color: red;
@@ -105,9 +124,11 @@
         color: red;
         font-weight: 500;
       }
-      .col-sm-9 button.btn-default{
-        background-color: #337ab7 !important;
-        color: #fff;
+      .customize-techlooper-widget .form-group  a.advance.arrow-up {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAFCAYAAACXU8ZrAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3RDRDRDREMzlDQjExMUU1ODg4RTkwQzIyQ0ExN0FBMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3RDRDRDRENDlDQjExMUU1ODg4RTkwQzIyQ0ExN0FBMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdENENENEQxOUNCMTExRTU4ODhFOTBDMjJDQTE3QUExIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdENENENEQyOUNCMTExRTU4ODhFOTBDMjJDQTE3QUExIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+webA0gAAADhJREFUeNpi/P//P4OJiQkDEvgPxIwgxpkzZ8ACTFgUwGmYHBMWBQzoCplwKEBRyIRHAVwhQIABAL2+ENNckiS1AAAAAElFTkSuQmCC) 4px 8px no-repeat
+      }
+      .easy-autocomplete{
+        width: 100% !important;
       }
     </style>
     <h1>TechLooper Salary Reivew Widget</h1>
@@ -122,7 +143,12 @@
             <div class="col-sm-6">
               <form class="form-horizontal tlwForm">
                 <div class="box box-md customize-techlooper-widget">
-                  <h3>Customize your plugin</h3>
+                  <div class="row">
+                    <h3>Customize your plugin</h3>
+                    <div class="submit-form">
+                      <button type="button" class="btn btn-default preview" onclick="changeConfig();">Apply</button>
+                    </div>
+                  </div>
                   <!--<div class="form-group">-->
                     <!--<label class="col-sm-3 control-label" for="jobId">Job Id</label>-->
                     <!--<div class="col-sm-9">-->
@@ -130,7 +156,7 @@
                     <!--</div>-->
                   <!--</div>-->
                   <div class="form-group">
-                    <label class="col-sm-3 control-label" for="jobTitle">Job Title <strong>*</strong></label>
+                    <label class="col-sm-3 control-label">Job Title <strong>*</strong></label>
                     <div class="col-sm-9">
                       <input name="jobTitle" type="text" class="form-control" id="jobTitle" data-prop="job-title" value="Java Developer" />
                     </div>
@@ -262,15 +288,15 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <a class="advance">Advanced</a>
+                    <a class="advance"> Advanced</a>
                   </div>
                   <div class="advanced-plugin">
                     <div class="form-group">
                       <label class="col-sm-3 control-label" for="jobSkill">Skill</label>
                       <div class="col-sm-9">
-                        <!--<input type="text" id="jobSkill" class="form-control" placeholder="Maven"/>-->
-                        <select id="jobSkill" class="form-control tags" multiple data-prop="skills">
-                        </select>
+                        <input type="text" id="jobSkill" class="form-control" data-prop="skills" />
+                        <!--<select id="jobSkill" class="form-control" multiple data-prop="skills">-->
+                        <!--</select>-->
                       </div>
                     </div>
                     <div class="form-group">
@@ -352,12 +378,6 @@
                       </div>
                     </div>
                   </div>
-                  <!--<div class="form-group">-->
-                    <!--<div class="col-sm-3"></div>-->
-                    <!--<div class="col-sm-9">-->
-                      <!--<button type="button" class="btn btn-default preview">Review</button>-->
-                    <!--</div>-->
-                  <!--</div>-->
                 </div>
               </form>
             </div>

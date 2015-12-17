@@ -4,6 +4,8 @@ var baseUrl = (function () {
   return window.location.protocol + '//' + window.location.host + paths.join('/');
 })();
 
+var backendUrl = "@@backendUrl";
+
 var tlwFormValidator = undefined;
 
 var updateSampleConfig = function (attrs) {
@@ -57,20 +59,21 @@ $(function () {
     }
   });
 
-  $(".tlwForm").find("[data-prop]").on("input", function (e) {
-    changeConfig();
-  });
-
-  $(".tlwForm select[data-prop]").on("change", function (e) {
-    changeConfig();
-  });
-
-  $("input[type=radio][data-prop]").change(function () {
-    changeConfig();
-  });
+  //$(".tlwForm").find("[data-prop]").on("input", function (e) {
+  //  changeConfig();
+  //});
+  //
+  //$(".tlwForm select[data-prop]").on("change", function (e) {
+  //  changeConfig();
+  //});
+  //
+  //$("input[type=radio][data-prop]").change(function () {
+  //  changeConfig();
+  //});
 
   $("a.advance").click(function () {
     $("div.advanced-plugin").toggle();
+    $(this).toggleClass('arrow-up');
     $(document).scrollTop($(document).height());
   });
 
@@ -87,5 +90,14 @@ $(function () {
     tags: true,
     allowClear: true,
     tokenSeparators: [';', " "]
+  });
+
+  $("#jobSkill").easyAutocomplete({
+    url: function (term) {return backendUrl + "/suggestion/skills/" + term;}
+  });
+
+  $("#jobTitle").easyAutocomplete({
+    url: function (term) {return backendUrl + "/widget/suggestion/jobTitle/" + term;},
+    width: "100%"
   });
 });

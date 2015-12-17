@@ -27,8 +27,18 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
       $.extend(true, widget, {
         render: function (salaryReview, config) {
-          config.$arrowPosition = ((widget.$container.width() * salaryReview.salaryReport.percentRank) / 100) - 40;
+          if(salaryReview.salaryReport.percentRank > 92){
+            config.$arrowPosition = widget.$container.width() - 225;
+          }else{
+            if(salaryReview.salaryReport.percentRank < 10){
+              config.$arrowPosition = 0;
+            }else{
+              config.$arrowPosition = ((widget.$container.width() * salaryReview.salaryReport.percentRank) / 100);
+            }
+          }
 
+          //console.log(config.$arrowPosition);
+          //console.log(widget.$container.width());
           config.$meterPosition = 0;
           var position = (180 * salaryReview.salaryReport.percentRank / 100);
           $.each(preferMeterValues, function (i, preferValue) {
@@ -39,9 +49,15 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           });
           config.$meterPosition = Math.max(config.$meterPosition, 1);
 
-          var min = $.isNumeric(salaryReview.salaryMin) ? "min" : "nmin";
-          var max = $.isNumeric(salaryReview.salaryMax) ? "max" : "nmax";
+          salaryReview.salaryMin = "" + salaryReview.salaryMin;
+          salaryReview.salaryMax = "" + salaryReview.salaryMax;
+          var min = ($.isNumeric(salaryReview.salaryMin) && salaryReview.salaryMin != "0") ? "min" : "nmin";
+          var max = ($.isNumeric(salaryReview.salaryMax) && salaryReview.salaryMax != "0") ? "max" : "nmax";
           config.$salaryLabel = translation.salaryLabel[min + "_" + max].replace("%min", salaryReview.salaryMin).replace("%max", salaryReview.salaryMax);
+
+          var visibleSalary = (salaryReview.isSalaryVisible == false) ? false : config.salaryVisible;
+          console.log(visibleSalary);
+          if (!visibleSalary) config.$salaryLabel = translation.salaryLabel.nmin_nmax;
 
           this.ractive = new Ractive({
             el: widget.$container.attr("id"),
@@ -50,7 +66,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               translation: translation,
               salaryReview: salaryReview,
               salaryRanges: salaryReview.salaryReport.salaryRanges,
-              visibleSalary: config.salaryVisible || salaryReview.isSalaryVisible,
+              visibleSalary: visibleSalary,
               widgetFormat: config.widgetFormat,//"arrow" / "meter"
               arrowPosition: config.$arrowPosition,
               meterPosition: config.$meterPosition,
@@ -85,9 +101,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               if ($.isNumeric(salaryReview.salaryReport.percentRank)) {
                 return widget.render(salaryReview, config);
               }
-
               widget.$container.html("");
-              widget.$container.append("<p>" + translation.noDataChart + "</p>")
+              widget.$container.append("<p>" + translation.noDataChart + ' <strong>'+salaryReview.jobTitle + "</strong></p>")
             }
           });
         }
