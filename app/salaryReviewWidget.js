@@ -53,7 +53,6 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           config.$salaryLabel = translation.salaryLabel[min + "_" + max].replace("%min", salaryReview.salaryMin).replace("%max", salaryReview.salaryMax);
 
           var visibleSalary = (salaryReview.isSalaryVisible == false) ? false : config.salaryVisible;
-          console.log(visibleSalary);
           if (!visibleSalary) config.$salaryLabel = translation.salaryLabel.nmin_nmax;
 
           this.ractive = new Ractive({
@@ -101,6 +100,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               widget.$container.html("");
               widget.$container.append("<p>" + translation.noDataChart + ' <strong>'+salaryReview.jobTitle + "</strong></p>")
             }
+          }).done(function(){
+            $('.loading-page-time').addClass('hide-loading');
           });
         }
       });

@@ -21,6 +21,7 @@ var updateSampleConfig = function (attrs) {
 }
 
 var changeConfig = function () {
+  $('.loading-page-time').removeClass('hide-loading');
   var attrs = "";
   var inputs = $(".tlwForm").find("[data-prop]");
 
@@ -46,7 +47,9 @@ var changeConfig = function () {
     $("#widget-preview > div").html("");
   }
 }
-
+var applyData = function(){
+  changeConfig();
+};
 $(function () {
   tlwFormValidator = $("form.tlwForm").validate({
     errorElement: "span",
