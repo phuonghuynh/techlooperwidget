@@ -85,10 +85,11 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               if ($.isNumeric(salaryReview.salaryReport.percentRank)) {
                 return widget.render(salaryReview, config);
               }
-
               widget.$container.html("");
               widget.$container.append("<p>" + translation.noDataChart + "</p>")
             }
+          }).done(function() {
+
           });
         }
       });

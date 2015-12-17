@@ -68,6 +68,19 @@
         margin-top: 20px;
       }
 
+      #widget .customize-techlooper-widget h3{
+        width: auto;
+        float: left;
+      }
+      #widget .customize-techlooper-widget .submit-form{
+        width: auto;
+        float: right;
+        padding-right: 15px;
+      }
+      .customize-techlooper-widget .submit-form button.btn-default{
+        background-color: #337ab7 !important;
+        color: #fff;
+      }
       #widget-preview h3 {
         margin-top: 20px;
       }
@@ -105,10 +118,6 @@
         color: red;
         font-weight: 500;
       }
-      .col-sm-9 button.btn-default{
-        background-color: #337ab7 !important;
-        color: #fff;
-      }
     </style>
     <h1>TechLooper Salary Reivew Widget</h1>
     <div class="row">
@@ -122,7 +131,12 @@
             <div class="col-sm-6">
               <form class="form-horizontal tlwForm">
                 <div class="box box-md customize-techlooper-widget">
-                  <h3>Customize your plugin</h3>
+                  <div class="row">
+                    <h3>Customize your plugin</h3>
+                    <div class="submit-form">
+                      <button type="button" class="btn btn-default preview" onclick="changeConfig();">Review</button>
+                    </div>
+                  </div>
                   <!--<div class="form-group">-->
                     <!--<label class="col-sm-3 control-label" for="jobId">Job Id</label>-->
                     <!--<div class="col-sm-9">-->
@@ -262,7 +276,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <a class="advance">Advanced</a>
+                    <a class="advance"> Advanced</a>
                   </div>
                   <div class="advanced-plugin">
                     <div class="form-group">
@@ -352,12 +366,6 @@
                       </div>
                     </div>
                   </div>
-                  <!--<div class="form-group">-->
-                    <!--<div class="col-sm-3"></div>-->
-                    <!--<div class="col-sm-9">-->
-                      <!--<button type="button" class="btn btn-default preview">Review</button>-->
-                    <!--</div>-->
-                  <!--</div>-->
                 </div>
               </form>
             </div>

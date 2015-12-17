@@ -57,23 +57,23 @@ $(function () {
     }
   });
 
-  $(".tlwForm").find("[data-prop]").on("input", function (e) {
-    changeConfig();
-  });
-
-  $(".tlwForm select[data-prop]").on("change", function (e) {
-    changeConfig();
-  });
-
-  $("input[type=radio][data-prop]").change(function () {
-    changeConfig();
-  });
+  //$(".tlwForm").find("[data-prop]").on("input", function (e) {
+  //  changeConfig();
+  //});
+  //
+  //$(".tlwForm select[data-prop]").on("change", function (e) {
+  //  changeConfig();
+  //});
+  //
+  //$("input[type=radio][data-prop]").change(function () {
+  //  changeConfig();
+  //});
 
   $("a.advance").click(function () {
     $("div.advanced-plugin").toggle();
+    $(this).toggleClass('arrow-up');
     $(document).scrollTop($(document).height());
   });
-
   changeConfig();
   $("div.advanced-plugin").toggle();
 });

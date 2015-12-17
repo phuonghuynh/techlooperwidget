@@ -448,3 +448,120 @@
 .techlooper-widget .meter-chart-version .meter-arrow.position11{
   background: url(data:image/png;base64,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);
 }
+.loading-page-time{
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  min-height: 350px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .5);
+  padding-top: 150px;
+}
+.cssload-clock{
+  border-radius: 58px;
+  border: 3px solid rgb(0,0,0);
+  height: 78px;
+  width: 78px;
+  position: relative;
+  left: 35%;
+  left: calc(50% - 42px);
+  left: -o-calc(50% - 42px);
+  left: -ms-calc(50% - 42px);
+  left: -webkit-calc(50% - 42px);
+  left: -moz-calc(50% - 42px);
+}
+.cssload-clock:after{
+  content: "";
+  position: absolute;
+  background-color: rgb(0,0,0);
+  top:2px;
+  left: 48%;
+  height: 37px;
+  width: 4px;
+  border-radius: 5px;
+  transform-origin: 50% 97%;
+  -o-transform-origin: 50% 97%;
+  -ms-transform-origin: 50% 97%;
+  -webkit-transform-origin: 50% 97%;
+  -moz-transform-origin: 50% 97%;
+  animation: grdAiguille 2.3s linear infinite;
+  -o-animation: grdAiguille 2.3s linear infinite;
+  -ms-animation: grdAiguille 2.3s linear infinite;
+  -webkit-animation: grdAiguille 2.3s linear infinite;
+  -moz-animation: grdAiguille 2.3s linear infinite;
+}
+
+
+
+.cssload-clock:before{
+  content: "";
+  position: absolute;
+  background-color: rgb(0,0,0);
+  top:6px;
+  left: 48%;
+  height: 34px;
+  width: 4px;
+  border-radius: 5px;
+  transform-origin: 50% 94%;
+  -o-transform-origin: 50% 94%;
+  -ms-transform-origin: 50% 94%;
+  -webkit-transform-origin: 50% 94%;
+  -moz-transform-origin: 50% 94%;
+  animation: ptAiguille 13.8s linear infinite;
+  -o-animation: ptAiguille 13.8s linear infinite;
+  -ms-animation: ptAiguille 13.8s linear infinite;
+  -webkit-animation: ptAiguille 13.8s linear infinite;
+  -moz-animation: ptAiguille 13.8s linear infinite;
+}
+
+
+
+@keyframes grdAiguille{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+@-o-keyframes grdAiguille{
+  0%{-o-transform:rotate(0deg);}
+  100%{-o-transform:rotate(360deg);}
+}
+
+@-ms-keyframes grdAiguille{
+  0%{-ms-transform:rotate(0deg);}
+  100%{-ms-transform:rotate(360deg);}
+}
+
+@-webkit-keyframes grdAiguille{
+  0%{-webkit-transform:rotate(0deg);}
+  100%{-webkit-transform:rotate(360deg);}
+}
+
+@-moz-keyframes grdAiguille{
+  0%{-moz-transform:rotate(0deg);}
+  100%{-moz-transform:rotate(360deg);}
+}
+
+@keyframes ptAiguille{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+@-o-keyframes ptAiguille{
+  0%{-o-transform:rotate(0deg);}
+  100%{-o-transform:rotate(360deg);}
+}
+
+@-ms-keyframes ptAiguille{
+  0%{-ms-transform:rotate(0deg);}
+  100%{-ms-transform:rotate(360deg);}
+}
+
+@-webkit-keyframes ptAiguille{
+  0%{-webkit-transform:rotate(0deg);}
+  100%{-webkit-transform:rotate(360deg);}
+}
+
+@-moz-keyframes ptAiguille{
+  0%{-moz-transform:rotate(0deg);}
+  100%{-moz-transform:rotate(360deg);}
+}

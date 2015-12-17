@@ -76,8 +76,8 @@
                         {{#each salaryRanges: i}}
                             <div class="number-chart dollar{{salaryRanges[i].percent}}">${{salaryRanges[i].percentile}}</div>
                         {{/each}}
-                        <div class="meter-arrow position{{meterPosition}}"></div>
                     {{/if}}
+                    <div class="meter-arrow position{{meterPosition}}"></div>
                 </div>
                 <div class="current-salary">
                     {{translation.thisJob}}: {{salaryLabel}}
