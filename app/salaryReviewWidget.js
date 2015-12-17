@@ -27,8 +27,18 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
       $.extend(true, widget, {
         render: function (salaryReview, config) {
-          config.$arrowPosition = ((widget.$container.width() * salaryReview.salaryReport.percentRank) / 100) - 40;
+          if(salaryReview.salaryReport.percentRank > 92){
+            config.$arrowPosition = widget.$container.width() - 225;
+          }else{
+            if(salaryReview.salaryReport.percentRank < 10){
+              config.$arrowPosition = 0;
+            }else{
+              config.$arrowPosition = ((widget.$container.width() * salaryReview.salaryReport.percentRank) / 100);
+            }
+          }
 
+          console.log(config.$arrowPosition);
+          console.log(widget.$container.width());
           config.$meterPosition = 0;
           var position = (180 * salaryReview.salaryReport.percentRank / 100);
           $.each(preferMeterValues, function (i, preferValue) {
@@ -88,7 +98,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
                 return widget.render(salaryReview, config);
               }
               widget.$container.html("");
-              widget.$container.append("<p>" + translation.noDataChart + "</p>")
+              widget.$container.append("<p>" + translation.noDataChart + ' <strong>'+salaryReview.jobTitle + "</strong></p>")
             }
           });
         }
