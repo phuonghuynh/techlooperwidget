@@ -915,6 +915,9 @@
   height: 80px;
   font-size: 12px;
 }
+.arrow-chart-version.visible-salary-false .salary-number-label{
+  height: 78px;
+}
 .arrow-chart-version .percent-data .percent-number-label{
   width: 100%;
   clear: both;
