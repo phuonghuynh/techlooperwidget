@@ -22,6 +22,11 @@ var updateSampleConfig = function (attrs) {
 
 var changeConfig = function () {
   $('.loading-page-time').removeClass('hide-loading');
+
+  var param = {};
+  window.location.search.substr(1).split("&").forEach(function(item) {param[item.split("=")[0]] = item.split("=")[1]});
+  var jobId = param["job-id"] || param["jobId"];
+
   var attrs = "";
   var inputs = $(".tlwForm").find("[data-prop]");
 
@@ -41,6 +46,7 @@ var changeConfig = function () {
   });
 
   if (tlwFormValidator.form()) {
+    jobId && (attrs += 'data-job-id="' + jobId + '"');
     updateSampleConfig(attrs);
   }
   else {
@@ -50,6 +56,7 @@ var changeConfig = function () {
 var applyData = function(){
   changeConfig();
 };
+
 $(function () {
   tlwFormValidator = $("form.tlwForm").validate({
     errorElement: "span",
