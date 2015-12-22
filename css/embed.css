@@ -171,7 +171,6 @@
 }
 .techlooper-widget .salary-chart{
   padding-top: 30px;
-  position: relative;
   width: 100%;
 }
 .techlooper-widget .current-position{
@@ -187,6 +186,7 @@
 }
 .techlooper-widget .current-position.left-position{
   left: 0;
+  margin-left: 0 !important;
 }
 .techlooper-widget .current-position .current-salary{
   width: 100%;
@@ -899,7 +899,7 @@
   float: left;
   display: inline-block;
   height: 94px;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAANCAYAAADrEz3JAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDRDAxQkZGOTlDRjYxMUU1QTRFREQ0RTlFM0IyQUY1NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDRDAxQkZGQTlDRjYxMUU1QTRFREQ0RTlFM0IyQUY1NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNEMDFCRkY3OUNGNjExRTVBNEVERDRFOUUzQjJBRjU2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNEMDFCRkY4OUNGNjExRTVBNEVERDRFOUUzQjJBRjU2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+m8zTzQAAAHVJREFUeNpi/P//P8NQASbVO0COZTzT6oEhx8Qw9MB/oIeGhUewemaoegTDM4zGVdv/MwxtAM4zTAxDH4BjZjh4BOyZ4eIRxuHgEUYQwQJjDJUkhM0TeItfUEmArQYdbDEBcyvjEGyiYHhiqFaIGJ4AAYAAAwBD8iQRgc7/rQAAAABJRU5ErkJggg==) right 79px no-repeat;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAANCAYAAABii6qgAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5MUY4RTZFRkEwN0UxMUU1OEQ2MDgxOEE5M0Q4OTg2OSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5MUY4RTZGMEEwN0UxMUU1OEQ2MDgxOEE5M0Q4OTg2OSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjkxRjhFNkVEQTA3RTExRTU4RDYwODE4QTkzRDg5ODY5IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjkxRjhFNkVFQTA3RTExRTU4RDYwODE4QTkzRDg5ODY5Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+UsknBQAAAIZJREFUeNrsmLENgDAMBDErwRDMBDUzwRDsZHAkJCRMQ0We+yJNmiin/09s7t6gutVPa0C0bR5uey3XIyM/QAP4b5ABLA7ZunGhhDVVOhkHizsZwOKQASwe0wAWhlsWBh2Pw4OqojiDyzfpheJlmk2Mvubc86w4WCNtPIOLgwU79wo3tAswAD79KHG4QbmFAAAAAElFTkSuQmCC) right 79px no-repeat;
 }
 .arrow-chart-version .percent-data{
   position: absolute;
@@ -912,15 +912,14 @@
   text-align: right;
   border-right: 1px dashed #c1c1c1;
   padding-right: 2px;
-  height: 80px;
+  height: 83px;
+  float: left;
   font-size: 12px;
-}
-.arrow-chart-version.visible-salary-false .salary-number-label{
-  height: 78px;
 }
 .arrow-chart-version .percent-data .percent-number-label{
   width: 100%;
   clear: both;
+  float: left;
   display: inline-block;
   text-align: right;
   font-size: 12px;
@@ -928,7 +927,9 @@
 .arrow-chart-version .percent-data .percent-color{
   clear: both;
   display: block;
-  height: 5px
+  height: 5px;
+  float: left;
+  width: 100%;
 }
 .arrow-chart-version .percent-data:first-child{
   width: 10%;
