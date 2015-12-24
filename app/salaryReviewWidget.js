@@ -72,6 +72,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
         },
 
         init: function () {
+          $('.cssload-wrap').show();
           Ractive.DEBUG = false;
           var $style = $("<style></style>", {type: "text/css"});
           $style.text(css);
@@ -99,9 +100,10 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               }
               widget.$container.html("");
               widget.$container.append("<p>" + translation.noDataChart + ' <strong>'+salaryReview.jobTitle + "</strong></p>")
+            },
+            complete: function(){
+              $('.cssload-wrap').hide();
             }
-          }).done(function(){
-            $('.loading-page-time').addClass('hide-loading');
           });
         }
       });
