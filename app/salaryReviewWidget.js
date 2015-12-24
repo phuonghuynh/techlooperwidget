@@ -72,8 +72,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
         },
 
         init: function () {
-          $('.cssload-wrap').show();
           Ractive.DEBUG = false;
+
           var $style = $("<style></style>", {type: "text/css"});
           $style.text(css);
           $("head").append($style);
@@ -85,7 +85,6 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             var mapProp = mapProperties[prop];
             $.isFunction(mapProp) ? (config[prop] = mapProp(config[prop])) : (config[mapProp] = config[prop]);
           }
-          //console.log(config);
 
           $.ajax({
             type: "POST",
@@ -102,7 +101,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               widget.$container.append("<p>" + translation.noDataChart + ' <strong>'+salaryReview.jobTitle + "</strong></p>")
             },
             complete: function(){
-              $('.cssload-wrap').hide();
+              //$('.cssload-wrap').remove();
             }
           });
         }
