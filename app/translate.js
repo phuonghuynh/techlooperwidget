@@ -15,7 +15,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             nmin_max: "Up to $%max", //not min & has max
             nmin_nmax: "Negotiable" //not min & not max
           },
-          noDataChart : "We could not create a report for"
+          noDataChart : "We could not create a report for",
+          moreThan: "more than"
     },
 
         vi: {
@@ -30,7 +31,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             nmin_max: "Tới $%max", //not min & has max
             nmin_nmax: "Thương lượng" //not min & not max
           },
-          noDataChart: "Chúng tôi không thể tạo ra một báo cáo cho"
+          noDataChart: "Chúng tôi không thể tạo ra một báo cáo cho",
+          moreThan: "hơn"
         }
       }
     });
