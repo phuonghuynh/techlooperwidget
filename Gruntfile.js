@@ -3,7 +3,8 @@ module.exports = function (grunt) {
 
   var chalk = require('chalk');
   var pkgJson = require('./package.json');
-  var version = pkgJson.$version;
+  var version = new Date().getTime();;
+  //var version = pkgJson.$version;
 
   grunt.initConfig({
 
