@@ -4,7 +4,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       "use strict";
       $.noConflict(true);
 
-      var defaultCampaign = "";
+      var defaultCampaign = "salarywidget";
 
       var widget = {};
       widget.$container = $("#tlw");
