@@ -1,6 +1,6 @@
 <div class="techlooper-widget">
-    {{#if widgetFormat == 'arrow'}}
-    <div class="salary-review horizontal">
+    <div class="salary-review {{#if widgetFormat == 'arrow'}}horizontal{{else}}meter{{/if}}">
+        {{#if widgetFormat == 'arrow'}}
         <div class="tech-header">
             <div class="col-sm-11">
                 <h2>{{translation.thisJobIsBetterThan}} <strong>{{salaryReview.salaryReport.percentRank}}%</strong> {{translation.ofJobLikeThis}}.
@@ -82,9 +82,7 @@
             </div>
 
         </div>
-    </div>
-    {{else}}
-    <div class="salary-review meter">
+        {{else}}
         <div class="tech-header">
             <div class="col-sm-10">
                 <h4>{{translation.thisJobIsBetterThan}} <strong>{{salaryReview.salaryReport.percentRank}}%</strong> {{translation.ofJobLikeThis}}.
@@ -100,10 +98,10 @@
                 <div class="meter-chart">
                     <div class="meter-images"></div>
                     {{#if visibleSalary == true}}
-                        <div class="number-chart dollar0">$0</div>
-                        {{#each salaryRanges: i}}
-                            <div class="number-chart dollar{{salaryRanges[i].percent}}">${{salaryRanges[i].percentile}}</div>
-                        {{/each}}
+                    <div class="number-chart dollar0">$0</div>
+                    {{#each salaryRanges: i}}
+                    <div class="number-chart dollar{{salaryRanges[i].percent}}">${{salaryRanges[i].percentile}}</div>
+                    {{/each}}
                     {{/if}}
                     <div class="meter-arrow position{{meterPosition}}"></div>
                 </div>
@@ -112,23 +110,23 @@
                 </div>
             </div>
         </div>
-    </div>
-    {{/if}}
-    <div class="valuable-report">
-        <p>{{translation.valuableReport}}</p>
-        <form name="valuableReportForm">
-            <div class="valuable-field-6">
-                <label>
-                    <input type="radio" name="valuableReport"/>
-                    {{translation.yes}}
-                </label>
-            </div>
-            <div class="valuable-field-6">
-                <label>
-                    <input type="radio" name="valuableReport"/>
-                    {{translation.no}}
-                </label>
-            </div>
-        </form>
+        {{/if}}
+        <div class="valuable-report">
+            <p>{{translation.valuableReport}}</p>
+            <form name="valuableReportForm" class="valuable-report-form">
+                <div class="valuable-field-left">
+                    <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign=salarywidget', '_blank');">
+                        <input type="radio" name="valuableReport"/>
+                        {{translation.yes}}
+                    </label>
+                </div>
+                <div class="valuable-field-right">
+                    <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign=salarywidget', '_blank');">
+                        <input type="radio" name="valuableReport"/>
+                        {{translation.no}}
+                    </label>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
