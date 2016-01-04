@@ -57,7 +57,6 @@
   color: #333;
   padding: 0;
   margin: 0;
-  cursor: pointer;
 }
 .customize-techlooper-widget .select2-container{
   width: 100% !important;
@@ -607,6 +606,48 @@
 }
 .arrow-chart-version .percent-data:nth-child(5) .percent-color{
   background-color: #1266a8;
+}
+
+.salary-review .valuable-report{
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #d9edf7;
+  border: 1px solid #bce8f1;
+  color: #31708f;
+  text-align: center;
+  margin-top: 30px;
+}
+.salary-review .valuable-report p{
+  font-size: 16px;
+  padding: 0 0 10px 0;
+  margin: 0;
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  color: #31708f;
+}
+.salary-review .valuable-report .valuable-report-form{
+  width: 100%;
+  clear: both;
+  display: inline-block;
+}
+.valuable-report-form .valuable-field-left{
+  width: 50%;
+  float: left;
+  text-align: right;
+  padding-right: 5px;
+}
+.valuable-report-form label{
+  color: #31708f;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.valuable-report-form .valuable-field-right{
+  width: 50%;
+  float: left;
+  text-align: left;
+  padding-left: 5px;
 }
 .cssload-wrap {
   text-align: center;
