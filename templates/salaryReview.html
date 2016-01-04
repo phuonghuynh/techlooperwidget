@@ -114,18 +114,26 @@
         <div class="valuable-report">
             <p>{{translation.valuableReport}}</p>
             <form name="valuableReportForm" class="valuable-report-form">
-                <div class="valuable-field-left">
-                    <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign=salarywidget', '_blank');">
-                        <input type="radio" name="valuableReport"/>
-                        {{translation.yes}}
-                    </label>
-                </div>
-                <div class="valuable-field-right">
-                    <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign=salarywidget', '_blank');">
-                        <input type="radio" name="valuableReport"/>
-                        {{translation.no}}
-                    </label>
-                </div>
+                <ul>
+                    <li>
+                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign=salarywidget', '_blank');">
+                            <input type="radio" name="valuableReport"/>
+                            {{translation.always}}
+                        </label>
+                    </li>
+                    <li>
+                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign=salarywidget', '_blank');">
+                            <input type="radio" name="valuableReport"/>
+                            {{translation.sometimes}}
+                        </label>
+                    </li>
+                    <li>
+                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign=salarywidget', '_blank');">
+                            <input type="radio" name="valuableReport"/>
+                            {{translation.never}}
+                        </label>
+                    </li>
+                </ul>
             </form>
         </div>
     </div>

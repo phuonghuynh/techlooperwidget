@@ -643,6 +643,16 @@
   text-transform: uppercase;
   cursor: pointer;
 }
+.valuable-report-form ul{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.valuable-report-form ul li{
+  display: inline-block;
+  width: auto;
+  padding: 0 10px;
+}
 .valuable-report-form .valuable-field-right{
   width: 50%;
   float: left;

@@ -17,9 +17,10 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           },
           noDataChart : "We could not create a report for",
           moreThan: "more than",
-          "valuableReport": "Do you think this report is valuable?",
-          yes: "Yes",
-          no: "No"
+          "valuableReport": "Do you think the information shown in this diagram is helpful for your job search?",
+          always: "Always",
+          sometimes: "Sometimes",
+          never: "Never"
     },
 
         vi: {
