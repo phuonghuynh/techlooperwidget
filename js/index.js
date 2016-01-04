@@ -26,6 +26,7 @@ var changeConfig = function () {
   var param = {};
   window.location.search.substr(1).split("&").forEach(function(item) {param[item.split("=")[0]] = item.split("=")[1]});
   var jobId = param["job-id"] || param["jobId"];
+  var campaign = param["campaign"];
 
   var attrs = "";
   var inputs = $(".tlwForm").find("[data-prop]");
@@ -47,6 +48,7 @@ var changeConfig = function () {
 
   if (tlwFormValidator.form()) {
     jobId && (attrs += 'data-job-id="' + jobId + '"');
+    campaign && (attrs += 'data-campaign="' + campaign + '"');
     updateSampleConfig(attrs);
   }
   else {

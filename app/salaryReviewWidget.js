@@ -4,6 +4,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       "use strict";
       $.noConflict(true);
 
+      var defaultCampaign = "";
+
       var widget = {};
       widget.$container = $("#tlw");
 
@@ -66,7 +68,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               widgetFormat: config.widgetFormat,//"arrow" / "meter"
               arrowPosition: config.$arrowPosition,
               meterPosition: config.$meterPosition,
-              salaryLabel: config.$salaryLabel
+              salaryLabel: config.$salaryLabel,
+              campaign: config.campaign || defaultCampaign
             }
           });
         },
