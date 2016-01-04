@@ -36,7 +36,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           },
           noDataChart: "Chúng tôi không thể tạo ra một báo cáo cho",
           moreThan: "hơn",
-          "valuableReport": "Bạn có nghĩ rằng báo cáo này là có giá trị?",
+          "valuableReport": "Báo cáo này có ích cho bạn không?",
           yes: "Có",
           no: "Không"
         }
