@@ -37,9 +37,10 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           },
           noDataChart: "Chúng tôi không thể tạo ra một báo cáo cho",
           moreThan: "hơn",
-          "valuableReport": "Báo cáo này có ích cho bạn không?",
-          yes: "Có",
-          no: "Không"
+          "valuableReport": "Thông tin hiển thị trong biểu đồ có giúp ích cho việc tìm kiếm công việc của bạn?",
+          always: "Luôn luôn",
+          sometimes: "Thỉnh thoảng",
+          never: "Không bao giờ"
         }
       }
     });
