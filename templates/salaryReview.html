@@ -116,19 +116,19 @@
             <form name="valuableReportForm" class="valuable-report-form">
                 <ul>
                     <li>
-                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign=salarywidget', '_blank');">
+                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=always&utm_campaign={{campaign}}', '_blank');">
                             <input type="radio" name="valuableReport"/>
                             {{translation.always}}
                         </label>
                     </li>
                     <li>
-                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign=salarywidget', '_blank');">
+                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=sometimes&utm_campaign={{campaign}}', '_blank');">
                             <input type="radio" name="valuableReport"/>
                             {{translation.sometimes}}
                         </label>
                     </li>
                     <li>
-                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign=salarywidget', '_blank');">
+                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=never&utm_campaign={{campaign}}', '_blank');">
                             <input type="radio" name="valuableReport"/>
                             {{translation.never}}
                         </label>
