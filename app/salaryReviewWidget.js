@@ -6,10 +6,9 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
       var defaultCampaign = "salarywidget";
 
-      //var tid = /tid=([^&]+)/.exec(window.location.search);
       var widget = {};
-      widget.$container = $("#tlwsr-" + "@@version");
-      //console.log(widget.$container);
+      widget.$container = $($(".tlwsrw")[0]);
+      widget.$container.removeClass("tlwsrw");
 
       //const values used to calculate salary-review data
       var preferMeterValues = [170, 162, 148, 135, 112, 90, 67, 45, 31, 18, 8];
@@ -61,8 +60,9 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           var visibleSalary = (salaryReview.isSalaryVisible == false) ? false : config.salaryVisible;
           if (!visibleSalary) config.$salaryLabel = translation.salaryLabel.nmin_nmax;
 
+          var campaign = config.campaign || defaultCampaign;
           this.ractive = new Ractive({
-            el: widget.$container.attr("id"),
+            el: widget.$container,
             template: mainTemplate,
             data: {
               translation: translation,
@@ -73,7 +73,11 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               arrowPosition: config.$arrowPosition,
               meterPosition: config.$meterPosition,
               salaryLabel: config.$salaryLabel,
-              campaign: config.campaign || defaultCampaign
+              campaign: campaign
+            },
+            answer: function(utm_medium) {
+              widget.$container.find('.valuable-report').hide();
+              window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=' + utm_medium + '&utm_campaign=' + campaign, '_blank');
             }
           });
         },
