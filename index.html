@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="images/icon.ico" type="image/x-icon"/>
+
+  <title>TechLooper | Career Analytics. Open Source. Awesome!</title>
+  <meta name="description" content="Techlooper is a Career Analytics">
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+  <!-- Facebook & LinkedIn -->
+  <meta property="og:title" content="TechLooper is a career analytics platform." />
+  <meta property="og:description" content="Techlooper is a Career Analytics" />
+  <meta property="og:image" content="@@baseUrl/images/logo-social.png" />
+  <meta property="og:image:width" content="200" />
+
+  <!-- Twitter -->
+  <meta property="twitter:title" content="TechLooper is a career analytics platform." />
+  <meta property="twitter:image:src" content="@@baseUrl/images/logo-social.png" />
+
+  <!-- Google+ -->
+  <meta itemprop="name" content="TechLooper is a career analytics platform." />
+  <meta itemprop="image" content="@@baseUrl/images/logo-social.png" />
+
+  <!--CSS and JS-->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="css/easy-autocomplete.min.css">
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="js/select2.full.min.js"></script>
+  <script type="text/javascript" src="js/jquery.easy-autocomplete.min.js"></script>
+
+</head>
+<body>
+<!-- Header -->
+<header>
+  <nav class="navbar navbar-default navbar-iframe" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="http://www.techlooper.com/">
+          <img src="http://www.techlooper.com/images/logo-small.svg"
+               alt="TechLooper - Career Analytics. Open Source. Awesome!"
+               title="TechLooper - Career Analytics. Open Source. Awesome!">
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="main-wrapper">
+  <div class="container">
+    <style>
+      #widget h3 {
+        margin-top: 20px;
+      }
+
+      #widget .box h3 {
+        margin-top: 5px;
+        margin-bottom: 20px;
+      }
+
+      #widget .customize-techlooper-widget {
+        margin-top: 20px;
+      }
+
+      #widget .customize-techlooper-widget h3{
+        width: auto;
+        float: left;
+      }
+      #widget .customize-techlooper-widget .submit-form{
+        width: auto;
+        float: right;
+        padding-right: 15px;
+      }
+      .customize-techlooper-widget .submit-form button.btn-default{
+        background-color: #337ab7 !important;
+        color: #fff;
+      }
+      #widget-preview h3 {
+        margin-top: 20px;
+      }
+
+      #embedded-container {
+        cursor: default !important;
+      }
+      .customize-techlooper-widget .select2-container--default .select2-selection--single{
+        border: 1px solid #dddddd;
+        height: 38px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      }
+      .customize-techlooper-widget .select2-container--default .select2-selection--single .select2-selection__rendered{
+        line-height: 38px;
+      }
+      .customize-techlooper-widget .select2-container--default .select2-selection--single .select2-selection__arrow{
+        height: 36px;
+      }
+      .customize-techlooper-widget .form-group a{
+        float: right;
+        margin-right: 15px;
+        cursor: pointer;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAFCAYAAACXU8ZrAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3RDRDRDRDRjlDQjExMUU1ODg4RTkwQzIyQ0ExN0FBMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3RDRDRDREMDlDQjExMUU1ODg4RTkwQzIyQ0ExN0FBMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdENENENENEOUNCMTExRTU4ODhFOTBDMjJDQTE3QUExIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdENENENENFOUNCMTExRTU4ODhFOTBDMjJDQTE3QUExIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+viv1EAAAADFJREFUeNpiMTY2/s9AADABMSMBNYxMMAYuBWCTzpw5w4BDISOydQxYFMIVgOQAAgwAJ/UI2amuhkwAAAAASUVORK5CYII=) 4px 8px no-repeat;
+      }
+      .customize-techlooper-widget .form-group a.advance{
+        padding-left: 20px;
+      }
+      .customize-techlooper-widget .form-group span.error{
+        color: red;
+        padding-right: 15px;
+        display: inline-block;
+        width: 100%;
+        text-align: right;
+        font-size: 12px;
+        font-style: italic;
+      }
+      .customize-techlooper-widget .form-group label strong{
+        color: red;
+        font-weight: 500;
+      }
+      .customize-techlooper-widget .form-group  a.advance.arrow-up {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAFCAYAAACXU8ZrAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3RDRDRDREMzlDQjExMUU1ODg4RTkwQzIyQ0ExN0FBMSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3RDRDRDRENDlDQjExMUU1ODg4RTkwQzIyQ0ExN0FBMSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdENENENEQxOUNCMTExRTU4ODhFOTBDMjJDQTE3QUExIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdENENENEQyOUNCMTExRTU4ODhFOTBDMjJDQTE3QUExIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+webA0gAAADhJREFUeNpi/P//P4OJiQkDEvgPxIwgxpkzZ8ACTFgUwGmYHBMWBQzoCplwKEBRyIRHAVwhQIABAL2+ENNckiS1AAAAAElFTkSuQmCC) 4px 8px no-repeat
+      }
+      .easy-autocomplete{
+        width: 100% !important;
+      }
+    </style>
+    <h1>TechLooper Salary Reivew Widget</h1>
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="widget">
+          <h3>Place the code for your plugin wherever you want the plugin to appear on your page.</h3>
+          <textarea id="embedded-container" class="form-control" readonly="1" rows="12" spellcheck="false"
+                    style="font-family: monospace" onclick="this.focus(); this.select()" tabindex="0">
+          </textarea>
+          <div class="row">
+            <div class="col-sm-6">
+              <form class="form-horizontal tlwForm">
+                <div class="box box-md customize-techlooper-widget">
+                  <div class="row">
+                    <h3>Customize your plugin</h3>
+                    <div class="submit-form">
+                      <button type="button" class="btn btn-default preview" onclick="changeConfig();">Apply</button>
+                    </div>
+                  </div>
+                  <!--<div class="form-group">-->
+                    <!--<label class="col-sm-3 control-label" for="jobId">Job Id</label>-->
+                    <!--<div class="col-sm-9">-->
+                      <!--<input type="text" class="form-control" id="jobId" data-prop="job-id"/>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Job Title <strong>*</strong></label>
+                    <div class="col-sm-9">
+                      <input name="jobTitle" type="text" class="form-control" id="jobTitle" data-prop="job-title" value="Java Developer" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="jobLevel">Job Level</label>
+                    <div class="col-sm-9">
+                      <select name="jobLevel" id="jobLevel" data-prop="job-level-ids">
+                        <option value="-1">All job levels</option>
+                        <option value="[1]">Entry</option>
+                        <option value="[5,6]">Experienced</option>
+                        <option value="[7]">Manager</option>
+                        <option value="[10,3,4,8,9]">Director and Above</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Location</label>
+                    <div class="col-sm-9">
+                      <div class="border-text-box">
+                        <select id="location" class="form-control" data-prop="location-id">
+                          <option value="-1">Any location</option>
+                          <option value="29">Ho Chi Minh</option>
+                          <option value="24">Ha Noi</option>
+                          <option value="71">Mekong Delta</option>
+                          <option value="2">An Giang</option>
+                          <option value="3">Ba Ria - Vung Tau</option>
+                          <option value="4">Bac Can</option>
+                          <option value="5">Bac Giang</option>
+                          <option value="6">Bac Lieu</option>
+                          <option value="7">Bac Ninh</option>
+                          <option value="8">Ben Tre</option>
+                          <option value="9">Bien Hoa</option>
+                          <option value="10">Binh Dinh</option>
+                          <option value="11">Binh Duong</option>
+                          <option value="12">Binh Phuoc</option>
+                          <option value="13">Binh Thuan</option>
+                          <option value="14">Ca Mau</option>
+                          <option value="15">Can Tho</option>
+                          <option value="16">Cao Bang</option>
+                          <option value="17">Da Nang</option>
+                          <option value="18">Dac Lac</option>
+                          <option value="69">Dien Bien</option>
+                          <option value="19">Dong Nai</option>
+                          <option value="20">Dong Thap</option>
+                          <option value="21">Gia Lai</option>
+                          <option value="22">Ha Giang</option>
+                          <option value="23">Ha Nam</option>
+                          <option value="25">Ha Tay</option>
+                          <option value="26">Ha Tinh</option>
+                          <option value="27">Hai Duong</option>
+                          <option value="28">Hai Phong</option>
+                          <option value="30">Hoa Binh</option>
+                          <option value="31">Hue</option>
+                          <option value="32">Hung Yen</option>
+                          <option value="33">Khanh Hoa</option>
+                          <option value="34">Kon Tum</option>
+                          <option value="35">Lai Chau</option>
+                          <option value="36">Lam Dong</option>
+                          <option value="37">Lang Son</option>
+                          <option value="38">Lao Cai</option>
+                          <option value="40">Nam Dinh</option>
+                          <option value="41">Nghe An</option>
+                          <option value="42">Ninh Binh</option>
+                          <option value="43">Ninh Thuan</option>
+                          <option value="44">Phu Tho</option>
+                          <option value="45">Phu Yen</option>
+                          <option value="46">Quang Binh</option>
+                          <option value="47">Quang Nam</option>
+                          <option value="48">Quang Ngai</option>
+                          <option value="49">Quang Ninh</option>
+                          <option value="50">Quang Tri</option>
+                          <option value="51">Soc Trang</option>
+                          <option value="52">Son La</option>
+                          <option value="53">Tay Ninh</option>
+                          <option value="54">Thai Binh</option>
+                          <option value="55">Thai Nguyen</option>
+                          <option value="56">Thanh Hoa</option>
+                          <option value="57">Thua Thien-Hue</option>
+                          <option value="58">Tien Giang</option>
+                          <option value="59">Tra Vinh</option>
+                          <option value="60">Tuyen Quang</option>
+                          <option value="61">Kien Giang</option>
+                          <option value="62">Vinh Long</option>
+                          <option value="63">Vinh Phuc</option>
+                          <option value="65">Yen Bai</option>
+                          <option value="66">Other</option>
+                          <option value="70">International</option>
+                          <option value="72">Hau Giang</option>
+                          <option value="39">Long An</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="jobSalary">Salary(USD) <strong>*</strong></label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="jobSalary" data-prop="net-salary" name="jobSalary" value="1000"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Salary Visibility</label>
+                    <div class="col-sm-9">
+                      <div class="col-sm-6">
+                        <label class="radio-inline">
+                          <input data-prop="salary-visible" type="radio" name="salaryVisible" value="true" checked> Shown
+                        </label>
+                      </div>
+                      <div class="col-sm-6">
+                        <label class="radio-inline">
+                          <input data-prop="salary-visible" type="radio" name="salaryVisible" value="false"> Hidden
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Format</label>
+                    <div class="col-sm-9">
+                      <div class="col-sm-6">
+                        <label class="radio-inline">
+                          <input data-prop="widget-format" type="radio" name="widgetFormat" value="arrow" checked> Arrow
+                        </label>
+                      </div>
+                      <div class="col-sm-6">
+                        <label class="radio-inline">
+                          <input  data-prop="widget-format" type="radio" name="widgetFormat" value="meter"> Meter
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <a class="advance"> Advanced</a>
+                  </div>
+                  <div class="advanced-plugin">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label" for="jobSkill">Skill</label>
+                      <div class="col-sm-9">
+                        <input type="text" id="jobSkill" class="form-control" data-prop="skills" />
+                        <!--<select id="jobSkill" class="form-control" multiple data-prop="skills">-->
+                        <!--</select>-->
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Industry</label>
+                      <div class="col-sm-9">
+                        <div class="border-text-box">
+                          <select id="industry" class="form-control" multiple data-prop="job-categories">
+                            <option value="-1">All categories</option>
+                            <option value="1">Accounting</option>
+                            <option value="2">Administrative/Clerical</option>
+                            <option value="3">Advertising/Promotion/PR</option>
+                            <option value="4">Agriculture/Forestry</option>
+                            <option value="37">Airlines/Tourism/Hotel</option>
+                            <option value="5">Architecture/Interior Design</option>
+                            <option value="10">Arts/Design</option>
+                            <option value="58">Auditing</option>
+                            <option value="67">Automotive</option>
+                            <option value="42">Banking</option>
+                            <option value="43">Chemical/Biochemical</option>
+                            <option value="7">Civil/Construction</option>
+                            <option value="8">Consulting</option>
+                            <option value="11">Customer Service</option>
+                            <option value="12">Education/Training</option>
+                            <option value="64">Electrical/Electronics</option>
+                            <option value="15">Entry level</option>
+                            <option value="16">Environment/Waste Services</option>
+                            <option value="17">Executive management</option>
+                            <option value="18">Expatriate Jobs in Vietnam</option>
+                            <option value="19">Export-Import</option>
+                            <option value="63">Fashion/Lifestyle</option>
+                            <option value="59">Finance/Investment</option>
+                            <option value="54">Food &amp; Beverage</option>
+                            <option value="36">Freight/Logistics</option>
+                            <option value="22">Health/Medical Care</option>
+                            <option value="66">High Technology</option>
+                            <option value="23">Human Resources</option>
+                            <option value="68">Industrial Products</option>
+                            <option value="24">Insurance</option>
+                            <option value="57">Internet/Online Media</option>
+                            <option value="47">Interpreter/Translator</option>
+                            <option value="55">IT - Hardware/Networking</option>
+                            <option value="35">IT - Software</option>
+                            <option value="25">Legal/Contracts</option>
+                            <option value="62">Luxury Goods</option>
+                            <option value="27">Marketing</option>
+                            <option value="65">Mechanical</option>
+                            <option value="21">NGO/Non-Profit</option>
+                            <option value="28">Oil/Gas</option>
+                            <option value="71">Overseas Jobs</option>
+                            <option value="6">Pharmaceutical/Biotech</option>
+                            <option value="69">Planning/Projects</option>
+                            <option value="26">Production/Process</option>
+                            <option value="49">Purchasing/Supply Chain</option>
+                            <option value="70">QA/QC</option>
+                            <option value="30">Real Estate</option>
+                            <option value="32">Retail/Wholesale</option>
+                            <option value="33">Sales</option>
+                            <option value="34">Sales Technical</option>
+                            <option value="56">Securities &amp; Trading</option>
+                            <option value="41">Telecommunications</option>
+                            <option value="51">Temporary/Contract</option>
+                            <option value="52">Textiles/Garments/Footwear</option>
+                            <option value="48">TV/Media/Newspaper</option>
+                            <option value="53">Warehouse</option>
+                            <option value="39">Other</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label" for="jobLang">Language</label>
+                      <div class="col-sm-9">
+                        <div class="border-text-box">
+                          <select id="jobLang" class="form-control" data-prop="lang">
+                            <option value="vi">Tiếng Việt</option>
+                            <option value="en" selected>English</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-sm-6">
+              <div id="widget-preview">
+                <h3>Preview</h3>
+                <div></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/index.js" type="application/javascript"></script>
+</body>
+</html>
