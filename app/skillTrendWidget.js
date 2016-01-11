@@ -7,32 +7,54 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
       //var tid = /tid=([^&]+)/.exec(window.location.search); // Value is in [1] ('384' in our case)
       var widget = {};
-      widget.$container = $("#tlwst");
+      widget.$container = $($(".tlwsrw")[0]);
+      widget.$container.removeClass("tlwsrw");
+      console.log(widget.$container);
 
       var lang = (widget.$container.data('lang') == "vi" ? "vi" : "en");
       var translation = translate[lang];
-
       $.extend(true, widget, {
-        render: function (salaryReview, config) {
+        render: function (skillTrend, config) {
+          var campaign = config.campaign || defaultCampaign;
           this.ractive = new Ractive({
-            el: widget.$container.attr("id"),
+            el: widget.$container,
             template: mainTemplate,
             data: {
               translation: translation,
-              campaign: config.campaign || defaultCampaign
+              campaign: campaign
+            },
+            answer: function(utm_medium) {
+              widget.$container.find('.valuable-report').hide();
+              window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=' + utm_medium + '&utm_campaign=' + campaign, '_blank');
             }
           });
         },
 
         init: function () {
           Ractive.DEBUG = false;
-
           var $style = $("<style></style>", {type: "text/css"});
           $style.text(css);
           $("head").append($style);
 
-          var config = widget.$container.data();
-          if (!config) {return false;}
+         var config = widget.$container.data();
+          //if (!config) {return false;}
+
+          $.ajax({
+            type: "POST",
+            url: "@@backendUrl" + "/getPromotedWidget",
+            headers: {"Accept": "application/json", "Content-Type": "application/json"},
+            data: JSON.stringify(config),
+            dataType: "json",
+            timeout: 30000,
+            success: function (skillTrend) {
+              return widget.render(skillTrend, config);
+              //widget.$container.html("");
+              //widget.$container.append("<p>" + translation.noDataChart + ' <strong>' + salaryReview.jobTitle + "</strong></p>");
+            },
+            complete: function () {
+              //$('.cssload-wrap').remove();
+            }
+          });
         }
       });
       return widget;

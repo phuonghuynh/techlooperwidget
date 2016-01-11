@@ -36,17 +36,16 @@ var changeConfig = function () {
     var $input = $(input);
     var val = $input.val();
 
-    var ignore = $input.is(":radio") && !$input.is(":checked");
-    ignore = ignore || ($input.is("select") && val == "-1");
-
-    if (ignore == true) {
-      return true;
-    }
+    //var ignore = $input.is(":radio") && !$input.is(":checked");
+    //ignore = ignore || ($input.is("select") && val == "-1");
+    //
+    //if (ignore == true) {
+    //  return true;
+    //}
 
     if (!val || val.length == 0) return true;
     attrs += 'data-' + $input.data('prop') + '="' + val + '" ';
   });
-
   if (tlwFormValidator.form()) {
     jobId && (attrs += 'data-job-id="' + jobId + '"');
     campaign && (attrs += 'data-campaign="' + campaign + '"');
@@ -64,8 +63,7 @@ $(function () {
   tlwFormValidator = $("form.tlwForm").validate({
     errorElement: "span",
     rules: {
-      jobTitle: {required: true},
-      jobSalary: {required: true, number: true}
+      jobTitle: {required: true}
     },
     errorPlacement: function (error, element) {
       error.appendTo(element.parents('.form-group'));
