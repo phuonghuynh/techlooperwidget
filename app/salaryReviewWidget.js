@@ -1,9 +1,12 @@
 if (typeof define === "function" && define.amd && define.amd.jQuery) {
-  define(["jquery", "ractive", "rv!templates/salaryReview", "text!css/embed.min.css", "app/translate"],
+  define(["jquery", "ractive", "rv!app/template/salaryReview", "text!app/css/salary-widget.min.css", "app/translate"],
     function ($, Ractive, mainTemplate, css, translate) {
       "use strict";
       $.noConflict(true);
 
+      var defaultCampaign = "salarywidget";
+
+      //var tid = /tid=([^&]+)/.exec(window.location.search);
       var widget = {};
       widget.$container = $("#tlw");
 
@@ -27,18 +30,17 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
       $.extend(true, widget, {
         render: function (salaryReview, config) {
-          if(salaryReview.salaryReport.percentRank > 92){
-            config.$arrowPosition = widget.$container.width() - 225;
-          }else{
-            if(salaryReview.salaryReport.percentRank < 10){
-              config.$arrowPosition = 0;
-            }else{
-              config.$arrowPosition = ((widget.$container.width() * salaryReview.salaryReport.percentRank) / 100);
+          if (salaryReview.salaryReport.percentRank > 92) {
+            $('.current-position').addClass('right-position');
+          }
+          else {
+            if (salaryReview.salaryReport.percentRank < 10) {
+              $('.current-position').addClass('left-position');
+            }
+            else {
+              config.$arrowPosition = ((widget.$container.width() * salaryReview.salaryReport.percentRank) / 100) - 65;
             }
           }
-
-          //console.log(config.$arrowPosition);
-          //console.log(widget.$container.width());
           config.$meterPosition = 0;
           var position = (180 * salaryReview.salaryReport.percentRank / 100);
           $.each(preferMeterValues, function (i, preferValue) {
@@ -56,7 +58,6 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           config.$salaryLabel = translation.salaryLabel[min + "_" + max].replace("%min", salaryReview.salaryMin).replace("%max", salaryReview.salaryMax);
 
           var visibleSalary = (salaryReview.isSalaryVisible == false) ? false : config.salaryVisible;
-          console.log(visibleSalary);
           if (!visibleSalary) config.$salaryLabel = translation.salaryLabel.nmin_nmax;
 
           this.ractive = new Ractive({
@@ -70,13 +71,15 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               widgetFormat: config.widgetFormat,//"arrow" / "meter"
               arrowPosition: config.$arrowPosition,
               meterPosition: config.$meterPosition,
-              salaryLabel: config.$salaryLabel
+              salaryLabel: config.$salaryLabel,
+              campaign: config.campaign || defaultCampaign
             }
           });
         },
 
         init: function () {
           Ractive.DEBUG = false;
+
           var $style = $("<style></style>", {type: "text/css"});
           $style.text(css);
           $("head").append($style);
@@ -88,7 +91,6 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             var mapProp = mapProperties[prop];
             $.isFunction(mapProp) ? (config[prop] = mapProp(config[prop])) : (config[mapProp] = config[prop]);
           }
-          //console.log(config);
 
           $.ajax({
             type: "POST",
@@ -102,7 +104,10 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
                 return widget.render(salaryReview, config);
               }
               widget.$container.html("");
-              widget.$container.append("<p>" + translation.noDataChart + ' <strong>'+salaryReview.jobTitle + "</strong></p>")
+              widget.$container.append("<p>" + translation.noDataChart + ' <strong>' + salaryReview.jobTitle + "</strong></p>")
+            },
+            complete: function () {
+              //$('.cssload-wrap').remove();
             }
           });
         }

@@ -1,6 +1,5 @@
 {
   "name": "techlooper-widget",
-  "$version": "1.0",
   "devDependencies": {
     "grunt": "latest",
     "grunt-cli": "latest",

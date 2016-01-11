@@ -1,6 +1,7 @@
 var baseUrl = (function () {
   var paths = window.location.pathname.split('/');
-  paths.pop();
+  paths.pop();paths.pop();//remove "demo"
+  //if (paths[paths.length - 1] == "demo") paths.pop();
   return window.location.protocol + '//' + window.location.host + paths.join('/');
 })();
 
@@ -10,17 +11,24 @@ var tlwFormValidator = undefined;
 
 var updateSampleConfig = function (attrs) {
   attrs = attrs || "";
-  $.get("sample/sampleSalaryReview.html", function (codeSample) {
+  $.get("sample/sampleSkillTrend.html", function (codeSample) {
     var wdHtml = codeSample
       .replace("${baseUrl}", baseUrl)
       .replace("${attrs}", attrs);
     $("#embedded-container").val(wdHtml);
     $("#widget-preview > div").html($("#embedded-container").val());
-    $.getScript("/embed.min.js");
+    $.getScript("/skill-trend.min.js");
   });
 }
 
 var changeConfig = function () {
+  $('.loading-page-time').removeClass('hide-loading');
+
+  var param = {};
+  window.location.search.substr(1).split("&").forEach(function(item) {param[item.split("=")[0]] = item.split("=")[1]});
+  var jobId = param["job-id"] || param["jobId"];
+  var campaign = param["campaign"];
+
   var attrs = "";
   var inputs = $(".tlwForm").find("[data-prop]");
 
@@ -40,12 +48,17 @@ var changeConfig = function () {
   });
 
   if (tlwFormValidator.form()) {
+    jobId && (attrs += 'data-job-id="' + jobId + '"');
+    campaign && (attrs += 'data-campaign="' + campaign + '"');
     updateSampleConfig(attrs);
   }
   else {
     $("#widget-preview > div").html("");
   }
 }
+var applyData = function(){
+  changeConfig();
+};
 
 $(function () {
   tlwFormValidator = $("form.tlwForm").validate({

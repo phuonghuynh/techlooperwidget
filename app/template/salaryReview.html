@@ -1,0 +1,140 @@
+<div class="techlooper-widget">
+    <div class="salary-review {{#if widgetFormat == 'arrow'}}horizontal{{else}}meter{{/if}}">
+        {{#if widgetFormat == 'arrow'}}
+        <div class="tech-header">
+            <div class="col-sm-11">
+                <h2>{{translation.thisJobIsBetterThan}} <strong>{{salaryReview.salaryReport.percentRank}}%</strong> {{translation.ofJobLikeThis}}.
+                    <span>{{translation.baseOn}}  <strong>{{#if salaryReview.salaryReport.numberOfJobs == 1000}}{{translation.moreThan}}{{/if}} {{salaryReview.salaryReport.numberOfJobs}}</strong> {{translation.jobs}}</span></h2>
+            </div>
+            <div class="col-sm-01">
+                <a href="http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign={{campaign}}" class="techlooper-logo" title="Click here go to the TechLooper" target="_blank">TechLooper.com</a>
+            </div>
+        </div>
+        <div class="row salary-chart">
+            <div class="col-sm-12">
+                <div class="arrow-chart-version visible-salary-{{visibleSalary}}">
+                    <div class="arrow-line">
+                        <div class="percent-data">
+                            <div class="salary-number-label">
+                                {{#if visibleSalary == true}}$0{{/if}}
+                            </div>
+                            <div class="percent-color"></div>
+                            <div class="percent-number-label">0%</div>
+                        </div>
+                        {{#each salaryRanges: i}}
+                        <div class="percent-data" style="width: {{this.percent}}%">
+                            <div class="salary-number-label">
+                                {{#if visibleSalary == true}}
+                                ${{this.percentile}}
+                                {{/if}}
+                            </div>
+                            <div class="percent-color"></div>
+                            <div class="percent-number-label">{{this.percent}}%</div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <div class="arrow-right"></div>
+                    {{#if salaryReview.salaryReport.percentRank > 85}}
+                    <div class="current-position right-position">
+                        <div class="current-salary">
+                            <div class="salary">{{translation.thisJob}}: {{salaryLabel}}</div>
+                            <div class="arrow">
+                                <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="position">
+                            <div class="dot">
+                                <i class="circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    {{elseif salaryReview.salaryReport.percentRank < 10}}
+                    <div class="current-position left-position">
+                        <div class="current-salary">
+                            <div class="salary">{{translation.thisJob}}: {{salaryLabel}}</div>
+                            <div class="arrow">
+                                <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="position">
+                            <div class="dot">
+                                <i class="circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    {{else}}
+                    <div class="current-position left-position" style="margin-left:-20px; left: {{salaryReview.salaryReport.percentRank}}%">
+                        <div class="current-salary">
+                            <div class="salary">{{translation.thisJob}}: {{salaryLabel}}</div>
+                            <div class="arrow">
+                                <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="position">
+                            <div class="dot">
+                                <i class="circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                </div>
+            </div>
+
+        </div>
+        {{else}}
+        <div class="tech-header">
+            <div class="col-sm-10">
+                <h4>{{translation.thisJobIsBetterThan}} <strong>{{salaryReview.salaryReport.percentRank}}%</strong> {{translation.ofJobLikeThis}}.
+                    <span>{{translation.baseOn}} <strong>{{#if salaryReview.salaryReport.numberOfJobs == 1000}}{{translation.moreThan}}{{/if}} {{salaryReview.salaryReport.numberOfJobs}}</strong> {{translation.jobs}}</span>
+                </h4>
+            </div>
+            <div class="col-sm-02">
+                <a href="http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign={{campaign}}" class="techlooper-logo" title="Click here go to the TechLooper" target="_blank">TechLooper.com</a>
+            </div>
+        </div>
+        <div class="row salary-chart">
+            <div class="col-sm-12 meter-chart-version">
+                <div class="meter-chart">
+                    <div class="meter-images"></div>
+                    {{#if visibleSalary == true}}
+                    <div class="number-chart dollar0">$0</div>
+                    {{#each salaryRanges: i}}
+                    <div class="number-chart dollar{{salaryRanges[i].percent}}">${{salaryRanges[i].percentile}}</div>
+                    {{/each}}
+                    {{/if}}
+                    <div class="meter-arrow position{{meterPosition}}"></div>
+                </div>
+                <div class="current-salary">
+                    {{translation.thisJob}}: {{salaryLabel}}
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        <div class="valuable-report">
+            <p>{{translation.valuableReport}}</p>
+            <form name="valuableReportForm" class="valuable-report-form">
+                <ul>
+                    <li>
+                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=always&utm_campaign={{campaign}}', '_blank');">
+                            <input type="radio" name="valuableReport"/>
+                            {{translation.always}}
+                        </label>
+                    </li>
+                    <li>
+                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=sometimes&utm_campaign={{campaign}}', '_blank');">
+                            <input type="radio" name="valuableReport"/>
+                            {{translation.sometimes}}
+                        </label>
+                    </li>
+                    <li>
+                        <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=never&utm_campaign={{campaign}}', '_blank');">
+                            <input type="radio" name="valuableReport"/>
+                            {{translation.never}}
+                        </label>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>

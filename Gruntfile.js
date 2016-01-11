@@ -3,7 +3,8 @@ module.exports = function (grunt) {
 
   var chalk = require('chalk');
   var pkgJson = require('./package.json');
-  var version = pkgJson.$version;
+  var version = new Date().getTime();
+  //var version = pkgJson.$version;
 
   grunt.initConfig({
 
@@ -26,14 +27,14 @@ module.exports = function (grunt) {
         optimizeAllPluginResources: true,
         findNestedDependencies: true
       },
-      css: {
+      salaryWidgetCss: {
         options: {
-          cssIn: "<%=baseDir%>/css/embed.css",
-          out: "<%=baseDir%>/css/embed.min.css",
+          cssIn: "<%=baseDir%>/app/css/salary-widget.css",
+          out: "<%=baseDir%>/app/css/salary-widget.min.css",
           optimizeCss: "standard"
         }
       },
-      js: {
+      salaryWidgetJs: {
         options: {
           paths: {
             text: "bower_components/text/text",
@@ -44,9 +45,32 @@ module.exports = function (grunt) {
             almond: "bower_components/almond/almond"
           },
           name: "bower_components/almond/almond",
-          //almond: true,
-          include: ['app/_main.js'],
-          out: "<%=baseDir%>/embed.min.js",
+          include: ['app/_salaryReviewWidget.js'],
+          out: "<%=baseDir%>/salary-review.min.js",
+          optimize: "none",
+          stubModules: ['rv', 'amd-loader', 'text']
+        }
+      },
+      skillTrendWidgetCss: {
+        options: {
+          cssIn: "<%=baseDir%>/app/css/skill-trend.css",
+          out: "<%=baseDir%>/app/css/skill-trend.min.css",
+          optimizeCss: "standard"
+        }
+      },
+      skillTrendWidgetJs: {
+        options: {
+          paths: {
+            text: "bower_components/text/text",
+            jquery: "bower_components/jQuery/dist/jquery",
+            ractive: "bower_components/ractive/ractive",
+            'amd-loader': "bower_components/rv/amd-loader",
+            rv: "bower_components/rv/rv",
+            almond: "bower_components/almond/almond"
+          },
+          name: "bower_components/almond/almond",
+          include: ['app/_skillTrendWidget.js'],
+          out: "<%=baseDir%>/skill-trend.min.js",
           optimize: "none",
           stubModules: ['rv', 'amd-loader', 'text']
         }
@@ -60,7 +84,7 @@ module.exports = function (grunt) {
             cwd: "<%=src%>",
             expand: true,
             //src: ["**", "!**/node_modules/**"],
-            src: ["app/**", "images/**", "css/**", "js/**", "sample/**", "templates/**", "*.html"],
+            src: ["app/**", "demo/**"],
             dest: "<%=baseDir%>"
           }
         ]
@@ -70,10 +94,10 @@ module.exports = function (grunt) {
     replace: {
       local: {
         options: {
-          patterns: [{json: {backendUrl: "http://localhost:8080"}}]
+          patterns: [{json: {backendUrl: "http://localhost:8080", baseUrl: "http://localhost:8080"}}]
         },
         files: {
-          "<%=baseDir%>/embed.min.js": "<%=baseDir%>/embed.min.js"
+          "<%=baseDir%>/salary-review.min.js": "<%=baseDir%>/salary-review.min.js"
         }
       },
 
@@ -88,10 +112,7 @@ module.exports = function (grunt) {
           }]
         },
         files: [
-          {cwd: "<%=baseDir%>/app", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/app"},
-          {cwd: "<%=baseDir%>/sample", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/sample"},
-          {"<%=baseDir%>/js/index.js": "<%=baseDir%>/js/index.js"},
-          {"<%=baseDir%>/index.html": "<%=baseDir%>/index.html"}
+          {cwd: "<%=baseDir%>", expand: true, src: ["**"], dest: "<%=baseDir%>"}
         ]
       },
 
@@ -106,10 +127,7 @@ module.exports = function (grunt) {
           }]
         },
         files: [
-          {cwd: "<%=baseDir%>/app", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/app"},
-          {cwd: "<%=baseDir%>/sample", expand: true, flatten: true, src: ["**"], dest: "<%=baseDir%>/sample"},
-          {"<%=baseDir%>/js/index.js": "<%=baseDir%>/js/index.js"},
-          {"<%=baseDir%>/index.html": "<%=baseDir%>/index.html"}
+          {cwd: "<%=baseDir%>", expand: true, src: ["**"], dest: "<%=baseDir%>"}
         ]
       }
     },
@@ -173,8 +191,8 @@ module.exports = function (grunt) {
   grunt.registerTask("clean", "clean last build", function () {
     grunt.file.delete("target");
     grunt.file.delete("bower_components");
-    grunt.file.delete("css/embed.min.css");
-    grunt.file.delete("embed.min.js");
+    grunt.file.delete("css/*.min.css");
+    grunt.file.delete("*.min.js");
   });
 
   grunt.registerTask("init-target-config", "initialise common config", function () {
@@ -187,10 +205,13 @@ module.exports = function (grunt) {
 
   grunt.registerTask("clear-target", "clean last build", function () {
     grunt.file.delete("target/bower_components");
-    grunt.file.delete("target/templates");
+    grunt.file.delete("target/app");
   });
 
-  grunt.registerTask("build", ["bower-install-simple:build", "requirejs:css", "requirejs:js"]);
+  grunt.registerTask("build", ["bower-install-simple:build",
+    "requirejs:salaryWidgetCss", "requirejs:salaryWidgetJs",
+    "requirejs:skillTrendWidgetCss", "requirejs:skillTrendWidgetJs",
+  ]);
   grunt.registerTask("build-target", ["build", "clear-target", "compress:target"]);
   grunt.registerTask("run", ["connect", "watch"]);
 
