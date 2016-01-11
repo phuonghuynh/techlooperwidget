@@ -3,7 +3,6 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
     function ($, Ractive, mainTemplate, css, translate) {
       "use strict";
       $.noConflict(true);
-
       var defaultCampaign = "skillTrendWidget";
 
       //var tid = /tid=([^&]+)/.exec(window.location.search); // Value is in [1] ('384' in our case)

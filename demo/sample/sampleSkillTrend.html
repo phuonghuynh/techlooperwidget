@@ -9,4 +9,65 @@
       window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
     })(window, document);
   </script>
+  <div class="techlooper-widget">
+    <div class="skill-trends">
+      <div class="tech-header">
+        <div class="col-sm-11">
+          <h2>There are <strong>160</strong> <span>Java Developer</span> jobs paying between $<strong>1200</strong> and $ <strong>2,500</strong></h2>
+        </div>
+        <div class="col-sm-01">
+          <a href="http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign={{campaign}}" class="techlooper-logo" title="Click here go to the TechLooper" target="_blank">TechLooper.com</a>
+        </div>
+      </div>
+      <div class="row skill-listing">
+        <div class="col-sm-12">
+          <ul>
+            <li>
+              <span class="number-jobs">23</span><span class="skill-name">Java Developer</span>
+            </li>
+            <li>
+              <span class="number-jobs">18</span><span class="skill-name">Java Developer</span>
+            </li>
+            <li>
+              <span class="number-jobs">40</span><span class="skill-name">Java Developer</span>
+            </li>
+            <li>
+              <span class="number-jobs">23</span><span class="skill-name">Java Developer</span>
+            </li>
+            <li>
+              <span class="number-jobs">23</span><span class="skill-name">Java Developer</span>
+            </li>
+            <li>
+              <span class="number-jobs">23</span><span class="skill-name">Java Developer</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="valuable-report">
+        <p>{{translation.valuableReport}}</p>
+        <form name="valuableReportForm" class="valuable-report-form">
+          <ul>
+            <li>
+              <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=always&utm_campaign={{campaign}}', '_blank');">
+                <input type="radio" name="valuableReport"/>
+                {{translation.always}}
+              </label>
+            </li>
+            <li>
+              <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=sometimes&utm_campaign={{campaign}}', '_blank');">
+                <input type="radio" name="valuableReport"/>
+                {{translation.sometimes}}
+              </label>
+            </li>
+            <li>
+              <label onclick="$('.valuable-report').hide(); window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=never&utm_campaign={{campaign}}', '_blank');">
+                <input type="radio" name="valuableReport"/>
+                {{translation.never}}
+              </label>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
