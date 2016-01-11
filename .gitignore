@@ -3,7 +3,7 @@
 bower_components
 node_modules
 .idea
-embed.min.js
-embed.min.css
+*.min.js
+*.min.css
 target/
 *.zip

@@ -1,6 +1,7 @@
 var baseUrl = (function () {
   var paths = window.location.pathname.split('/');
-  paths.pop();
+  paths.pop();paths.pop();//remove "demo"
+  //if (paths[paths.length - 1] == "demo") paths.pop();
   return window.location.protocol + '//' + window.location.host + paths.join('/');
 })();
 
@@ -10,13 +11,13 @@ var tlwFormValidator = undefined;
 
 var updateSampleConfig = function (attrs) {
   attrs = attrs || "";
-  $.get("sample/sampleSalaryReview.html", function (codeSample) {
+  $.get("sample/sampleSkillTrend.html", function (codeSample) {
     var wdHtml = codeSample
       .replace("${baseUrl}", baseUrl)
       .replace("${attrs}", attrs);
     $("#embedded-container").val(wdHtml);
     $("#widget-preview > div").html($("#embedded-container").val());
-    $.getScript("/embed.min.js");
+    $.getScript("/skill-trend.min.js");
   });
 }
 
