@@ -12,7 +12,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
       var lang = (widget.$container.data('lang') == "vi" ? "vi" : "en");
       var translation = translate[lang];
-
+      console.log(css);
       $.extend(true, widget, {
         render: function (salaryReview, config) {
           this.ractive = new Ractive({
