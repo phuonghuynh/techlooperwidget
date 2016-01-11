@@ -8,7 +8,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
       //var tid = /tid=([^&]+)/.exec(window.location.search);
       var widget = {};
-      widget.$container = $("#tlw");
+      widget.$container = $("#tlwsr-" + "@@version");
+      //console.log(widget.$container);
 
       //const values used to calculate salary-review data
       var preferMeterValues = [170, 162, 148, 135, 112, 90, 67, 45, 31, 18, 8];

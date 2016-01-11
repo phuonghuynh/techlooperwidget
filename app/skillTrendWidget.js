@@ -6,9 +6,9 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
       var defaultCampaign = "skillTrendWidget";
 
-      var tid = /tid=([^&]+)/.exec(window.location.search); // Value is in [1] ('384' in our case)
+      //var tid = /tid=([^&]+)/.exec(window.location.search); // Value is in [1] ('384' in our case)
       var widget = {};
-      widget.$container = $("#" + tid ? tid[1] : 'tlw');
+      widget.$container = $("#tlwst");
 
       var lang = (widget.$container.data('lang') == "vi" ? "vi" : "en");
       var translation = translate[lang];
