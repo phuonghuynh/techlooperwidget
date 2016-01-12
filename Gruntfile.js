@@ -64,7 +64,7 @@ module.exports = function (grunt) {
         options: {
           paths: {
             text: "bower_components/text/text",
-            jquery: "bower_components/jQuery/dist/jquery",
+            jquery: "bower_components/jquery/dist/jquery",
             ractive: "bower_components/ractive/ractive",
             'amd-loader': "bower_components/rv/amd-loader",
             rv: "bower_components/rv/rv",
