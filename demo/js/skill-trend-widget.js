@@ -36,17 +36,16 @@ var changeConfig = function () {
     var $input = $(input);
     var val = $input.val();
 
-    var ignore = $input.is(":radio") && !$input.is(":checked");
-    ignore = ignore || ($input.is("select") && val == "-1");
-
-    if (ignore == true) {
-      return true;
-    }
+    //var ignore = $input.is(":radio") && !$input.is(":checked");
+    //ignore = ignore || ($input.is("select") && val == "-1");
+    //
+    //if (ignore == true) {
+    //  return true;
+    //}
 
     if (!val || val.length == 0) return true;
     attrs += 'data-' + $input.data('prop') + '="' + val + '" ';
   });
-
   if (tlwFormValidator.form()) {
     jobId && (attrs += 'data-job-id="' + jobId + '"');
     campaign && (attrs += 'data-campaign="' + campaign + '"');
@@ -64,34 +63,13 @@ $(function () {
   tlwFormValidator = $("form.tlwForm").validate({
     errorElement: "span",
     rules: {
-      jobTitle: {required: true},
-      jobSalary: {required: true, number: true}
+      jobTitle: {required: true}
     },
     errorPlacement: function (error, element) {
       error.appendTo(element.parents('.form-group'));
     }
   });
-
-  //$(".tlwForm").find("[data-prop]").on("input", function (e) {
-  //  changeConfig();
-  //});
-  //
-  //$(".tlwForm select[data-prop]").on("change", function (e) {
-  //  changeConfig();
-  //});
-  //
-  //$("input[type=radio][data-prop]").change(function () {
-  //  changeConfig();
-  //});
-
-  $("a.advance").click(function () {
-    $("div.advanced-plugin").toggle();
-    $(this).toggleClass('arrow-up');
-    $(document).scrollTop($(document).height());
-  });
-
   changeConfig();
-  $("div.advanced-plugin").toggle();
 });
 
 $(function () {

@@ -27,6 +27,7 @@ module.exports = function (grunt) {
         optimizeAllPluginResources: true,
         findNestedDependencies: true
       },
+
       salaryWidgetCss: {
         options: {
           cssIn: "<%=baseDir%>/app/css/salary-widget.css",
@@ -38,7 +39,7 @@ module.exports = function (grunt) {
         options: {
           paths: {
             text: "bower_components/text/text",
-            jquery: "bower_components/jQuery/dist/jquery",
+            jquery: "bower_components/jquery/dist/jquery",
             ractive: "bower_components/ractive/ractive",
             'amd-loader': "bower_components/rv/amd-loader",
             rv: "bower_components/rv/rv",
@@ -51,6 +52,7 @@ module.exports = function (grunt) {
           stubModules: ['rv', 'amd-loader', 'text']
         }
       },
+
       skillTrendWidgetCss: {
         options: {
           cssIn: "<%=baseDir%>/app/css/skill-trend.css",
@@ -83,8 +85,7 @@ module.exports = function (grunt) {
           {
             cwd: "<%=src%>",
             expand: true,
-            //src: ["**", "!**/node_modules/**"],
-            src: ["app/**", "demo/**"],
+            src: ["app/**", "demo/**", "embed.min.js"],
             dest: "<%=baseDir%>"
           }
         ]
@@ -94,10 +95,16 @@ module.exports = function (grunt) {
     replace: {
       local: {
         options: {
-          patterns: [{json: {backendUrl: "http://localhost:8080", baseUrl: "http://localhost:8080"}}]
+          patterns: [{
+            json: {
+              backendUrl: "http://localhost:8080",
+              version: version
+            }
+          }]
         },
         files: {
-          "<%=baseDir%>/salary-review.min.js": "<%=baseDir%>/salary-review.min.js"
+          "<%=baseDir%>/salary-review.min.js": "<%=baseDir%>/salary-review.min.js",
+          "<%=baseDir%>/skill-trend.min.js": "<%=baseDir%>/skill-trend.min.js"
         }
       },
 
@@ -210,7 +217,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask("build", ["bower-install-simple:build",
     "requirejs:salaryWidgetCss", "requirejs:salaryWidgetJs",
-    "requirejs:skillTrendWidgetCss", "requirejs:skillTrendWidgetJs",
+    "requirejs:skillTrendWidgetCss", "requirejs:skillTrendWidgetJs"
   ]);
   grunt.registerTask("build-target", ["build", "clear-target", "compress:target"]);
   grunt.registerTask("run", ["connect", "watch"]);

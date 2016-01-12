@@ -1,3 +1,892 @@
-.test {
+.scroll-wrapper{overflow:hidden!important;padding:0!important;position:relative}
+.scroll-wrapper>.scroll-content{border:none!important;box-sizing:content-box!important;height:auto;left:0;margin:0;max-height:none;max-width:none!important;overflow:scroll!important;padding:0;position:relative!important;top:0;width:auto!important}
+.scroll-wrapper>.scroll-content::-webkit-scrollbar{height:0;width:0}
+.scroll-element{display:none}
+.scroll-element,.scroll-element div{box-sizing:content-box}
+.scroll-element.scroll-x.scroll-scrollx_visible,.scroll-element.scroll-y.scroll-scrolly_visible{display:block}
+.scroll-element .scroll-arrow,.scroll-element .scroll-bar{cursor:default}
+.scroll-textarea{border:1px solid #ccc;border-top-color:#999}
+.scroll-textarea>.scroll-content{overflow:hidden!important}
+.scroll-textarea>.scroll-content>textarea{border:none!important;box-sizing:border-box;height:100%!important;margin:0;max-height:none!important;max-width:none!important;overflow:scroll!important;outline:0;padding:2px;position:relative!important;top:0;width:100%!important}
+.scroll-textarea>.scroll-content>textarea::-webkit-scrollbar{height:0;width:0}
+.scrollbar-outer>.scroll-element,.scrollbar-outer>.scroll-element div{border:none;margin:0;padding:0;position:absolute;z-index:10}
+.scrollbar-outer>.scroll-element{background-color:#fff}
+.scrollbar-outer>.scroll-element div{display:block;height:100%;left:0;top:0;width:100%}
+.scrollbar-outer>.scroll-element.scroll-x{bottom:0;height:12px;left:0;width:100%}
+.scrollbar-outer>.scroll-element.scroll-y{height:100%;right:0;top:0;width:12px}
+.scrollbar-outer>.scroll-element.scroll-x .scroll-element_outer{height:8px;top:2px}
+.scrollbar-outer>.scroll-element.scroll-y .scroll-element_outer{left:2px;width:8px}
+.scrollbar-outer>.scroll-element .scroll-element_outer{overflow:hidden}
+.scrollbar-outer>.scroll-element .scroll-element_track{background-color:#f5f5f5}
+.scrollbar-outer>.scroll-element .scroll-bar,.scrollbar-outer>.scroll-element .scroll-element_outer,.scrollbar-outer>.scroll-element .scroll-element_track{-webkit-border-radius:8px;-moz-border-radius:8px;border-radius:8px}
+.scrollbar-outer>.scroll-element .scroll-bar{background-color:#E2E2E2;-webkit-transition:background-color .3s;transition:background-color .3s}
+.scrollbar-outer>.scroll-element .scroll-bar:hover{background-color:#c2c2c2}
+.scrollbar-outer>.scroll-element.scroll-draggable .scroll-bar{background-color:#919191}
+.scrollbar-outer>.scroll-content.scroll-scrolly_visible{left:-12px;margin-left:12px}
+.scrollbar-outer>.scroll-content.scroll-scrollx_visible{top:-12px;margin-top:12px}
+.scrollbar-outer>.scroll-element.scroll-x .scroll-bar{min-width:10px}
+.scrollbar-outer>.scroll-element.scroll-y .scroll-bar{min-height:10px}
+.scrollbar-outer>.scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track{left:-14px}
+.scrollbar-outer>.scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track{top:-14px}
+.scrollbar-outer>.scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size{left:-14px}
+.scrollbar-outer>.scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size{top:-14px}
 
+@-webkit-keyframes clockwiseSpin{0%{-webkit-transform:rotate(0);transform:rotate(0)}
+  100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}
+@keyframes clockwiseSpin{0%{-webkit-transform:rotate(0);transform:rotate(0)}
+  100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}
+}
+#tlw{
+  position: relative;
+}
+#embedded-container{
+  border: 1px solid #9cdbee;
+  background-color: #d6f1f9;
+}
+.customize-vnw-widget{
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+.techlooper-widget *{
+  box-sizing: border-box;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+.customize-techlooper-widget .select2-container{
+  width: 100% !important;
+}
+.customize-techlooper-widget .select2-container--default .select2-selection--multiple{
+  border: 1px solid #ccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+.techlooper-widget h2{
+  margin: 0;
+  padding: 0;
+}
+.techlooper-widget h4{
+  margin: 0;
+  padding: 0;
+}
+.techlooper-widget .tech-header{
+  width: 100%;
+  clear: both;
+  display: inline-block;
+}
+.techlooper-widget .col-sm-11{
+  width: 91.66666667%;
+  float: left;
+}
+.techlooper-widget .col-sm-01{
+  width: 8.3333%;
+  float: left;
+  text-align: right;
+}
+.techlooper-widget  .col-sm-10 {
+  width: 83.33333333%;
+  float: left;
+}
+.techlooper-widget .col-sm-02{
+  width: 16.6666667%;
+  float: left;
+  text-align: right;
+}
+
+/* --- Horizontal version ---- */
+.techlooper-widget .skill-trends{
+  border: 1px dashed #333;
+  background-color: #fff;
+  box-shadow: 0px 1px 1px #D5D5D5;
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  min-height: 300px;
+  padding: 15px;
+}
+.techlooper-widget .skill-trends h2{
+  font-size: 23px;
+  font-weight: 300;
+  margin: 0;
+  float: left;
+  text-transform: capitalize;
+}
+.techlooper-widget .skill-trends h2 strong{
+  color: #337ab7;
+  font-size: 23px;
+  font-weight: 500;
+}
+.techlooper-widget .skill-trends h2 span{
+  display: inline-block;
+  font-size: 23px;
+  font-weight: 500;
+}
+.techlooper-widget .skill-trends h2 span strong{
+  color: #333;
+  font-size: 14px;
+}
+.techlooper-widget .skill-trends h4{
+  font-size: 17px;
+  font-weight: 600;
+}
+.techlooper-widget .skill-trends h4 strong{
+  color: #337ab7;
+  font-size: 17px;
+}
+.techlooper-widget .skill-trends h4 span{
+  display: inline-block;
+  clear: both;
+  width: 100%;
+  font-size: 12px;
+  color: #979797;
+  font-weight: 300;
+}
+.techlooper-widget .skill-trends h4 span strong{
+  color: #333;
+}
+.techlooper-widget a.techlooper-logo{
+  display: inline-block;
+  height: 30px;
+  width: 31px;
+  border-radius: 3px;
+  text-indent: -9999px;
+  font-size: 0;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAeCAIAAABbkFLLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEMUVGMUU1RDk0QzMxMUU1QUQxNjk1NURDMzZGNzAwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEMUVGMUU1RTk0QzMxMUU1QUQxNjk1NURDMzZGNzAwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQxRUYxRTVCOTRDMzExRTVBRDE2OTU1REMzNkY3MDBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQxRUYxRTVDOTRDMzExRTVBRDE2OTU1REMzNkY3MDBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+m6wgQQAAA0tJREFUeNq0VktLalEUTjv2MgsLK0OKysgeoghSBEUlUTQzaBKlEog16Ff0CxpVgyAa2Cx0IopgUTSIoIQiK1AwiMhU7B328H63DYdzj+fYuffaGhz2Xmft9fzW2lv0+fn58PDw+vqKRUGeSCwWl5SUyGQyCqqfn58L8kpwFDpFIpEYXhf8DL28vFCcCbm/v9/Z2Tk+Pr65uYEAYlSr1b29vW1tbX8Vgej6+jr7x93d3dnZGYwnEomjoyMYI3yDwTA5OVlUVCTQALd2JqXTaafTeXh4SLZwf25uDnUTVN5vJeDp9PR0fX092Z6fn29vbwsFD3NzcnJCp2xvb8/r9T4+PmJbWFjY19dHi/n9foHwpZgbl8tVW1urUChQ0s3NTXCi0ajD4cCipqaGFnt6ekIEmUwmlUpJJBIcUalUnLn6Q/vt7e3l5SW002VEeVkLQisrK0z3KyoqhoaGBgYGWDbYBvf39/GFqE6na2lpmZiYYPKZaGMhGHEvLy8DAryYWVhYgPtjY2MjIyPoNMJEBnw+n8fjEZJovV4/MzPDnRmtVhsIBKAoFAr19PRUV1cD7/A6Eolw6qqqqhocHGxqanp7e7u4uACWgsEgzra3t3P4juTCfVZ0fNTc3AzgFxcX05xkMrm4uIgK2+12jrxXVlaiFemc5CBg1GKxENUYGGtrawcHBwhlamoqHA5zZ4ZkWaDj0EXqubq6iiKjmeF1a2srysaNGWRmY2NDiAFEyedNf38/t+9bW1sk6ShU7qpeXV3RZmw2GyadRqNRKpW5ugkZxJeFSJjJRiSwcHp62tHRQVAI+n7OxONxuDA6OsosLNbgZE92VBLgY3IQKN3k3FXt7u4mrQj8yuVyzBCaj9nClMSltrS01NjYiJZ+f3/HX5yan5/n1Y4J09DQgMX6+jowAK+BaETDLCOLol8ESaPROD4+XlZWxqvdbDbDABYEs8AD6km0x2IxWkwqlVqtVvwCxiiKqqur6+rqQqDfzMjOzk6yMJlMbrcb/sIjbD8+PnZ3d2mx4eFhzRf9+80HjWjI7JsPSmdnZwXefBQnN/etLVA1r3ZUCaP4P18cv/WQ8z/xWhKTB98PvcVKS0spRE1aI++v1PLy8l8CDADwSsolcvsIPQAAAABJRU5ErkJggg==) #e7e7e7 left top no-repeat;
+  float: right;
+}
+.techlooper-widget a.techlooper-logo:hover{
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAeCAMAAADjLDWuAAABMlBMVEXn5+cnfL2JKJCkpqTm5ufy8vLp6enk5eXMr861t7X+/v7V1dXNzs27vLuKKpHU3ePg4ODd0t7c3dzcz9y2y9ydvteSuNWIstKArtHKyspamchTlce/lsI3hcGvsK+qrKqUPZqPM5Xf4+XX3uTi3OLe1N7XxtiZvNbUwNXQ0NDOtdBpoctincrFocfGx8bDnMXExcRIj8RDjMPCw8Isfr24h7uxeLWtcLGqaq+oZ62srqyoqqiiWqeeU6RjSqOeiaCXRJ1xPJuGKpLj4OTL1+G7z92ux9q1xdmlwtmkwtijwdjW19bW1tbRudLP0M96qs9ooMvIqMpMkcW9kcAvgb8zgLsvdbk+hLizfrdPe7JkkbFCZbFLXa16mKymY6uZoqZcT6Wgk6GZSJ+aeJ2PRZWNPJN2M6VkAAABaUlEQVQoz4XT5XLCQBSG4W/3BEmRFi9WoO7e4oVSd3e3+7+FnkDZ0IHAO/n3nNnZyexBn80Oq+y2PtjQJVZ7V1faP7i0KpLnQVjUHwqfJYUQM8OwbHiGB2IaLHMs8UAYbe0C2kRkBJhgTzrafHkbYSFmgaDg9pwLc5Naq4sDDApxCRwaviG59JXW4jGMzMZ3gFjTudKWeb6IGNNaRBhtykZ55Xx4PBQMxet8W5PpxOTJWkY61c+5FmbvsjwKLpB+RbN9k5+kNwA4c3OYziifeln94+eaLAFjXinHkWjyQJHeHu+EuHkw7pYDfHVXrRDp7mO3Th+S+wRwkV+AWYHmYTRP3+zq3irS0UiveNkz9YHAmOlT0Fx+AKf0JY3K9+vVqk/5kB8eIhdwRFT5kfWyo1CxpIgWATcRFafXsusJH/4XpYIf2hB71OLt8Odh1rWOPOCOrqSYPQ509kU+O+VxtUGP/ei1X7328xdniyCnWF1n6wAAAABJRU5ErkJggg==) #e7e7e7 left top no-repeat;
+}
+.techlooper-widget .salary-chart{
+  padding-top: 30px;
+  width: 100%;
+}
+.widget-content{
+  position: relative;
+}
+.skill-trends .valuable-report{
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #d9edf7;
+  border: 1px solid #bce8f1;
+  color: #31708f;
+  text-align: center;
+}
+.skill-trends .valuable-report p{
+  font-size: 16px;
+  padding: 0 0 10px 0;
+  margin: 0;
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  color: #31708f;
+}
+.skill-trends .valuable-report .valuable-report-form{
+  width: 100%;
+  clear: both;
+  display: inline-block;
+}
+.valuable-report-form .valuable-field-left{
+  width: 50%;
+  float: left;
+  text-align: right;
+  padding-right: 5px;
+}
+.valuable-report-form label{
+  color: #31708f;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.valuable-report-form ul{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.valuable-report-form ul li{
+  display: inline-block;
+  width: auto;
+  padding: 0 10px;
+}
+.valuable-report-form .valuable-field-right{
+  width: 50%;
+  float: left;
+  text-align: left;
+  padding-left: 5px;
+}
+.skill-trends .skill-listing{
+  width: 100%;
+  clear: both;
+  padding: 15px;
+}
+.skill-trends .skill-listing ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.skill-trends .skill-listing li{
+  width: auto;
+  float: left;
+  padding: 0 10px 10px 0;
+}
+.skill-trends .skill-listing span{
+  width: auto;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 10px;
+}
+.skill-trends .skill-listing span.skill-name{
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-left: 5px;
+  background-color: #e7e7e7;
+  font-weight: normal;
+}
+.skill-trends .skill-listing span.number-jobs{
+  background-color: #337ab7;
+  color: #fff;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-right: 5px;
+}
+.cssload-wrap {
+  text-align: center;
+  line-height: 195px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, .5);
+  width: 100%;
+  min-height: 300px;
+  padding-top: 55px;
+  z-index: 999
+}
+
+.cssload-container {
+  display: inline-block;
+}
+
+.cssload-dots {
+  display: inline-block;
+  position: relative;
+}
+.cssload-dots:not(:last-child) {
+  margin-right: 9px;
+}
+.cssload-dots:before, .cssload-dots:after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+}
+.cssload-dots:nth-child(1):before {
+  transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  animation: cssload-animBefore 1.15s linear infinite;
+  -o-animation: cssload-animBefore 1.15s linear infinite;
+  -ms-animation: cssload-animBefore 1.15s linear infinite;
+  -webkit-animation: cssload-animBefore 1.15s linear infinite;
+  -moz-animation: cssload-animBefore 1.15s linear infinite;
+  animation-delay: -1.04s;
+  -o-animation-delay: -1.04s;
+  -ms-animation-delay: -1.04s;
+  -webkit-animation-delay: -1.04s;
+  -moz-animation-delay: -1.04s;
+  background-color: rgb(255,0,0);
+}
+.cssload-dots:nth-child(1):after {
+  transform: translateY(200%);
+  -o-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  -moz-transform: translateY(200%);
+  animation: cssload-animAfter 1.15s linear infinite;
+  -o-animation: cssload-animAfter 1.15s linear infinite;
+  -ms-animation: cssload-animAfter 1.15s linear infinite;
+  -webkit-animation: cssload-animAfter 1.15s linear infinite;
+  -moz-animation: cssload-animAfter 1.15s linear infinite;
+  animation-delay: -1.04s;
+  -o-animation-delay: -1.04s;
+  -ms-animation-delay: -1.04s;
+  -webkit-animation-delay: -1.04s;
+  -moz-animation-delay: -1.04s;
+  background-color: #fff;
+}
+.cssload-dots:nth-child(2):before {
+  transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  animation: cssload-animBefore 1.15s linear infinite;
+  -o-animation: cssload-animBefore 1.15s linear infinite;
+  -ms-animation: cssload-animBefore 1.15s linear infinite;
+  -webkit-animation: cssload-animBefore 1.15s linear infinite;
+  -moz-animation: cssload-animBefore 1.15s linear infinite;
+  animation-delay: -2.07s;
+  -o-animation-delay: -2.07s;
+  -ms-animation-delay: -2.07s;
+  -webkit-animation-delay: -2.07s;
+  -moz-animation-delay: -2.07s;
+  background-color: rgb(255,0,0);
+}
+.cssload-dots:nth-child(2):after {
+  transform: translateY(200%);
+  -o-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  -moz-transform: translateY(200%);
+  animation: cssload-animAfter 1.15s linear infinite;
+  -o-animation: cssload-animAfter 1.15s linear infinite;
+  -ms-animation: cssload-animAfter 1.15s linear infinite;
+  -webkit-animation: cssload-animAfter 1.15s linear infinite;
+  -moz-animation: cssload-animAfter 1.15s linear infinite;
+  animation-delay: -2.07s;
+  -o-animation-delay: -2.07s;
+  -ms-animation-delay: -2.07s;
+  -webkit-animation-delay: -2.07s;
+  -moz-animation-delay: -2.07s;
+  background-color: #fff;
+}
+.cssload-dots:nth-child(3):before {
+  transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  animation: cssload-animBefore 1.15s linear infinite;
+  -o-animation: cssload-animBefore 1.15s linear infinite;
+  -ms-animation: cssload-animBefore 1.15s linear infinite;
+  -webkit-animation: cssload-animBefore 1.15s linear infinite;
+  -moz-animation: cssload-animBefore 1.15s linear infinite;
+  animation-delay: -3.11s;
+  -o-animation-delay: -3.11s;
+  -ms-animation-delay: -3.11s;
+  -webkit-animation-delay: -3.11s;
+  -moz-animation-delay: -3.11s;
+  background-color: rgb(255,0,0);
+}
+.cssload-dots:nth-child(3):after {
+  transform: translateY(200%);
+  -o-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  -moz-transform: translateY(200%);
+  animation: cssload-animAfter 1.15s linear infinite;
+  -o-animation: cssload-animAfter 1.15s linear infinite;
+  -ms-animation: cssload-animAfter 1.15s linear infinite;
+  -webkit-animation: cssload-animAfter 1.15s linear infinite;
+  -moz-animation: cssload-animAfter 1.15s linear infinite;
+  animation-delay: -3.11s;
+  -o-animation-delay: -3.11s;
+  -ms-animation-delay: -3.11s;
+  -webkit-animation-delay: -3.11s;
+  -moz-animation-delay: -3.11s;
+  background-color: #fff;
+}
+.cssload-dots:nth-child(4):before {
+  transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  animation: cssload-animBefore 1.15s linear infinite;
+  -o-animation: cssload-animBefore 1.15s linear infinite;
+  -ms-animation: cssload-animBefore 1.15s linear infinite;
+  -webkit-animation: cssload-animBefore 1.15s linear infinite;
+  -moz-animation: cssload-animBefore 1.15s linear infinite;
+  animation-delay: -4.14s;
+  -o-animation-delay: -4.14s;
+  -ms-animation-delay: -4.14s;
+  -webkit-animation-delay: -4.14s;
+  -moz-animation-delay: -4.14s;
+  background-color: rgb(255,0,0);
+}
+.cssload-dots:nth-child(4):after {
+  transform: translateY(200%);
+  -o-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  -moz-transform: translateY(200%);
+  animation: cssload-animAfter 1.15s linear infinite;
+  -o-animation: cssload-animAfter 1.15s linear infinite;
+  -ms-animation: cssload-animAfter 1.15s linear infinite;
+  -webkit-animation: cssload-animAfter 1.15s linear infinite;
+  -moz-animation: cssload-animAfter 1.15s linear infinite;
+  animation-delay: -4.14s;
+  -o-animation-delay: -4.14s;
+  -ms-animation-delay: -4.14s;
+  -webkit-animation-delay: -4.14s;
+  -moz-animation-delay: -4.14s;
+  background-color: #fff;
+}
+.cssload-dots:nth-child(5):before {
+  transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  animation: cssload-animBefore 1.15s linear infinite;
+  -o-animation: cssload-animBefore 1.15s linear infinite;
+  -ms-animation: cssload-animBefore 1.15s linear infinite;
+  -webkit-animation: cssload-animBefore 1.15s linear infinite;
+  -moz-animation: cssload-animBefore 1.15s linear infinite;
+  animation-delay: -5.18s;
+  -o-animation-delay: -5.18s;
+  -ms-animation-delay: -5.18s;
+  -webkit-animation-delay: -5.18s;
+  -moz-animation-delay: -5.18s;
+  background-color: rgb(255,0,0);
+}
+.cssload-dots:nth-child(5):after {
+  transform: translateY(200%);
+  -o-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  -moz-transform: translateY(200%);
+  animation: cssload-animAfter 1.15s linear infinite;
+  -o-animation: cssload-animAfter 1.15s linear infinite;
+  -ms-animation: cssload-animAfter 1.15s linear infinite;
+  -webkit-animation: cssload-animAfter 1.15s linear infinite;
+  -moz-animation: cssload-animAfter 1.15s linear infinite;
+  animation-delay: -5.18s;
+  -o-animation-delay: -5.18s;
+  -ms-animation-delay: -5.18s;
+  -webkit-animation-delay: -5.18s;
+  -moz-animation-delay: -5.18s;
+  background-color: #fff;
+}
+.cssload-dots:nth-child(6):before {
+  transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  animation: cssload-animBefore 1.15s linear infinite;
+  -o-animation: cssload-animBefore 1.15s linear infinite;
+  -ms-animation: cssload-animBefore 1.15s linear infinite;
+  -webkit-animation: cssload-animBefore 1.15s linear infinite;
+  -moz-animation: cssload-animBefore 1.15s linear infinite;
+  animation-delay: -6.21s;
+  -o-animation-delay: -6.21s;
+  -ms-animation-delay: -6.21s;
+  -webkit-animation-delay: -6.21s;
+  -moz-animation-delay: -6.21s;
+  background-color: rgb(255,0,0);
+}
+.cssload-dots:nth-child(6):after {
+  transform: translateY(200%);
+  -o-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  -moz-transform: translateY(200%);
+  animation: cssload-animAfter 1.15s linear infinite;
+  -o-animation: cssload-animAfter 1.15s linear infinite;
+  -ms-animation: cssload-animAfter 1.15s linear infinite;
+  -webkit-animation: cssload-animAfter 1.15s linear infinite;
+  -moz-animation: cssload-animAfter 1.15s linear infinite;
+  animation-delay: -6.21s;
+  -o-animation-delay: -6.21s;
+  -ms-animation-delay: -6.21s;
+  -webkit-animation-delay: -6.21s;
+  -moz-animation-delay: -6.21s;
+  background-color: #fff;
+}
+.cssload-dots:nth-child(7):before {
+  transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  animation: cssload-animBefore 1.15s linear infinite;
+  -o-animation: cssload-animBefore 1.15s linear infinite;
+  -ms-animation: cssload-animBefore 1.15s linear infinite;
+  -webkit-animation: cssload-animBefore 1.15s linear infinite;
+  -moz-animation: cssload-animBefore 1.15s linear infinite;
+  animation-delay: -7.25s;
+  -o-animation-delay: -7.25s;
+  -ms-animation-delay: -7.25s;
+  -webkit-animation-delay: -7.25s;
+  -moz-animation-delay: -7.25s;
+  background-color: rgb(255,0,0);
+}
+.cssload-dots:nth-child(7):after {
+  transform: translateY(200%);
+  -o-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  -moz-transform: translateY(200%);
+  animation: cssload-animAfter 1.15s linear infinite;
+  -o-animation: cssload-animAfter 1.15s linear infinite;
+  -ms-animation: cssload-animAfter 1.15s linear infinite;
+  -webkit-animation: cssload-animAfter 1.15s linear infinite;
+  -moz-animation: cssload-animAfter 1.15s linear infinite;
+  animation-delay: -7.25s;
+  -o-animation-delay: -7.25s;
+  -ms-animation-delay: -7.25s;
+  -webkit-animation-delay: -7.25s;
+  -moz-animation-delay: -7.25s;
+  background-color: #fff;
+}
+.cssload-dots:nth-child(8):before {
+  transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  animation: cssload-animBefore 1.15s linear infinite;
+  -o-animation: cssload-animBefore 1.15s linear infinite;
+  -ms-animation: cssload-animBefore 1.15s linear infinite;
+  -webkit-animation: cssload-animBefore 1.15s linear infinite;
+  -moz-animation: cssload-animBefore 1.15s linear infinite;
+  animation-delay: -8.28s;
+  -o-animation-delay: -8.28s;
+  -ms-animation-delay: -8.28s;
+  -webkit-animation-delay: -8.28s;
+  -moz-animation-delay: -8.28s;
+  background-color: rgb(255,0,0);
+}
+.cssload-dots:nth-child(8):after {
+  transform: translateY(200%);
+  -o-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  -moz-transform: translateY(200%);
+  animation: cssload-animAfter 1.15s linear infinite;
+  -o-animation: cssload-animAfter 1.15s linear infinite;
+  -ms-animation: cssload-animAfter 1.15s linear infinite;
+  -webkit-animation: cssload-animAfter 1.15s linear infinite;
+  -moz-animation: cssload-animAfter 1.15s linear infinite;
+  animation-delay: -8.28s;
+  -o-animation-delay: -8.28s;
+  -ms-animation-delay: -8.28s;
+  -webkit-animation-delay: -8.28s;
+  -moz-animation-delay: -8.28s;
+  background-color: #fff;
+}
+.cssload-dots:nth-child(9):before {
+  transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  animation: cssload-animBefore 1.15s linear infinite;
+  -o-animation: cssload-animBefore 1.15s linear infinite;
+  -ms-animation: cssload-animBefore 1.15s linear infinite;
+  -webkit-animation: cssload-animBefore 1.15s linear infinite;
+  -moz-animation: cssload-animBefore 1.15s linear infinite;
+  animation-delay: -9.32s;
+  -o-animation-delay: -9.32s;
+  -ms-animation-delay: -9.32s;
+  -webkit-animation-delay: -9.32s;
+  -moz-animation-delay: -9.32s;
+  background-color: #F00;
+}
+.cssload-dots:nth-child(9):after {
+  transform: translateY(200%);
+  -o-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  -moz-transform: translateY(200%);
+  animation: cssload-animAfter 1.15s linear infinite;
+  -o-animation: cssload-animAfter 1.15s linear infinite;
+  -ms-animation: cssload-animAfter 1.15s linear infinite;
+  -webkit-animation: cssload-animAfter 1.15s linear infinite;
+  -moz-animation: cssload-animAfter 1.15s linear infinite;
+  animation-delay: -9.32s;
+  -o-animation-delay: -9.32s;
+  -ms-animation-delay: -9.32s;
+  -webkit-animation-delay: -9.32s;
+  -moz-animation-delay: -9.32s;
+  background-color: #fff;
+}
+.cssload-dots:nth-child(10):before {
+  transform: translateY(-200%);
+  -o-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+  -moz-transform: translateY(-200%);
+  animation: cssload-animBefore 1.15s linear infinite;
+  -o-animation: cssload-animBefore 1.15s linear infinite;
+  -ms-animation: cssload-animBefore 1.15s linear infinite;
+  -webkit-animation: cssload-animBefore 1.15s linear infinite;
+  -moz-animation: cssload-animBefore 1.15s linear infinite;
+  animation-delay: -10.35s;
+  -o-animation-delay: -10.35s;
+  -ms-animation-delay: -10.35s;
+  -webkit-animation-delay: -10.35s;
+  -moz-animation-delay: -10.35s;
+  background-color: #F00;
+}
+.cssload-dots:nth-child(10):after {
+  transform: translateY(200%);
+  -o-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  -moz-transform: translateY(200%);
+  animation: cssload-animAfter 1.15s linear infinite;
+  -o-animation: cssload-animAfter 1.15s linear infinite;
+  -ms-animation: cssload-animAfter 1.15s linear infinite;
+  -webkit-animation: cssload-animAfter 1.15s linear infinite;
+  -moz-animation: cssload-animAfter 1.15s linear infinite;
+  animation-delay: -10.35s;
+  -o-animation-delay: -10.35s;
+  -ms-animation-delay: -10.35s;
+  -webkit-animation-delay: -10.35s;
+  -moz-animation-delay: -10.35s;
+  background-color: #fff;
+}
+
+
+
+
+@keyframes cssload-animBefore {
+  0% {
+    transform: scale(1) translateY(-200%);
+    z-index: 1;
+  }
+  25% {
+    transform: scale(1.3) translateY(0);
+    z-index: 1;
+  }
+  50% {
+    transform: scale(1) translateY(200%);
+    z-index: -1;
+  }
+  75% {
+    transform: scale(0.7) translateY(0);
+    z-index: -1;
+  }
+  100% {
+    transform: scale(1) translateY(-200%);
+    z-index: -1;
+  }
+}
+
+@-o-keyframes cssload-animBefore {
+  0% {
+    -o-transform: scale(1) translateY(-200%);
+    z-index: 1;
+  }
+  25% {
+    -o-transform: scale(1.3) translateY(0);
+    z-index: 1;
+  }
+  50% {
+    -o-transform: scale(1) translateY(200%);
+    z-index: -1;
+  }
+  75% {
+    -o-transform: scale(0.7) translateY(0);
+    z-index: -1;
+  }
+  100% {
+    -o-transform: scale(1) translateY(-200%);
+    z-index: -1;
+  }
+}
+
+@-ms-keyframes cssload-animBefore {
+  0% {
+    -ms-transform: scale(1) translateY(-200%);
+    z-index: 1;
+  }
+  25% {
+    -ms-transform: scale(1.3) translateY(0);
+    z-index: 1;
+  }
+  50% {
+    -ms-transform: scale(1) translateY(200%);
+    z-index: -1;
+  }
+  75% {
+    -ms-transform: scale(0.7) translateY(0);
+    z-index: -1;
+  }
+  100% {
+    -ms-transform: scale(1) translateY(-200%);
+    z-index: -1;
+  }
+}
+
+@-webkit-keyframes cssload-animBefore {
+  0% {
+    -webkit-transform: scale(1) translateY(-200%);
+    z-index: 1;
+  }
+  25% {
+    -webkit-transform: scale(1.3) translateY(0);
+    z-index: 1;
+  }
+  50% {
+    -webkit-transform: scale(1) translateY(200%);
+    z-index: -1;
+  }
+  75% {
+    -webkit-transform: scale(0.7) translateY(0);
+    z-index: -1;
+  }
+  100% {
+    -webkit-transform: scale(1) translateY(-200%);
+    z-index: -1;
+  }
+}
+
+@-moz-keyframes cssload-animBefore {
+  0% {
+    -moz-transform: scale(1) translateY(-200%);
+    z-index: 1;
+  }
+  25% {
+    -moz-transform: scale(1.3) translateY(0);
+    z-index: 1;
+  }
+  50% {
+    -moz-transform: scale(1) translateY(200%);
+    z-index: -1;
+  }
+  75% {
+    -moz-transform: scale(0.7) translateY(0);
+    z-index: -1;
+  }
+  100% {
+    -moz-transform: scale(1) translateY(-200%);
+    z-index: -1;
+  }
+}
+
+@keyframes cssload-animAfter {
+  0% {
+    transform: scale(1) translateY(200%);
+    z-index: -1;
+  }
+  25% {
+    transform: scale(0.7) translateY(0);
+    z-index: -1;
+  }
+  50% {
+    transform: scale(1) translateY(-200%);
+    z-index: 1;
+  }
+  75% {
+    transform: scale(1.3) translateY(0);
+    z-index: 1;
+  }
+  100% {
+    transform: scale(1) translateY(200%);
+    z-index: 1;
+  }
+}
+
+@-o-keyframes cssload-animAfter {
+  0% {
+    -o-transform: scale(1) translateY(200%);
+    z-index: -1;
+  }
+  25% {
+    -o-transform: scale(0.7) translateY(0);
+    z-index: -1;
+  }
+  50% {
+    -o-transform: scale(1) translateY(-200%);
+    z-index: 1;
+  }
+  75% {
+    -o-transform: scale(1.3) translateY(0);
+    z-index: 1;
+  }
+  100% {
+    -o-transform: scale(1) translateY(200%);
+    z-index: 1;
+  }
+}
+
+@-ms-keyframes cssload-animAfter {
+  0% {
+    -ms-transform: scale(1) translateY(200%);
+    z-index: -1;
+  }
+  25% {
+    -ms-transform: scale(0.7) translateY(0);
+    z-index: -1;
+  }
+  50% {
+    -ms-transform: scale(1) translateY(-200%);
+    z-index: 1;
+  }
+  75% {
+    -ms-transform: scale(1.3) translateY(0);
+    z-index: 1;
+  }
+  100% {
+    -ms-transform: scale(1) translateY(200%);
+    z-index: 1;
+  }
+}
+
+@-webkit-keyframes cssload-animAfter {
+  0% {
+    -webkit-transform: scale(1) translateY(200%);
+    z-index: -1;
+  }
+  25% {
+    -webkit-transform: scale(0.7) translateY(0);
+    z-index: -1;
+  }
+  50% {
+    -webkit-transform: scale(1) translateY(-200%);
+    z-index: 1;
+  }
+  75% {
+    -webkit-transform: scale(1.3) translateY(0);
+    z-index: 1;
+  }
+  100% {
+    -webkit-transform: scale(1) translateY(200%);
+    z-index: 1;
+  }
+}
+
+@-moz-keyframes cssload-animAfter {
+  0% {
+    -moz-transform: scale(1) translateY(200%);
+    z-index: -1;
+  }
+  25% {
+    -moz-transform: scale(0.7) translateY(0);
+    z-index: -1;
+  }
+  50% {
+    -moz-transform: scale(1) translateY(-200%);
+    z-index: 1;
+  }
+  75% {
+    -moz-transform: scale(1.3) translateY(0);
+    z-index: 1;
+  }
+  100% {
+    -moz-transform: scale(1) translateY(200%);
+    z-index: 1;
+  }
+}
+.hide-loading{
+  display: none !important;
 }
