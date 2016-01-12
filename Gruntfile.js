@@ -85,8 +85,7 @@ module.exports = function (grunt) {
           {
             cwd: "<%=src%>",
             expand: true,
-            //src: ["**", "!**/node_modules/**"],
-            src: ["app/**", "demo/**"],
+            src: ["app/**", "demo/**", "embed.min.js"],
             dest: "<%=baseDir%>"
           }
         ]
@@ -104,7 +103,8 @@ module.exports = function (grunt) {
           }]
         },
         files: {
-          "<%=baseDir%>/salary-review.min.js": "<%=baseDir%>/salary-review.min.js"
+          "<%=baseDir%>/salary-review.min.js": "<%=baseDir%>/salary-review.min.js",
+          "<%=baseDir%>/skill-trend.min.js": "<%=baseDir%>/skill-trend.min.js"
         }
       },
 

@@ -7,3 +7,4 @@ node_modules
 *.min.css
 target/
 *.zip
+!embed.min.js

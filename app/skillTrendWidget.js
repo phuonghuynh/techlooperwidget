@@ -1,15 +1,14 @@
 if (typeof define === "function" && define.amd && define.amd.jQuery) {
-  define(["jquery", "ractive", "rv!app/template/skillTrend", "text!app/css/skill-trend.min.css", "app/translate"],
-    function ($, Ractive, mainTemplate, css, translate) {
+  define(["jquery", "ractive", "rv!app/template/skillTrend", "text!app/css/skill-trend.min.css", "app/translate", "app/configure"],
+    function ($, Ractive, mainTemplate, css, translate, configure) {
       "use strict";
       $.noConflict(true);
       var defaultCampaign = "skillTrendWidget";
 
       //var tid = /tid=([^&]+)/.exec(window.location.search); // Value is in [1] ('384' in our case)
       var widget = {};
-      widget.$container = $($(".tlwsrw")[0]);
-      widget.$container.removeClass("tlwsrw");
-      console.log(widget.$container);
+      widget.$container = $($(".tlwst")[0]);
+      widget.$container.removeClass("tlwst");
 
       var lang = (widget.$container.data('lang') == "vi" ? "vi" : "en");
       var translation = translate[lang];
@@ -23,7 +22,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               translation: translation,
               campaign: campaign
             },
-            answer: function(utm_medium) {
+            answer: function (utm_medium) {
               widget.$container.find('.valuable-report').hide();
               window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=' + utm_medium + '&utm_campaign=' + campaign, '_blank');
             }
@@ -36,8 +35,10 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           $style.text(css);
           $("head").append($style);
 
-         var config = widget.$container.data();
-          //if (!config) {return false;}
+          var config = widget.$container.data();
+          if (!config) {return false;}
+          config = configure.refine(config);
+          //console.log(config);
 
           $.ajax({
             type: "POST",
