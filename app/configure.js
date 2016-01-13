@@ -1,5 +1,5 @@
 if (typeof define === "function" && define.amd && define.amd.jQuery) {
-  define([], function () {
+  define(["jquery"], function ($) {
     "use strict";
 
     var mapProperties = {
@@ -13,6 +13,12 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
         if (!vals) return [];
         return vals.split(",");
       }
+    }
+
+    var formatNumber = function (number) {
+      if (!$.isNumeric(number)) return number;
+      number = "" + number;
+      return number.split(/(?=(?:\d{3})+(?:\.|$))/g).join(",");
     }
 
     return {
@@ -31,6 +37,15 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           }
         }
         return config;
+      },
+
+      formatNumber: function (number) {
+        if ($.isArray(number)) {
+          var numbers = [];
+          $.each(number, function (i, val) {numbers.push(formatNumber(val));});
+          return numbers;
+        }
+        return formatNumber(number);
       }
     }
   });

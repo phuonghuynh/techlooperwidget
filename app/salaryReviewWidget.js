@@ -12,18 +12,6 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
       //const values used to calculate salary-review data
       var preferMeterValues = [170, 162, 148, 135, 112, 90, 67, 45, 31, 18, 8];
-      //var mapProperties = {
-      //  jobId: "techlooperJobId",
-      //  jobCategories: function (vals) {
-      //    if (!vals) return [];
-      //    vals = "" + vals;
-      //    return vals.split(",").map(function (v) {return parseInt(v);});
-      //  },
-      //  skills: function (vals) {
-      //    if (!vals) return [];
-      //    return vals.split(",");
-      //  }
-      //}
 
       var lang = (widget.$container.data('lang') == "vi" ? "vi" : "en");
       var translation = translate[lang];
@@ -55,12 +43,19 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           salaryReview.salaryMax = "" + salaryReview.salaryMax;
           var min = ($.isNumeric(salaryReview.salaryMin) && salaryReview.salaryMin != "0") ? "min" : "nmin";
           var max = ($.isNumeric(salaryReview.salaryMax) && salaryReview.salaryMax != "0") ? "max" : "nmax";
-          config.$salaryLabel = translation.salaryLabel[min + "_" + max].replace("%min", salaryReview.salaryMin).replace("%max", salaryReview.salaryMax);
+          config.$salaryLabel = translation.salaryLabel[min + "_" + max]
+            .replace("%min", configure.formatNumber(salaryReview.salaryMin))
+            .replace("%max", configure.formatNumber(salaryReview.salaryMax));
 
           var visibleSalary = (salaryReview.isSalaryVisible == false) ? false : config.salaryVisible;
           if (!visibleSalary) config.$salaryLabel = translation.salaryLabel.nmin_nmax;
 
           var campaign = config.campaign || defaultCampaign;
+          $.each(salaryReview.salaryReport.salaryRanges, function (i, salaryRange) {
+            salaryRange.percentile = configure.formatNumber(salaryRange.percentile);
+          });
+          console.log(salaryReview.salaryReport.salaryRanges);
+          console.log(config);
           this.ractive = new Ractive({
             el: widget.$container,
             template: mainTemplate,
@@ -92,10 +87,6 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           var config = widget.$container.data();
           if (!config) {return false;}
 
-          //for (var prop in mapProperties) {
-          //  var mapProp = mapProperties[prop];
-          //  $.isFunction(mapProp) ? (config[prop] = mapProp(config[prop])) : (config[mapProp] = config[prop]);
-          //}
           config = configure.refine(config);
 
           $.ajax({
