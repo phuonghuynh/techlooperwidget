@@ -16,17 +16,16 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       $.extend(true, widget, {
         render: function (skillTrend, config) {
           var campaign = config.campaign || defaultCampaign;
-          //skillTrend.salaryMin = "" + skillTrend.salaryMin;
-          //skillTrend.salaryMax = "" + skillTrend.salaryMax;
-          //var min = ($.isNumeric(skillTrend.salaryMin) && skillTrend.salaryMin != "0") ? "min" : "nmin";
-          //var max = ($.isNumeric(skillTrend.salaryMax) && skillTrend.salaryMax != "0") ? "max" : "nmax";
-          //config.$salaryLabel = translation.salaryLabel[min + "_" + max].replace("%min", skillTrend.salaryMin).replace("%max", skillTrend.salaryMax);
+          var min = skillTrend.salaryMin;
+          var max = skillTrend.salaryMax;
           this.ractive = new Ractive({
             el: widget.$container,
             template: mainTemplate,
             data: {
               config: config,
               skillTrend: skillTrend,
+              salaryMin: min.replace(/^(\d{3})*$/g, "${1},"),
+              salaryMax: max,
               translation: translation,
               campaign: campaign
             },
