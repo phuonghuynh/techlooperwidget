@@ -16,15 +16,15 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
       $.extend(true, widget, {
         render: function (skillTrend, config) {
           var campaign = config.campaign || defaultCampaign;
-          var min = skillTrend.salaryMin;
-          var max = skillTrend.salaryMax;
+          var min = configure.formatNumber(skillTrend.salaryMin);
+          var max = configure.formatNumber(skillTrend.salaryMax);
           this.ractive = new Ractive({
             el: widget.$container,
             template: mainTemplate,
             data: {
               config: config,
               skillTrend: skillTrend,
-              salaryMin: min.replace(/^(\d{3})*$/g, "${1},"),
+              salaryMin: min,
               salaryMax: max,
               translation: translation,
               campaign: campaign
