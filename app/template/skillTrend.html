@@ -1,8 +1,9 @@
+{{#if skillTrend.salaryMin != 'NaN' && skillTrend.salaryMax != 'NaN'}}
 <div class="techlooper-widget">
   <div class="skill-trends">
     <div class="tech-header">
       <div class="col-sm-11">
-        <h2>There are <strong>160</strong> <span>Java Developer</span> jobs paying between $<strong>1200</strong> and $<strong>2,500</strong></h2>
+        <h2>{{translation.thereAre}} <strong>{{skillTrend.totalJob}}</strong> {{#if config.lang == 'en'}}<span>{{config.jobTitle}}</span>{{/if}} {{translation.jobsPayingBetween}} <strong>${{skillTrend.salaryMin}}</strong> {{translation.and}} <strong>${{skillTrend.salaryMax}}</strong> {{#if config.lang == 'vi'}}{{translation.for}} <span>{{config.jobTitle}}</span>{{/if}}</h2>
       </div>
       <div class="col-sm-01">
         <a href="http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=techlooperlogo&utm_campaign={{campaign}}" class="techlooper-logo" title="Click here go to the TechLooper" target="_blank">TechLooper.com</a>
@@ -11,24 +12,11 @@
     <div class="row skill-listing">
       <div class="col-sm-12">
         <ul>
+          {{#each skillTrend.topDemandedSkills: i}}
           <li>
-            <span class="number-jobs">23</span><span class="skill-name">Java Developer</span>
+            <span class="number-jobs">{{count}}</span><span class="skill-name">{{skillName}}</span>
           </li>
-          <li>
-            <span class="number-jobs">18</span><span class="skill-name">Java Developer</span>
-          </li>
-          <li>
-            <span class="number-jobs">40</span><span class="skill-name">Java Developer</span>
-          </li>
-          <li>
-            <span class="number-jobs">23</span><span class="skill-name">Java Developer</span>
-          </li>
-          <li>
-            <span class="number-jobs">23</span><span class="skill-name">Java Developer</span>
-          </li>
-          <li>
-            <span class="number-jobs">23</span><span class="skill-name">Java Developer</span>
-          </li>
+          {{/each}}
         </ul>
       </div>
     </div>
@@ -59,3 +47,4 @@
     </div>
   </div>
 </div>
+{{/if}}

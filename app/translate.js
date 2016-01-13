@@ -20,7 +20,13 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           "valuableReport": "Do you think the information shown in this diagram is helpful for your job search?",
           always: "Always",
           sometimes: "Sometimes",
-          never: "Never"
+          never: "Never",
+          thereAre: "There are",
+          jobsPayingBetween: "jobs paying between",
+          and :"and",
+          for: "for"
+
+
     },
 
         vi: {
@@ -40,7 +46,11 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           "valuableReport": "Thông tin hiển thị trong biểu đồ có giúp ích cho việc tìm kiếm công việc của bạn?",
           always: "Luôn luôn",
           sometimes: "Thỉnh thoảng",
-          never: "Không bao giờ"
+          never: "Không bao giờ",
+          thereAre: "Có",
+          jobsPayingBetween: "công việc với mức lương từ",
+          and :"đến",
+          for: "cho"
         }
       }
     });

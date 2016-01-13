@@ -106,7 +106,6 @@
   width: 100%;
   clear: both;
   display: inline-block;
-  min-height: 300px;
   padding: 15px;
 }
 .techlooper-widget .skill-trends h2{
@@ -247,7 +246,6 @@
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  padding-left: 5px;
   background-color: #e7e7e7;
   font-weight: normal;
 }
@@ -260,7 +258,6 @@
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  padding-right: 5px;
 }
 .cssload-wrap {
   text-align: center;
