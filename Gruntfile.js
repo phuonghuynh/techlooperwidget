@@ -48,7 +48,7 @@ module.exports = function (grunt) {
           name: "bower_components/almond/almond",
           include: ['app/_salaryReviewWidget.js'],
           out: "<%=baseDir%>/salary-review.min.js",
-          optimize: "none",
+          //optimize: "none",
           stubModules: ['rv', 'amd-loader', 'text']
         }
       },
@@ -73,7 +73,7 @@ module.exports = function (grunt) {
           name: "bower_components/almond/almond",
           include: ['app/_skillTrendWidget.js'],
           out: "<%=baseDir%>/skill-trend.min.js",
-          optimize: "none",
+          //optimize: "none",
           stubModules: ['rv', 'amd-loader', 'text']
         }
       }
@@ -85,7 +85,7 @@ module.exports = function (grunt) {
           {
             cwd: "<%=src%>",
             expand: true,
-            src: ["app/**", "demo/**", "embed.min.js"],
+            src: ["app/**", "demo/**", "embed.min.js", "index.html"],
             dest: "<%=baseDir%>"
           }
         ]
