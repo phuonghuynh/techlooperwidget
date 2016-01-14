@@ -172,9 +172,6 @@
   width: 100%;
   padding: 15px;
   border-radius: 5px;
-  background-color: #d9edf7;
-  border: 1px solid #bce8f1;
-  color: #31708f;
   text-align: center;
 }
 .skill-trends .valuable-report p{
@@ -184,7 +181,7 @@
   width: 100%;
   clear: both;
   display: inline-block;
-  color: #31708f;
+  color: #434343;
 }
 .skill-trends .valuable-report .valuable-report-form{
   width: 100%;
@@ -198,9 +195,10 @@
   padding-right: 5px;
 }
 .valuable-report-form label{
-  color: #31708f;
+  color: #434343;
   text-transform: uppercase;
   cursor: pointer;
+  font-weight: normal;
 }
 .valuable-report-form ul{
   width: 100%;
@@ -218,10 +216,23 @@
   text-align: left;
   padding-left: 5px;
 }
+.skill-trends .highest-demand{
+  display: inline-block;
+  clear: both;
+  width: 100%;
+  padding: 10px 0 5px 0;
+}
+.skill-trends .highest-demand p{
+  color: #434343;
+}
 .skill-trends .skill-listing{
   width: 100%;
   clear: both;
-  padding: 15px;
+  padding: 15px 15px 5px 15px;
+  background-color: #f2f1f1;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  color: #434343;
 }
 .skill-trends .skill-listing ul{
   list-style: none;
@@ -249,7 +260,7 @@
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: #e7e7e7;
+  background-color: #fff;
   font-weight: normal;
 }
 .skill-trends .skill-listing span.number-jobs{

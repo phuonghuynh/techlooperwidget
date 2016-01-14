@@ -3,11 +3,14 @@
   <div class="skill-trends">
     <div class="tech-header">
       <div class="col-sm-11">
-        <h2>{{translation.thereAre}} <strong>{{skillTrend.totalJob}}</strong> {{#if config.lang == 'en'}}<span>{{config.jobTitle}}</span>{{/if}} {{translation.jobsPayingBetween}} <strong>${{salaryMin}}</strong> {{translation.and}} <strong>${{salaryMax}}</strong> {{#if config.lang == 'vi'}}{{translation.for}} <span>{{config.jobTitle}}</span>{{/if}}</h2>
+        <h2>{{translation.thereAre}} <strong>{{skillTrend.totalJob}}</strong> {{#if config.lang == 'en'}}<span>{{skillTrend.jobTitle}}</span>{{/if}} {{translation.jobsPayingBetween}} <strong>${{salaryMin}}</strong> {{translation.and}} <strong>${{salaryMax}}</strong> {{#if config.lang == 'vi'}}{{translation.for}} <span>{{config.jobTitle}}</span>{{/if}}</h2>
       </div>
       <div class="col-sm-01">
         <a href="http://techlooper.com/#/home?utm_source=skilltrendswidget&utm_medium=techlooperlogo&utm_campaign={{campaign}}" class="techlooper-logo" title="Click here go to the TechLooper" target="_blank">TechLooper.com</a>
       </div>
+    </div>
+    <div class="highest-demand">
+      <p>{{translation.highestDemand}}</p>
     </div>
     <div class="row skill-listing">
       <div class="col-sm-12">
@@ -25,22 +28,16 @@
       <form name="valuableReportForm" class="valuable-report-form">
         <ul>
           <li>
-            <label on-click="answer('always')">
-              <input type="radio" name="valuableReport"/>
-              {{translation.always}}
-            </label>
+            <input type="radio" name="valuableReport" id="always"/>
+            <label on-click="answer('always')" for="always">{{translation.always}}</label>
           </li>
           <li>
-            <label on-click="answer('sometimes')">
-              <input type="radio" name="valuableReport"/>
-              {{translation.sometimes}}
-            </label>
+            <input type="radio" name="valuableReport" id="sometimes"/>
+            <label on-click="answer('sometimes')" for="sometimes">{{translation.sometimes}}</label>
           </li>
           <li>
-            <label on-click="answer('never')">
-              <input type="radio" name="valuableReport"/>
-              {{translation.never}}
-            </label>
+            <input type="radio" name="valuableReport" id="never"/>
+            <label on-click="answer('never')" for="never"> {{translation.never}}</label>
           </li>
         </ul>
       </form>
