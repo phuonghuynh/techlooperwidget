@@ -37,11 +37,11 @@ var changeConfig = function () {
     var val = $input.val();
 
     //var ignore = $input.is(":radio") && !$input.is(":checked");
-    //ignore = ignore || ($input.is("select") && val == "-1");
-    //
-    //if (ignore == true) {
-    //  return true;
-    //}
+    var ignore = ($input.is("select") && val == "-1");
+
+    if (ignore == true) {
+      return true;
+    }
 
     if (!val || val.length == 0) return true;
     attrs += 'data-' + $input.data('prop') + '="' + val + '" ';
