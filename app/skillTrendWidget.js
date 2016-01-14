@@ -60,7 +60,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
                 return widget.render(skillTrend, config);
               }
               widget.$container.html("");
-              widget.$container.append("<p>" + translation.noDataChart + ' <strong>'+ config.jobTitle + "</strong></p>");
+              widget.$container.append("<p>" + translation.noDataChart + ' <strong>'+ skillTrend.jobTitle + "</strong></p>");
             },
             complete: function () {
               //$('.cssload-wrap').remove();
