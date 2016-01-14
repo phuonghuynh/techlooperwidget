@@ -17,7 +17,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
 
     var formatNumber = function (number) {
       if (!$.isNumeric(number)) return number;
-      number = "" + number;
+      number = "" + Math.round(number);
       return number.split(/(?=(?:\d{3})+(?:\.|$))/g).join(",");
     }
 
