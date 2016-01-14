@@ -18,6 +18,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           var campaign = config.campaign || defaultCampaign;
           var min = configure.formatNumber(skillTrend.salaryMin);
           var max = configure.formatNumber(skillTrend.salaryMax);
+          console.log(123);
           this.ractive = new Ractive({
             el: widget.$container,
             template: mainTemplate,
