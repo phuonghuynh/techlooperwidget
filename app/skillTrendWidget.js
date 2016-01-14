@@ -31,7 +31,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             },
             answer: function (utm_medium) {
               widget.$container.find('.valuable-report').hide();
-              window.open('http://techlooper.com/#/home?utm_source=skilltrendswidget&utm_medium=' + utm_medium + '&utm_campaign=' + campaign, '_blank');
+              window.open('http://techlooper.com/#/home?utm_source=skilltrendswidget&utm_medium=' + utm_medium + '&utm_campaign=' + campaign);
             }
           });
         },

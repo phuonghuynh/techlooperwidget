@@ -54,8 +54,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           $.each(salaryReview.salaryReport.salaryRanges, function (i, salaryRange) {
             salaryRange.percentile = configure.formatNumber(salaryRange.percentile);
           });
-          console.log(salaryReview.salaryReport.salaryRanges);
-          console.log(config);
+          
           this.ractive = new Ractive({
             el: widget.$container,
             template: mainTemplate,

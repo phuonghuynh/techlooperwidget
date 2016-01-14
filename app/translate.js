@@ -24,7 +24,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           thereAre: "There are",
           jobsPayingBetween: "jobs paying between",
           and :"and",
-          for: "for"
+          for: "for",
+          highestDemand: "Below are Top Skills that will help you achieve that job:"
 
 
     },
@@ -50,7 +51,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           thereAre: "Có",
           jobsPayingBetween: "công việc với mức lương từ",
           and :"đến",
-          for: "cho"
+          for: "cho",
+          highestDemand: "Dưới đây là các Kỹ Năng Hàng Đầu giúp bạn đạt được công việc này:"
         }
       }
     });
