@@ -115,22 +115,16 @@
             <form name="valuableReportForm" class="valuable-report-form">
                 <ul>
                     <li>
-                        <label on-click="answer('always')">
-                            <input type="radio" name="valuableReport"/>
-                            {{translation.always}}
-                        </label>
+                        <input type="radio" name="valuableReport" on-click="answer('always')"/>
+                        <label on-click="answer('always')">{{translation.always}}</label>
                     </li>
                     <li>
-                        <label on-click="answer('sometimes')">
-                            <input type="radio" name="valuableReport"/>
-                            {{translation.sometimes}}
-                        </label>
+                        <input type="radio" name="valuableReport" on-click="answer('sometimes')"/>
+                        <label on-click="answer('sometimes')">{{translation.sometimes}}</label>
                     </li>
                     <li>
-                        <label on-click="answer('never')">
-                            <input type="radio" name="valuableReport"/>
-                            {{translation.never}}
-                        </label>
+                        <input type="radio" name="valuableReport" on-click="answer('never')"/>
+                        <label on-click="answer('never')"> {{translation.never}}</label>
                     </li>
                 </ul>
             </form>
