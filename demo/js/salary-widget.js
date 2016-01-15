@@ -48,8 +48,8 @@ var changeConfig = function () {
   });
 
   if (tlwFormValidator.form()) {
-    jobId && (attrs += 'data-job-id="' + jobId + '"');
-    campaign && (attrs += 'data-campaign="' + campaign + '"');
+    jobId && (attrs += 'data-job-id="' + jobId + '" ');
+    campaign && (attrs += 'data-campaign="' + campaign + '" ');
     updateSampleConfig(attrs);
   }
   else {
