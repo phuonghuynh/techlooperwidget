@@ -47,17 +47,17 @@ var changeConfig = function () {
     attrs += 'data-' + $input.data('prop') + '="' + val + '" ';
   });
   if (tlwFormValidator.form()) {
-    jobId && (attrs += 'data-job-id="' + jobId + '"');
-    campaign && (attrs += 'data-campaign="' + campaign + '"');
+    jobId && (attrs += 'data-job-id="' + jobId + '" ');
+    campaign && (attrs += 'data-campaign="' + campaign + '" ');
     updateSampleConfig(attrs);
   }
   else {
     $("#widget-preview > div").html("");
   }
 }
-var applyData = function(){
-  changeConfig();
-};
+//var applyData = function(){
+//  changeConfig();
+//};
 
 $(function () {
   tlwFormValidator = $("form.tlwForm").validate({
