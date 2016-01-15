@@ -25,7 +25,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           jobsPayingBetween: "jobs paying between",
           and :"and",
           for: "for",
-          highestDemand: "Below are Top Skills that will help you achieve that job:"
+          highestDemand: "Below are Top Skills that will help you achieve that job:",
+          baseOnDate: "Based on VietnamWorks data within the last 6 months."
 
 
     },
@@ -52,7 +53,8 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           jobsPayingBetween: "công việc với mức lương từ",
           and :"đến",
           for: "cho",
-          highestDemand: "Dưới đây là các Kỹ Năng Hàng Đầu giúp bạn đạt được công việc này:"
+          highestDemand: "Dưới đây là các Kỹ Năng Hàng Đầu giúp bạn đạt được công việc này:",
+          baseOnDate: "Dựa trên dữ liệu của VietnamWorks 6 tháng gần nhất."
         }
       }
     });
