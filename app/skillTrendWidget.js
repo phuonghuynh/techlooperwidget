@@ -18,7 +18,6 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
           var campaign = config.campaign || defaultCampaign;
           var min = configure.formatNumber(skillTrend.salaryMin);
           var max = configure.formatNumber(skillTrend.salaryMax);
-          console.log(123);
           this.ractive = new Ractive({
             el: widget.$container,
             template: mainTemplate,
@@ -32,7 +31,11 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
             },
             answer: function (utm_medium) {
               widget.$container.find('.valuable-report').hide();
-              window.open('http://techlooper.com/#/home?utm_source=skilltrendswidget&utm_medium=' + utm_medium + '&utm_campaign=' + campaign);
+              var utmContent = '';
+              if(config.jobId){
+                utmContent = '&utm_content=' + config.jobId;
+              }
+              window.open('http://techlooper.com/#/home?utm_source=skilltrendswidget&utm_medium=' + utm_medium + '&utm_campaign=' + campaign + utmContent);
             }
           });
         },
