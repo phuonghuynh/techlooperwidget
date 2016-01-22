@@ -75,7 +75,7 @@ if (typeof define === "function" && define.amd && define.amd.jQuery) {
               if(config.jobId){
                 utmContent = '&utm_content=' + config.jobId;
               }
-              window.open('http://techlooper.com/#/home?utm_source=skilltrendswidget&utm_medium=' + utm_medium + '&utm_campaign=' + campaign + utmContent);
+              window.open('http://techlooper.com/#/home?utm_source=salarywidget&utm_medium=' + utm_medium + '&utm_campaign=' + campaign + utmContent);
             }
           });
         },
