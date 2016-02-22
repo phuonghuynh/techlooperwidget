@@ -25,56 +25,46 @@ module.exports = function (grunt) {
         baseUrl: "<%=baseDir%>",
         skipModuleInsertion: false,
         optimizeAllPluginResources: true,
-        findNestedDependencies: true
+        findNestedDependencies: true,
+        stubModules: ['rv', 'amd-loader', 'text'],
+        optimizeCss: "standard",
+        optimize: "uglify2",
+        preserveLicenseComments: false,
+        paths: {
+          text: "bower_components/text/text",
+          jquery: "bower_components/jquery/dist/jquery",
+          ractive: "bower_components/ractive/ractive",
+          'amd-loader': "bower_components/rv/amd-loader",
+          rv: "bower_components/rv/rv",
+          almond: "bower_components/almond/almond"
+        }
       },
 
       salaryWidgetCss: {
         options: {
           cssIn: "<%=baseDir%>/app/css/salary-widget.css",
-          out: "<%=baseDir%>/app/css/salary-widget.min.css",
-          optimizeCss: "standard"
+          out: "<%=baseDir%>/app/css/salary-widget.min.css"
         }
       },
       salaryWidgetJs: {
         options: {
-          paths: {
-            text: "bower_components/text/text",
-            jquery: "bower_components/jquery/dist/jquery",
-            ractive: "bower_components/ractive/ractive",
-            'amd-loader': "bower_components/rv/amd-loader",
-            rv: "bower_components/rv/rv",
-            almond: "bower_components/almond/almond"
-          },
           name: "bower_components/almond/almond",
           include: ['app/_salaryReviewWidget.js'],
-          out: "<%=baseDir%>/salary-review.min.js",
-          //optimize: "none",
-          stubModules: ['rv', 'amd-loader', 'text']
+          out: "<%=baseDir%>/salary-review.min.js"
         }
       },
 
       skillTrendWidgetCss: {
         options: {
           cssIn: "<%=baseDir%>/app/css/skill-trend.css",
-          out: "<%=baseDir%>/app/css/skill-trend.min.css",
-          optimizeCss: "standard"
+          out: "<%=baseDir%>/app/css/skill-trend.min.css"
         }
       },
       skillTrendWidgetJs: {
         options: {
-          paths: {
-            text: "bower_components/text/text",
-            jquery: "bower_components/jquery/dist/jquery",
-            ractive: "bower_components/ractive/ractive",
-            'amd-loader': "bower_components/rv/amd-loader",
-            rv: "bower_components/rv/rv",
-            almond: "bower_components/almond/almond"
-          },
           name: "bower_components/almond/almond",
           include: ['app/_skillTrendWidget.js'],
-          out: "<%=baseDir%>/skill-trend.min.js",
-          //optimize: "none",
-          stubModules: ['rv', 'amd-loader', 'text']
+          out: "<%=baseDir%>/skill-trend.min.js"
         }
       }
     },
@@ -85,7 +75,7 @@ module.exports = function (grunt) {
           {
             cwd: "<%=src%>",
             expand: true,
-            src: ["app/**", "demo/**", "embed.min.js", "index.html"],
+            src: ["app/**", "demo/**", "embed.min.js", "*.html"],
             dest: "<%=baseDir%>"
           }
         ]
@@ -222,6 +212,9 @@ module.exports = function (grunt) {
   grunt.registerTask("build-target", ["build", "clear-target", "compress:target"]);
   grunt.registerTask("run", ["connect", "watch"]);
 
+
+
+  /**Prompt to build profiles*/
   grunt.registerTask("staging-run", ["staging", "run"]);
 
   grunt.registerTask("local", "build dev env", function () {//build local
