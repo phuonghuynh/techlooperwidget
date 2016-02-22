@@ -219,7 +219,7 @@
   height: 8px;
   margin: auto;
 }
-.techlooper-widget .fa-caret-down:before{
+.techlooper-widget .fa-caret-down::before{
   content: none !important;
 }
 .techlooper-widget .current-position.right-position .arrow{

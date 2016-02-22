@@ -1,5 +1,6 @@
 define(["jquery", "ractive", "rv!app/template/skillTrend", "text!app/css/skill-trend.min.css", "app/translate", "app/configure"],
   function ($, Ractive, mainTemplate, css, translate, configure) {
+    "use strict";
     $.noConflict(true);
     var defaultCampaign = "skillTrendWidget";
 

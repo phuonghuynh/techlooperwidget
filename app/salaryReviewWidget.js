@@ -1,5 +1,6 @@
 define(["jquery", "ractive", "rv!app/template/salaryReview", "text!app/css/salary-widget.min.css", "app/translate", "app/configure"],
   function ($, Ractive, mainTemplate, css, translate, configure) {
+    "use strict";
     $.noConflict(true);
 
     var defaultCampaign = "salarywidget";

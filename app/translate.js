@@ -1,4 +1,5 @@
 define([], function () {
+  "use strict";
   return {
     en: {
       thisJobIsBetterThan: "This job is better paid than",
